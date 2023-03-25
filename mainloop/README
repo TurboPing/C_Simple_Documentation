@@ -1,0 +1,66 @@
+/*! @mainpage
+Most programs are built around some variation of a main loop. In it's
+simplest form, this looks something like
+
+@verbatim while ((len = read(fdin, buf, sizeof(buf)) != -1) {
+	...
+	write(fdout, buf, len);
+ }
+@endverbatim
+
+As the program evolves, non-blocking (or even async) I/O, timers, and
+signal handling are added. Soon, you either add some sort of generic
+framework, or you end up with an unmaintainable mess.
+
+And even though (with some experience) you can write such a framework
+rather quickly, it still takes a considerable amount of time. The
+result usually lacks both uniformity (it is rewritten every time) and
+generality (it is often "optimized" for a specific case).
+
+If you know your program is going to grow beyond the simple case
+outlined above, it pays of to use a generic framework like glib. This
+is not meant to imply that the glib implementation is better than what
+you would write instead (IMHO glib is tied too much to the structure of
+the poll() syscall and can't be adapted to take advantage of other
+mechanisms like /dev/poll, epoll or kqueue). But it is good enough, and
+above all, it's widely used and documented.
+
+An additional advantage of using a standardized framework is that it
+(at least theoretically, because it only works if everyone uses the
+same framework) solves the problem of competing signal handlers in
+libraries.
+
+The following (simple minded) code metric shows that while you may feel
+that you have to write a lot of code just to accomodate the glib
+framework, you actually write less (because you don't have to write the
+framework itself). In any case it shows that the difference is not big
+enough to be used as an argument.
+
+@verbatim Stmts Comnts  Funcs  Blanks Lines
+   195    109      8     46    550 bad/mainloop_bad.c
+   245    163     24     62    772 good/mainloop_good.c
+   226    132     20     84    715 glib/mainloop_glib.c
+@endverbatim
+
+@htmlonly
+The three example programs can be looked at here:
+ - @ref mainloop_bad.c
+ - @ref mainloop_good.c
+ - @ref mainloop_glib.c
+
+They have been tested on Solaris 8 using glib 2.4.0 and gcc 3.4.0 (and
+nothing else, though they should be easily portable to any modern unix).
+
+The whole archive (including makefiles and documentation) can be
+downloaded as tar file: <a href="mainloop.tar.gz">mainloop.tar.gz</a>
+
+This documentation is available as pdf: <a href="mainloop.pdf">mainloop.pdf</a>
+
+The source code is available as postscript (for printing): <a href="mainloop.ps">mainloop.ps</a>
+@endhtmlonly
+
+Doxygen cannot cope with multiply defined (local) symbols. Local
+symbols having the same name are documented only once, with all links
+pointing to the same file.
+
+ */

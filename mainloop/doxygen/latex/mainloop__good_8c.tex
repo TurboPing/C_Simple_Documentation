@@ -1,0 +1,1338 @@
+\hypertarget{mainloop__good_8c}{
+\section{mainloop\_\-good.c File Reference}
+\label{mainloop__good_8c}\index{mainloop_good.c@{mainloop\_\-good.c}}
+}
+Example for \char`\"{}good\char`\"{} main loop.  
+
+
+{\tt \#include $<$unistd.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include $<$sys/time.h$>$}\par
+{\tt \#include $<$sys/socket.h$>$}\par
+{\tt \#include $<$signal.h$>$}\par
+{\tt \#include $<$fcntl.h$>$}\par
+\subsection*{Data Structures}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structecho__client__t}{echo\_\-client\_\-t}
+\begin{CompactList}\small\item\em echo client specific state \item\end{CompactList}\item 
+struct \hyperlink{structchargen__client__t}{chargen\_\-client\_\-t}
+\begin{CompactList}\small\item\em chargen client specific state \item\end{CompactList}\item 
+struct \hyperlink{structclient__t}{client\_\-t}
+\begin{CompactList}\small\item\em client state \item\end{CompactList}\item 
+struct \hyperlink{structalarm__t}{alarm\_\-t}
+\begin{CompactList}\small\item\em alarm handler state \item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{mainloop__good_8c_a0}{PORT\_\-ECHO}\ 5005
+\begin{CompactList}\small\item\em tcp port to listen for echo clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__good_8c_a1}{PORT\_\-CHARGEN}\ 5006
+\begin{CompactList}\small\item\em tcp port to listen for chargen clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__good_8c_a2}{HEARTBEAT\_\-INTERVAL}\ 2
+\begin{CompactList}\small\item\em heartbeat interval (in seconds) \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__good_8c_a3}{SLOWHEARTBEAT\_\-INTERVAL}\ 15
+\begin{CompactList}\small\item\em slow heartbeat interval (in seconds) \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__good_8c_a4}{BUFSIZE}\ 16
+\begin{CompactList}\small\item\em buffer size for echo client \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__good_8c_a5}{MAXCLIENTS}\ 8
+\begin{CompactList}\small\item\em maximum number of clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__good_8c_a6}{MAXALARMS}\ 8
+\begin{CompactList}\small\item\em maximum number of different alarms \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__good_8c_a7}{MSG\_\-HEARTBEAT}\ 0
+\item 
+\#define \hyperlink{mainloop__good_8c_a8}{MSG\_\-SLOWHEARTBEAT}\ 1
+\item 
+\#define \hyperlink{mainloop__good_8c_a9}{MSG\_\-MAINLOOP}\ 2
+\item 
+\#define \hyperlink{mainloop__good_8c_a10}{MSG\_\-ACCEPT}\ 3
+\item 
+\#define \hyperlink{mainloop__good_8c_a11}{MSG\_\-TOOMANY}\ 4
+\item 
+\#define \hyperlink{mainloop__good_8c_a12}{MSG\_\-CLOSE}\ 5
+\item 
+\#define \hyperlink{mainloop__good_8c_a13}{MSG\_\-READ}\ 6
+\item 
+\#define \hyperlink{mainloop__good_8c_a14}{MSG\_\-WRITE}\ 7
+\item 
+\#define \hyperlink{mainloop__good_8c_a15}{MSG\_\-FULL}\ 8
+\item 
+\#define \hyperlink{mainloop__good_8c_a16}{MSG\_\-EMPTY}\ 9
+\item 
+\#define \hyperlink{mainloop__good_8c_a17}{MIN}(a, b)\ ((a)$<$(b)?(a):(b))
+\item 
+\#define \hyperlink{mainloop__good_8c_a18}{MAX}(a, b)\ ((a)$>$(b)?(a):(b))
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} )(int i)
+\begin{CompactList}\small\item\em event handler \item\end{CompactList}\item 
+typedef void($\ast$ \hyperlink{mainloop__good_8c_a21}{alarmhandler\_\-t} )(void)
+\begin{CompactList}\small\item\em alarm handler \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{mainloop__good_8c_a26}{message} (int msg)
+\begin{CompactList}\small\item\em print message describing current activity \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a27}{blocksigpipe} (void)
+\begin{CompactList}\small\item\em block SIGPIPE \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a28}{initalarms} (void)
+\begin{CompactList}\small\item\em install non-resetting signal handler for alarms \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a29}{addalarm} (\hyperlink{mainloop__good_8c_a21}{alarmhandler\_\-t} handler, long interval)
+\begin{CompactList}\small\item\em add new alarm \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a30}{checkalarms} (void)
+\begin{CompactList}\small\item\em check for pending alarms and execute alarm handlers \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a31}{alarmhandler} (void)
+\begin{CompactList}\small\item\em signal handler for alarms \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a32}{heartbeat} (void)
+\begin{CompactList}\small\item\em print heartbeat message \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a33}{slowheartbeat} (void)
+\begin{CompactList}\small\item\em print \char`\"{}slowheartbeat\char`\"{} message \item\end{CompactList}\item 
+int \hyperlink{mainloop__good_8c_a34}{listensocket} (int port)
+\begin{CompactList}\small\item\em return tcp socket listening on port specified \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a35}{setnonblock} (int fd)
+\begin{CompactList}\small\item\em set a file descriptor to be nonblocking \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a36}{initclients} ()
+\begin{CompactList}\small\item\em initialize client state array \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a37}{addclient} (int fd, \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} read, \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} write, \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} except)
+\begin{CompactList}\small\item\em add new client \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a38}{delclient} (int i)
+\begin{CompactList}\small\item\em delete client \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a39}{mainloop} ()
+\begin{CompactList}\small\item\em execute one iteration of THE mainloop \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a40}{closeclient} (int i)
+\begin{CompactList}\small\item\em close and delete client session \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a41}{acceptecho} (int i)
+\begin{CompactList}\small\item\em accept connection and set up new session for \char`\"{}echo\char`\"{} service \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a42}{readecho} (int i)
+\begin{CompactList}\small\item\em read data from echo client \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a43}{writeecho} (int i)
+\begin{CompactList}\small\item\em write data to an echo client \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a44}{flowecho} (int i)
+\begin{CompactList}\small\item\em do \char`\"{}flow\char`\"{} control for echo \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a45}{acceptchargen} (int i)
+\begin{CompactList}\small\item\em accept connection and set up new session for \char`\"{}chargen\char`\"{} service \item\end{CompactList}\item 
+void \hyperlink{mainloop__good_8c_a46}{writechargen} (int i)
+\begin{CompactList}\small\item\em write data to an chargen client \item\end{CompactList}\item 
+int \hyperlink{mainloop__good_8c_a47}{main} ()
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char \hyperlink{mainloop__good_8c_a19}{chargen\_\-buf} \mbox{[}$\,$\mbox{]} = \char`\"{}0123456789abcdefghijklmnopqrstuv\char`\"{}
+\begin{CompactList}\small\item\em characters to return in chargen service \item\end{CompactList}\item 
+unsigned long \hyperlink{mainloop__good_8c_a22}{npollfd}
+\begin{CompactList}\small\item\em number of file descriptors to check \item\end{CompactList}\item 
+\hyperlink{structclient__t}{client\_\-t} \hyperlink{mainloop__good_8c_a23}{clients} \mbox{[}MAXCLIENTS\mbox{]}
+\begin{CompactList}\small\item\em array of client states \item\end{CompactList}\item 
+pollfd \hyperlink{mainloop__good_8c_a24}{pollfds} \mbox{[}MAXCLIENTS\mbox{]}
+\begin{CompactList}\small\item\em pollfds for poll() \item\end{CompactList}\item 
+\hyperlink{structalarm__t}{alarm\_\-t} \hyperlink{mainloop__good_8c_a25}{alarms} \mbox{[}MAXALARMS\mbox{]}
+\begin{CompactList}\small\item\em alarms \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Example for \char`\"{}good\char`\"{} main loop. 
+
+\begin{Desc}
+\item[Author:]Rico Pajarola\end{Desc}
+This example does essentially what glib would do: events are abstracted using callbacks making the mainloop generic (but not as generic as glib). Even though it is easy to add a new input or event source, the whole mechanism is still very much tied to the structure of this program).
+
+Definition in file \hyperlink{mainloop__good_8c-source}{mainloop\_\-good.c}.
+
+\subsection{Define Documentation}
+\hypertarget{mainloop__good_8c_a4}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!BUFSIZE@{BUFSIZE}}
+\index{BUFSIZE@{BUFSIZE}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[BUFSIZE]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFSIZE\ 16}}
+\label{mainloop__good_8c_a4}
+
+
+buffer size for echo client 
+
+
+
+Definition at line 37 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a2}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!HEARTBEAT_INTERVAL@{HEARTBEAT\_\-INTERVAL}}
+\index{HEARTBEAT_INTERVAL@{HEARTBEAT\_\-INTERVAL}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[HEARTBEAT\_\-INTERVAL]{\setlength{\rightskip}{0pt plus 5cm}\#define HEARTBEAT\_\-INTERVAL\ 2}}
+\label{mainloop__good_8c_a2}
+
+
+heartbeat interval (in seconds) 
+
+
+
+Definition at line 31 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a18}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MAX@{MAX}}
+\index{MAX@{MAX}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MAX]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX(a, b)\ ((a)$>$(b)?(a):(b))}}
+\label{mainloop__good_8c_a18}
+
+
+
+
+Definition at line 57 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a6}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MAXALARMS@{MAXALARMS}}
+\index{MAXALARMS@{MAXALARMS}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MAXALARMS]{\setlength{\rightskip}{0pt plus 5cm}\#define MAXALARMS\ 8}}
+\label{mainloop__good_8c_a6}
+
+
+maximum number of different alarms 
+
+
+
+Definition at line 43 of file mainloop\_\-good.c.
+
+Referenced by addalarm(), alarmhandler(), checkalarms(), and initalarms().\hypertarget{mainloop__good_8c_a5}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MAXCLIENTS@{MAXCLIENTS}}
+\index{MAXCLIENTS@{MAXCLIENTS}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MAXCLIENTS]{\setlength{\rightskip}{0pt plus 5cm}\#define MAXCLIENTS\ 8}}
+\label{mainloop__good_8c_a5}
+
+
+maximum number of clients 
+
+
+
+Definition at line 40 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a17}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MIN@{MIN}}
+\index{MIN@{MIN}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MIN]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(a, b)\ ((a)$<$(b)?(a):(b))}}
+\label{mainloop__good_8c_a17}
+
+
+
+
+Definition at line 56 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a10}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_ACCEPT@{MSG\_\-ACCEPT}}
+\index{MSG_ACCEPT@{MSG\_\-ACCEPT}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-ACCEPT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-ACCEPT\ 3}}
+\label{mainloop__good_8c_a10}
+
+
+
+
+Definition at line 48 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a12}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_CLOSE@{MSG\_\-CLOSE}}
+\index{MSG_CLOSE@{MSG\_\-CLOSE}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-CLOSE]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-CLOSE\ 5}}
+\label{mainloop__good_8c_a12}
+
+
+
+
+Definition at line 50 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a16}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_EMPTY@{MSG\_\-EMPTY}}
+\index{MSG_EMPTY@{MSG\_\-EMPTY}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-EMPTY]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-EMPTY\ 9}}
+\label{mainloop__good_8c_a16}
+
+
+
+
+Definition at line 54 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a15}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_FULL@{MSG\_\-FULL}}
+\index{MSG_FULL@{MSG\_\-FULL}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-FULL]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-FULL\ 8}}
+\label{mainloop__good_8c_a15}
+
+
+
+
+Definition at line 53 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a7}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_HEARTBEAT@{MSG\_\-HEARTBEAT}}
+\index{MSG_HEARTBEAT@{MSG\_\-HEARTBEAT}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-HEARTBEAT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-HEARTBEAT\ 0}}
+\label{mainloop__good_8c_a7}
+
+
+
+
+Definition at line 45 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a9}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_MAINLOOP@{MSG\_\-MAINLOOP}}
+\index{MSG_MAINLOOP@{MSG\_\-MAINLOOP}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-MAINLOOP]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-MAINLOOP\ 2}}
+\label{mainloop__good_8c_a9}
+
+
+
+
+Definition at line 47 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a13}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_READ@{MSG\_\-READ}}
+\index{MSG_READ@{MSG\_\-READ}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-READ]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-READ\ 6}}
+\label{mainloop__good_8c_a13}
+
+
+
+
+Definition at line 51 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a8}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_SLOWHEARTBEAT@{MSG\_\-SLOWHEARTBEAT}}
+\index{MSG_SLOWHEARTBEAT@{MSG\_\-SLOWHEARTBEAT}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-SLOWHEARTBEAT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-SLOWHEARTBEAT\ 1}}
+\label{mainloop__good_8c_a8}
+
+
+
+
+Definition at line 46 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a11}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_TOOMANY@{MSG\_\-TOOMANY}}
+\index{MSG_TOOMANY@{MSG\_\-TOOMANY}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-TOOMANY]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-TOOMANY\ 4}}
+\label{mainloop__good_8c_a11}
+
+
+
+
+Definition at line 49 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a14}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!MSG_WRITE@{MSG\_\-WRITE}}
+\index{MSG_WRITE@{MSG\_\-WRITE}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[MSG\_\-WRITE]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-WRITE\ 7}}
+\label{mainloop__good_8c_a14}
+
+
+
+
+Definition at line 52 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a1}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!PORT_CHARGEN@{PORT\_\-CHARGEN}}
+\index{PORT_CHARGEN@{PORT\_\-CHARGEN}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[PORT\_\-CHARGEN]{\setlength{\rightskip}{0pt plus 5cm}\#define PORT\_\-CHARGEN\ 5006}}
+\label{mainloop__good_8c_a1}
+
+
+tcp port to listen for chargen clients 
+
+
+
+Definition at line 28 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a0}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!PORT_ECHO@{PORT\_\-ECHO}}
+\index{PORT_ECHO@{PORT\_\-ECHO}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[PORT\_\-ECHO]{\setlength{\rightskip}{0pt plus 5cm}\#define PORT\_\-ECHO\ 5005}}
+\label{mainloop__good_8c_a0}
+
+
+tcp port to listen for echo clients 
+
+
+
+Definition at line 25 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a3}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\-INTERVAL}}
+\index{SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\-INTERVAL}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[SLOWHEARTBEAT\_\-INTERVAL]{\setlength{\rightskip}{0pt plus 5cm}\#define SLOWHEARTBEAT\_\-INTERVAL\ 15}}
+\label{mainloop__good_8c_a3}
+
+
+slow heartbeat interval (in seconds) 
+
+
+
+Definition at line 34 of file mainloop\_\-good.c.
+
+\subsection{Typedef Documentation}
+\hypertarget{mainloop__good_8c_a21}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!alarmhandler_t@{alarmhandler\_\-t}}
+\index{alarmhandler_t@{alarmhandler\_\-t}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[alarmhandler\_\-t]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ \hyperlink{mainloop__good_8c_a21}{alarmhandler\_\-t})(void)}}
+\label{mainloop__good_8c_a21}
+
+
+alarm handler 
+
+
+
+Definition at line 106 of file mainloop\_\-good.c.\hypertarget{mainloop__good_8c_a20}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!eventhandler_t@{eventhandler\_\-t}}
+\index{eventhandler_t@{eventhandler\_\-t}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[eventhandler\_\-t]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t})(int i)}}
+\label{mainloop__good_8c_a20}
+
+
+event handler 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into clients \end{description}
+\end{Desc}
+
+
+Definition at line 84 of file mainloop\_\-good.c.
+
+\subsection{Function Documentation}
+\hypertarget{mainloop__good_8c_a45}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!acceptchargen@{acceptchargen}}
+\index{acceptchargen@{acceptchargen}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[acceptchargen]{\setlength{\rightskip}{0pt plus 5cm}void acceptchargen (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a45}
+
+
+accept connection and set up new session for \char`\"{}chargen\char`\"{} service 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array for server descriptor \end{description}
+\end{Desc}
+
+
+Definition at line 680 of file mainloop\_\-good.c.
+
+References addclient(), clients, closeclient(), and writechargen().
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}681 {
+682     int             fd;
+683     socklen_t       t;
+684     struct sockaddr_in sain;
+685 
+686     t = sizeof(sain);
+687     if ((fd = accept(clients[i].fd, (void *) &sain, &t)) == -1) {
+688         if (errno == EWOULDBLOCK) {
+689             return;
+690         }
+691         perror("accept(CHARGEN)");
+692         exit(EXIT_FAILURE);
+693     }
+694     addclient(fd, NULL, &writechargen, &closeclient);
+695 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a41}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!acceptecho@{acceptecho}}
+\index{acceptecho@{acceptecho}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[acceptecho]{\setlength{\rightskip}{0pt plus 5cm}void acceptecho (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a41}
+
+
+accept connection and set up new session for \char`\"{}echo\char`\"{} service 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array for server descriptor \end{description}
+\end{Desc}
+
+
+Definition at line 524 of file mainloop\_\-good.c.
+
+References addclient(), clients, closeclient(), message(), MSG\_\-ACCEPT, readecho(), and writeecho().
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}525 {
+526     int             fd;
+527     socklen_t       t;
+528     struct sockaddr_in sain;
+529 
+530     t = sizeof(sain);
+531     if ((fd = accept(clients[i].fd, (void *) &sain, &t)) == -1) {
+532         if (errno == EWOULDBLOCK) {
+533             return;
+534         }
+535         perror("accept(ECHO)");
+536         exit(EXIT_FAILURE);
+537     }
+538     message(MSG_ACCEPT);
+539     addclient(fd, &readecho, &writeecho, &closeclient);
+540 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a29}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!addalarm@{addalarm}}
+\index{addalarm@{addalarm}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[addalarm]{\setlength{\rightskip}{0pt plus 5cm}void addalarm (\hyperlink{mainloop__good_8c_a21}{alarmhandler\_\-t} {\em handler}, long {\em interval})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a29}
+
+
+add new alarm 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em handler}]alarm handler procedure \item[{\em interval}]interval in seconds\end{description}
+\end{Desc}
+
+
+\begin{Desc}
+\item[\hyperlink{bug__bug000001}{Bug}]no error handling, if there are no more error handler slots, the new alarm is ignored... \end{Desc}
+
+
+Definition at line 263 of file mainloop\_\-good.c.
+
+References alarmhandler(), alarms, alarm\_\-t::flag, alarm\_\-t::handler, alarm\_\-t::interval, MAXALARMS, and alarm\_\-t::nexttime.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}264 {
+265     struct timeval  now;
+266     int             i;
+267 
+268     for (i = 0; i < MAXALARMS; i++) {
+269         if (alarms[i].handler == NULL) {
+270             gettimeofday(&now, NULL);
+271             alarms[i].handler = handler;
+272             alarms[i].interval = interval;
+273             alarms[i].nexttime = now.tv_sec + interval;
+274             alarms[i].flag = 0;
+275             alarmhandler();
+276             return;
+277         }
+278     }
+279 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a37}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!addclient@{addclient}}
+\index{addclient@{addclient}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[addclient]{\setlength{\rightskip}{0pt plus 5cm}void addclient (int {\em fd}, \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} {\em read}, \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} {\em write}, \hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} {\em except})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a37}
+
+
+add new client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em fd}]file descriptor asociated with this client \item[{\em read}]handler called if socket is readable \item[{\em write}]handler called if socket is writable \item[{\em except}]handler called on exceptions (HUP, close etc). \end{description}
+\end{Desc}
+
+
+Definition at line 437 of file mainloop\_\-good.c.
+
+References clients, client\_\-t::except, client\_\-t::fd, MAXCLIENTS, message(), MSG\_\-TOOMANY, npollfd, pollfds, client\_\-t::read, and client\_\-t::write.
+
+Referenced by acceptchargen(), acceptecho(), and main().
+
+
+
+\footnotesize\begin{verbatim}439 {
+440     if (npollfd >= (MAXCLIENTS - 1)) {
+441         close(fd);
+442         message(MSG_TOOMANY);
+443         return;
+444     }
+445     clients[npollfd].fd = fd;
+446     clients[npollfd].read = read;
+447     clients[npollfd].write = write;
+448     clients[npollfd].except = except;
+449     pollfds[npollfd].fd = fd;
+450     pollfds[npollfd].events = 0;
+451     if (read) {
+452         pollfds[npollfd].events |= POLLIN;
+453     }
+454     if (write) {
+455         pollfds[npollfd].events |= POLLOUT;
+456     }
+457     npollfd++;
+458 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a31}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!alarmhandler@{alarmhandler}}
+\index{alarmhandler@{alarmhandler}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[alarmhandler]{\setlength{\rightskip}{0pt plus 5cm}void alarmhandler (void)\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a31}
+
+
+signal handler for alarms 
+
+mark expired alarms for execution and set new alarm timer.
+
+the resolution of the alarm timer is one second, no attempt is made to get timing beyond this one second resolution (any sub-second timing information is discarded). 
+
+Definition at line 307 of file mainloop\_\-good.c.
+
+References alarms, alarm\_\-t::flag, alarm\_\-t::handler, alarm\_\-t::interval, MAX, MAXALARMS, MIN, and alarm\_\-t::nexttime.
+
+Referenced by addalarm(), and initalarms().
+
+
+
+\footnotesize\begin{verbatim}308 {
+309     struct timeval  now;
+310     long            nextalarm;
+311     int             i;
+312 
+313     gettimeofday(&now, NULL);
+314 
+315     nextalarm = 65536;
+316     for (i = 0; i < MAXALARMS; i++) {
+317         if (alarms[i].handler != NULL) {
+318             if (alarms[i].nexttime <= now.tv_sec) {
+319                 alarms[i].flag = 1;
+320                 alarms[i].nexttime += alarms[i].interval;
+321             }
+322             nextalarm =
+323                 MIN(nextalarm,
+324                     MAX(1,
+325                         (unsigned int) alarms[i].nexttime - now.tv_sec));
+326         }
+327     }
+328     alarm((unsigned int) nextalarm);
+329 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a27}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!blocksigpipe@{blocksigpipe}}
+\index{blocksigpipe@{blocksigpipe}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[blocksigpipe]{\setlength{\rightskip}{0pt plus 5cm}void blocksigpipe (void)\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a27}
+
+
+block SIGPIPE 
+
+Trying to write to a socket when the other end has already closed the connection results in SIGPIPE. Not usefull in this context. 
+
+Definition at line 214 of file mainloop\_\-good.c.
+
+
+
+\footnotesize\begin{verbatim}215 {
+216     struct sigaction act;
+217 
+218     act.sa_handler = SIG_IGN;
+219     sigemptyset(&act.sa_mask);
+220     act.sa_flags = SA_RESTART;
+221     if (sigaction(SIGPIPE, &act, NULL) == -1) {
+222         perror("sigaction(SIGPIPE, <ignore>)");
+223         exit(EXIT_FAILURE);
+224     }
+225 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a30}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!checkalarms@{checkalarms}}
+\index{checkalarms@{checkalarms}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[checkalarms]{\setlength{\rightskip}{0pt plus 5cm}void checkalarms (void)\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a30}
+
+
+check for pending alarms and execute alarm handlers 
+
+
+
+Definition at line 285 of file mainloop\_\-good.c.
+
+References alarms, alarm\_\-t::flag, alarm\_\-t::handler, and MAXALARMS.
+
+Referenced by mainloop().
+
+
+
+\footnotesize\begin{verbatim}286 {
+287     int             i;
+288 
+289     for (i = 0; i < MAXALARMS; i++) {
+290         if (alarms[i].flag) {
+291             (*alarms[i].handler) ();
+292             alarms[i].flag = 0;
+293         }
+294     }
+295 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a40}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!closeclient@{closeclient}}
+\index{closeclient@{closeclient}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[closeclient]{\setlength{\rightskip}{0pt plus 5cm}void closeclient (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a40}
+
+
+close and delete client session 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array \end{description}
+\end{Desc}
+
+
+Definition at line 666 of file mainloop\_\-good.c.
+
+References clients, delclient(), client\_\-t::fd, message(), and MSG\_\-CLOSE.
+
+Referenced by acceptchargen(), acceptecho(), readecho(), writechargen(), and writeecho().
+
+
+
+\footnotesize\begin{verbatim}667 {
+668     message(MSG_CLOSE);
+669     close(clients[i].fd);
+670     delclient(i);
+671     clients[i].fd = -1;
+672 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a38}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!delclient@{delclient}}
+\index{delclient@{delclient}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[delclient]{\setlength{\rightskip}{0pt plus 5cm}void delclient (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a38}
+
+
+delete client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array \end{description}
+\end{Desc}
+
+
+Definition at line 466 of file mainloop\_\-good.c.
+
+References clients, client\_\-t::fd, npollfd, and pollfds.
+
+Referenced by closeclient().
+
+
+
+\footnotesize\begin{verbatim}467 {
+468     clients[i].fd = -1;
+469     if (i != npollfd) {
+470         /* just copy the whole thing including the buffer... */
+471         memcpy(&clients[i], &clients[npollfd], sizeof(clients[i]));
+472         pollfds[i] = pollfds[npollfd];
+473         npollfd--;
+474     }
+475 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a44}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!flowecho@{flowecho}}
+\index{flowecho@{flowecho}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[flowecho]{\setlength{\rightskip}{0pt plus 5cm}void flowecho (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a44}
+
+
+do \char`\"{}flow\char`\"{} control for echo 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array for echo session\end{description}
+\end{Desc}
+turn off checking for read if buffer is full resp. write if buffer is empty. 
+
+Definition at line 646 of file mainloop\_\-good.c.
+
+References BUFSIZE, clients, client\_\-t::echo, echo\_\-client\_\-t::n, and pollfds.
+
+Referenced by readecho(), and writeecho().
+
+
+
+\footnotesize\begin{verbatim}647 {
+648     switch (clients[i].echo.n) {
+649     case 0:
+650         pollfds[i].events = POLLIN;
+651         break;
+652     case BUFSIZE:
+653         pollfds[i].events = POLLOUT;
+654         break;
+655     default:
+656         pollfds[i].events = POLLIN | POLLOUT;
+657     }
+658 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a32}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!heartbeat@{heartbeat}}
+\index{heartbeat@{heartbeat}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[heartbeat]{\setlength{\rightskip}{0pt plus 5cm}void heartbeat (void)\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a32}
+
+
+print heartbeat message 
+
+
+
+Definition at line 335 of file mainloop\_\-good.c.
+
+References message(), and MSG\_\-HEARTBEAT.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}336 {
+337     message(MSG_HEARTBEAT);
+338 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a28}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!initalarms@{initalarms}}
+\index{initalarms@{initalarms}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[initalarms]{\setlength{\rightskip}{0pt plus 5cm}void initalarms (void)\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a28}
+
+
+install non-resetting signal handler for alarms 
+
+The sigaction interface allows installing non-resetting signal handlers (ie not reset to SIG\_\-DFL after disposition). This way, there is no race condition when reinstalling the signal handler. 
+
+Definition at line 235 of file mainloop\_\-good.c.
+
+References alarmhandler(), alarms, alarm\_\-t::handler, and MAXALARMS.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}236 {
+237     struct sigaction act;
+238     int             i;
+239 
+240     act.sa_handler = alarmhandler;
+241     sigemptyset(&act.sa_mask);
+242     act.sa_flags = 0;           /* no SIG_RESTART! */
+243     if (sigaction(SIGALRM, &act, NULL) == -1) {
+244         perror("sigaction(SIGPIPE, <ignore>)");
+245         exit(EXIT_FAILURE);
+246     }
+247     for (i = 0; i < MAXALARMS; i++) {
+248         alarms[i].handler = NULL;
+249     }
+250     alarm(0);                   /* cancel any previously made alarm request */
+251 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a36}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!initclients@{initclients}}
+\index{initclients@{initclients}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[initclients]{\setlength{\rightskip}{0pt plus 5cm}void initclients ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a36}
+
+
+initialize client state array 
+
+
+
+Definition at line 418 of file mainloop\_\-good.c.
+
+References clients, client\_\-t::fd, MAXCLIENTS, and npollfd.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}419 {
+420     int             i;
+421 
+422     for (i = 0; i < MAXCLIENTS; i++) {
+423         clients[i].fd = -1;
+424     }
+425     npollfd = 0;
+426 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a34}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!listensocket@{listensocket}}
+\index{listensocket@{listensocket}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[listensocket]{\setlength{\rightskip}{0pt plus 5cm}int listensocket (int {\em port})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a34}
+
+
+return tcp socket listening on port specified 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em port}]port number in host byte order\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]file descriptor for listening socket\end{Desc}
+The socket is set to be nonblocking 
+
+Definition at line 359 of file mainloop\_\-good.c.
+
+References setnonblock().
+
+Referenced by listensource(), and main().
+
+
+
+\footnotesize\begin{verbatim}360 {
+361     int             serverfd;
+362     struct sockaddr_in sain;
+363     int             one;
+364 
+365     /* set up tcp socket for listening */
+366     sain.sin_family = AF_INET;
+367     sain.sin_port = htons(port);
+368     sain.sin_addr.s_addr = INADDR_ANY;
+369     if ((serverfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+370         perror("socket(AF_INET, SOCK_STREAM, 0)");
+371         exit(EXIT_FAILURE);
+372     }
+373     one = 1;
+374     if (setsockopt
+375         (serverfd, SOL_SOCKET, SO_REUSEADDR, &one,
+376          (int) sizeof(one)) == -1) {
+377         perror("setsockopt(SO_REUSEADDR)");
+378         exit(EXIT_FAILURE);
+379     }
+380     if (bind
+381         (serverfd, (struct sockaddr *) &sain, sizeof(struct sockaddr_in))
+382         == -1) {
+383         perror("bind()");
+384         exit(EXIT_FAILURE);
+385     }
+386     if (listen(serverfd, 5) == -1) {
+387         perror("listen()");
+388         exit(EXIT_FAILURE);
+389     }
+390     setnonblock(serverfd);
+391 
+392     printf("listening on port %d\n", port);
+393 
+394     return serverfd;
+395 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a47}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!main@{main}}
+\index{main@{main}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[main]{\setlength{\rightskip}{0pt plus 5cm}int main ()}}
+\label{mainloop__good_8c_a47}
+
+
+
+
+Definition at line 734 of file mainloop\_\-good.c.
+
+References acceptchargen(), acceptecho(), addalarm(), addclient(), blocksigpipe(), heartbeat(), HEARTBEAT\_\-INTERVAL, initalarms(), initclients(), listensocket(), mainloop(), PORT\_\-CHARGEN, PORT\_\-ECHO, slowheartbeat(), and SLOWHEARTBEAT\_\-INTERVAL.
+
+
+
+\footnotesize\begin{verbatim}735 {
+736     printf("example: better main loop\n");
+737 
+738     blocksigpipe();
+739 
+740     initclients();
+741     addclient(listensocket(PORT_ECHO), &acceptecho, NULL, NULL);
+742     addclient(listensocket(PORT_CHARGEN), &acceptchargen, NULL, NULL);
+743     initalarms();
+744     addalarm(heartbeat, HEARTBEAT_INTERVAL);
+745     addalarm(slowheartbeat, SLOWHEARTBEAT_INTERVAL);
+746     printf("heartbeat every %d seconds\n", HEARTBEAT_INTERVAL);
+747     printf("slow heartbeat every %d seconds\n", SLOWHEARTBEAT_INTERVAL);
+748 
+749     /* main loop */
+750     while (1) {
+751         mainloop();
+752     }
+753     /* notreached */
+754 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a39}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!mainloop@{mainloop}}
+\index{mainloop@{mainloop}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[mainloop]{\setlength{\rightskip}{0pt plus 5cm}void mainloop ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a39}
+
+
+execute one iteration of THE mainloop 
+
+
+
+Definition at line 481 of file mainloop\_\-good.c.
+
+References checkalarms(), clients, client\_\-t::except, message(), MSG\_\-MAINLOOP, npollfd, pollfds, client\_\-t::read, and client\_\-t::write.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}482 {
+483     int             i;
+484 
+485     message(MSG_MAINLOOP);
+486     i = poll(pollfds, npollfd, -1);
+487 
+488     /* check for alarm handlers to be executed */
+489     checkalarms();
+490 
+491     if (i == -1) {
+492         if ((errno != EAGAIN) && (errno != EINTR)) {
+493             perror("poll()");
+494             exit(EXIT_FAILURE);
+495         }
+496         return;
+497     }
+498 
+499     /* 
+500      * handle i/o events. work off exceptions first. then read (try to fill
+501      * buffer) and write (try to empty buffer)
+502      */
+503     for (i = 0; i <= npollfd; i++) {
+504         if ((clients[i].except)
+505             && (pollfds[i].revents & (POLLERR | POLLHUP | POLLNVAL))) {
+506             (*clients[i].except) (i);
+507             continue;
+508         }
+509         if ((clients[i].read) && (pollfds[i].revents & POLLIN)) {
+510             (*clients[i].read) (i);
+511         }
+512         if ((clients[i].write) && (pollfds[i].revents & POLLOUT)) {
+513             (*clients[i].write) (i);
+514         }
+515     }
+516 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a26}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!message@{message}}
+\index{message@{message}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[message]{\setlength{\rightskip}{0pt plus 5cm}void message (int {\em msg})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a26}
+
+
+print message describing current activity 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em msg}]id of message to print (MSG\_\-XYZ) \end{description}
+\end{Desc}
+
+
+Definition at line 170 of file mainloop\_\-good.c.
+
+References MSG\_\-ACCEPT, MSG\_\-CLOSE, MSG\_\-EMPTY, MSG\_\-FULL, MSG\_\-HEARTBEAT, MSG\_\-MAINLOOP, MSG\_\-READ, MSG\_\-SLOWHEARTBEAT, MSG\_\-TOOMANY, and MSG\_\-WRITE.
+
+Referenced by accept\_\-dispatch(), acceptecho(), addclient(), chargen\_\-dispatch(), closeclient(), echo\_\-dispatch\_\-read(), echo\_\-dispatch\_\-write(), heartbeat(), main(), mainloop(), readecho(), sighandler(), slowheartbeat(), source\_\-close(), writechargen(), and writeecho().
+
+
+
+\footnotesize\begin{verbatim}171 {
+172     switch (msg) {
+173     case MSG_HEARTBEAT:
+174         printf("H");
+175         break;
+176     case MSG_SLOWHEARTBEAT:
+177         printf("S");
+178         break;
+179     case MSG_MAINLOOP:
+180         /* printf("M"); */
+181         break;
+182     case MSG_ACCEPT:
+183         printf("A");
+184         break;
+185     case MSG_TOOMANY:
+186         printf("T");
+187         break;
+188     case MSG_CLOSE:
+189         printf("C");
+190         break;
+191     case MSG_READ:
+192         printf("R");
+193         break;
+194     case MSG_WRITE:
+195         printf("W");
+196         break;
+197     case MSG_FULL:
+198         printf("F");
+199         break;
+200     case MSG_EMPTY:
+201         printf("E");
+202         break;
+203     }
+204     fflush(stdout);
+205 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a42}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!readecho@{readecho}}
+\index{readecho@{readecho}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[readecho]{\setlength{\rightskip}{0pt plus 5cm}void readecho (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a42}
+
+
+read data from echo client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array for echo session\end{description}
+\end{Desc}
+If the buffer is not full, tries to do one read from the filedescriptor associated with this echo client. 
+
+Definition at line 551 of file mainloop\_\-good.c.
+
+References BUFSIZE, clients, closeclient(), client\_\-t::echo, flowecho(), message(), MSG\_\-FULL, MSG\_\-READ, echo\_\-client\_\-t::n, echo\_\-client\_\-t::r, and echo\_\-client\_\-t::w.
+
+Referenced by acceptecho(), and main().
+
+
+
+\footnotesize\begin{verbatim}552 {
+553     ssize_t         nread;
+554 
+555     if (clients[i].echo.n == BUFSIZE) {
+556         message(MSG_FULL);
+557         flowecho(i);
+558         return;
+559     }
+560     if (clients[i].echo.r >= clients[i].echo.w) {
+561         nread =
+562             read(clients[i].fd, clients[i].echo.buf + clients[i].echo.r,
+563                  BUFSIZE - clients[i].echo.r);
+564     } else {
+565         nread =
+566             read(clients[i].fd, clients[i].echo.buf + clients[i].echo.r,
+567                  clients[i].echo.w - clients[i].echo.r);
+568     }
+569 
+570     switch (nread) {
+571     case -1:
+572         if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+573             perror("read()");
+574             exit(EXIT_FAILURE);
+575         }
+576         break;
+577     case 0:
+578         closeclient(i);
+579         return;
+580     default:
+581         message(MSG_READ);
+582         clients[i].echo.n += nread;
+583         clients[i].echo.r += nread;
+584         clients[i].echo.r %= BUFSIZE;
+585         flowecho(i);
+586     }
+587 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a35}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!setnonblock@{setnonblock}}
+\index{setnonblock@{setnonblock}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[setnonblock]{\setlength{\rightskip}{0pt plus 5cm}void setnonblock (int {\em fd})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a35}
+
+
+set a file descriptor to be nonblocking 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em fd}]file descriptor\end{description}
+\end{Desc}
+Non-Blocking works only for Sockets, Pipes and slow devices, it has no effect when used with regular files or \char`\"{}fast\char`\"{} devices. 
+
+Definition at line 406 of file mainloop\_\-good.c.
+
+Referenced by accept\_\-dispatch(), listensocket(), and main().
+
+
+
+\footnotesize\begin{verbatim}407 {
+408     int             flag;
+409 
+410     flag = fcntl(fd, F_GETFL);
+411     fcntl(fd, F_GETFL, flag | O_NONBLOCK);
+412 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a33}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!slowheartbeat@{slowheartbeat}}
+\index{slowheartbeat@{slowheartbeat}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[slowheartbeat]{\setlength{\rightskip}{0pt plus 5cm}void slowheartbeat (void)\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a33}
+
+
+print \char`\"{}slowheartbeat\char`\"{} message 
+
+
+
+Definition at line 344 of file mainloop\_\-good.c.
+
+References message(), and MSG\_\-SLOWHEARTBEAT.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}345 {
+346     message(MSG_SLOWHEARTBEAT);
+347 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a46}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!writechargen@{writechargen}}
+\index{writechargen@{writechargen}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[writechargen]{\setlength{\rightskip}{0pt plus 5cm}void writechargen (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a46}
+
+
+write data to an chargen client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array for chargen session\end{description}
+\end{Desc}
+If the buffer is not empty, tries to do one write to the filedescriptor associated with the chargen client. 
+
+Definition at line 706 of file mainloop\_\-good.c.
+
+References client\_\-t::chargen, chargen\_\-buf, clients, closeclient(), chargen\_\-client\_\-t::i, message(), and MSG\_\-WRITE.
+
+Referenced by acceptchargen(), and main().
+
+
+
+\footnotesize\begin{verbatim}707 {
+708     ssize_t         nwrite;
+709 
+710     nwrite =
+711         write(clients[i].fd, chargen_buf + clients[i].chargen.i,
+712               sizeof(chargen_buf) - clients[i].chargen.i);
+713 
+714     switch (nwrite) {
+715     case -1:
+716         if (errno == EPIPE) {
+717             closeclient(i);
+718             return;
+719         } else if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+720             perror("write()");
+721             exit(EXIT_FAILURE);
+722         }
+723         break;
+724     case 0:
+725         break;
+726     default:
+727         message(MSG_WRITE);
+728         clients[i].chargen.i += nwrite;
+729         clients[i].chargen.i %= sizeof(chargen_buf);
+730     }
+731 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__good_8c_a43}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!writeecho@{writeecho}}
+\index{writeecho@{writeecho}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[writeecho]{\setlength{\rightskip}{0pt plus 5cm}void writeecho (int {\em i})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a43}
+
+
+write data to an echo client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index into pollfds/clients array for echo session\end{description}
+\end{Desc}
+If the buffer is not empty, tries to do one write to the filedescriptor associated with the echo client. 
+
+Definition at line 598 of file mainloop\_\-good.c.
+
+References BUFSIZE, clients, closeclient(), client\_\-t::echo, flowecho(), message(), MSG\_\-EMPTY, MSG\_\-WRITE, echo\_\-client\_\-t::n, echo\_\-client\_\-t::r, and echo\_\-client\_\-t::w.
+
+Referenced by acceptecho(), and main().
+
+
+
+\footnotesize\begin{verbatim}599 {
+600     ssize_t         nwrite;
+601 
+602     if (clients[i].echo.n == 0) {
+603         message(MSG_EMPTY);
+604         flowecho(i);
+605         return;
+606     }
+607     if (clients[i].echo.r > clients[i].echo.w) {
+608         nwrite =
+609             write(clients[i].fd, clients[i].echo.buf + clients[i].echo.w,
+610                   clients[i].echo.r - clients[i].echo.w);
+611     } else {
+612         nwrite =
+613             write(clients[i].fd, clients[i].echo.buf + clients[i].echo.w,
+614                   BUFSIZE - clients[i].echo.w);
+615     }
+616 
+617     switch (nwrite) {
+618     case -1:
+619         if (errno == EPIPE) {
+620             closeclient(i);
+621         } else if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+622             perror("write()");
+623             exit(EXIT_FAILURE);
+624         }
+625         break;
+626     case 0:
+627         break;
+628     default:
+629         message(MSG_WRITE);
+630         clients[i].echo.n -= nwrite;
+631         clients[i].echo.w += nwrite;
+632         clients[i].echo.w %= BUFSIZE;
+633         flowecho(i);
+634     }
+635 }
+\end{verbatim}\normalsize 
+
+
+\subsection{Variable Documentation}
+\hypertarget{mainloop__good_8c_a25}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!alarms@{alarms}}
+\index{alarms@{alarms}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[alarms]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structalarm__t}{alarm\_\-t} \hyperlink{mainloop__good_8c_a25}{alarms}\mbox{[}MAXALARMS\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a25}
+
+
+alarms 
+
+
+
+Definition at line 134 of file mainloop\_\-good.c.
+
+Referenced by addalarm(), alarmhandler(), checkalarms(), and initalarms().\hypertarget{mainloop__good_8c_a19}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!chargen_buf@{chargen\_\-buf}}
+\index{chargen_buf@{chargen\_\-buf}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[chargen\_\-buf]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{mainloop__good_8c_a19}{chargen\_\-buf}\mbox{[}$\,$\mbox{]} = \char`\"{}0123456789abcdefghijklmnopqrstuv\char`\"{}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a19}
+
+
+characters to return in chargen service 
+
+
+
+Definition at line 60 of file mainloop\_\-good.c.
+
+Referenced by writechargen().\hypertarget{mainloop__good_8c_a23}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!clients@{clients}}
+\index{clients@{clients}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[clients]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structclient__t}{client\_\-t} \hyperlink{mainloop__good_8c_a23}{clients}\mbox{[}MAXCLIENTS\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a23}
+
+
+array of client states 
+
+
+
+Definition at line 132 of file mainloop\_\-good.c.
+
+Referenced by acceptchargen(), acceptecho(), addclient(), closeclient(), delclient(), flowecho(), initclients(), mainloop(), readecho(), writechargen(), and writeecho().\hypertarget{mainloop__good_8c_a22}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!npollfd@{npollfd}}
+\index{npollfd@{npollfd}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[npollfd]{\setlength{\rightskip}{0pt plus 5cm}unsigned long \hyperlink{mainloop__good_8c_a22}{npollfd}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a22}
+
+
+number of file descriptors to check 
+
+this is not as bad as it sounds because there's a static array for the struct pollfd anyway (pollfds). using an array for the client states allows using the same index for pollfds and clients.
+
+in a real application, the buffer would be bigger, and therefore wouldn't be placed into the array ;) for demonstration purposes, the buffer is small to make it more interesting 
+
+Definition at line 131 of file mainloop\_\-good.c.
+
+Referenced by addclient(), delclient(), initclients(), and mainloop().\hypertarget{mainloop__good_8c_a24}{
+\index{mainloop_good.c@{mainloop\_\-good.c}!pollfds@{pollfds}}
+\index{pollfds@{pollfds}!mainloop_good.c@{mainloop\_\-good.c}}
+\subsubsection[pollfds]{\setlength{\rightskip}{0pt plus 5cm}struct pollfd \hyperlink{mainloop__good_8c_a24}{pollfds}\mbox{[}MAXCLIENTS\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__good_8c_a24}
+
+
+pollfds for poll() 
+
+
+
+Definition at line 133 of file mainloop\_\-good.c.
+
+Referenced by addclient(), delclient(), flowecho(), and mainloop().

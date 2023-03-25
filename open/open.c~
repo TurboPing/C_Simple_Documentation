@@ -1,0 +1,68 @@
+/* fopen.c */
+
+#include <sys/types.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include <stdio.h>
+#include <signal.h>
+#include <time.h>
+#include <errno.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <netdb.h>
+#include <fcntl.h>
+
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/file.h>
+
+#include <sys/times.h>
+#include <limits.h>
+
+#define FILE_MAX 1000
+#define LINE_LEN 1000
+
+int main(int argc, char **argv) {
+  int i;
+  int fd;
+  int fdup;
+  int fdup2;
+  int fdup3;
+  int flags, modus;
+
+  char line[1000];
+
+  if(argc < 2) {
+      fprintf(stderr, "Usage: %s DATEI\n", *argv);
+      exit(EXIT_FAILURE);
+  }
+
+  for (i = 0; i < FILE_MAX; i++) {
+
+    if ((fd = open("gugus.txt", O_RDONLY)) == NULL) {
+      fprintf(stderr, "Konnte %s nicht öffnen!\n", argv[1]);
+      exit(EXIT_FAILURE);
+    }
+
+    printf("fopen fd[%d]:%d\n", i, (int)fd);
+
+  }
+
+  exit(0);
+
+  while (read((FILE *)fd, line, LINE_LEN) != NULL) {
+    printf("%s\n", line);
+  }
+
+  while (read((FILE *)fdup2, line, LINE_LEN) != NULL) {
+    printf("%s\n", line);
+  }
+
+}
+

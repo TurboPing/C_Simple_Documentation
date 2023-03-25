@@ -1,0 +1,183 @@
+/* ----------------------------------------------------------------------------
+ * TecoFillData.c -- Basic library module for error handling.
+ * ----------------------------------------------------------------------------
+ *
+ * (c) 1995 Alcatel STR, Zuerich, Switzerland.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * $Id: TecoFillData.c,v 3.0 1996/03/04 12:16:15 roelli Exp $
+ *
+ * Status : Release 1.0
+ *
+ * ----------------------------------------------------------------------------
+ * Description
+ *
+ * Utility TecoFillData make the following file operation on new result files :
+ *
+ * Input file copy from the tru :
+ *
+ *  ../results/<testname>/<truname>.res1   ; new result file
+ *
+ *
+ * Utility ra2 (result to ascii) :
+ *
+ *  <truname>.res1   ->   <truname>.ascii1
+ *
+ * Utility TecoDiffResult : take the different from the new result file
+ *                          <truname>.ascii1 and the old filled file
+ *                          <truname>.ascii1.filled
+ *
+ *  <truname>.ascii1.diff
+ *
+ * For fill in DB we rename this different file to :
+ *
+ *  res.<pid>.tmp
+ *
+ *
+ * After the filling process we remove this file and rename new result file
+ * from the tru as filled :
+ *
+ *  <truname>.ascii1.filled
+ *
+ * This is the reference for the next result filling operation!
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+static char *TecoFillData_c_rcsid = "$Id: TecoFillData.c,v 3.0 1996/03/04 12:16:15 roelli Exp $";
+
+/* ----------------------------------------------------------------------------
+ * INCLUDES
+ */
+#include <stdio.h>
+#include <signal.h>
+#include <time.h>
+#include <errno.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <netdb.h>
+#include <fcntl.h>
+
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/file.h>
+
+#include <netinet/in.h>
+#ifdef SYSV
+#	include <limits.h>
+#	include <stropts.h>
+#else
+#	include <sys/param.h>
+#endif
+
+
+/* ----------------------------------------------------------------------------
+ * DEFINES
+ */
+#define MAX_LINE_LEN	2048
+#define MAXARGC		50		/* max number of arguments in buf */
+#define WHITE		" \t\n" 	/* white space to split lines */
+
+#define R2A_COMMAND	"%s/bin/r2a"	
+#define RES_FILE   "%s/results/%s/%s.res1"
+#define ASCII_FILE   "%s/results/%s/%s.ascii1"
+
+#define DIFF_COMMAND	"%s/bin/TecoDiffResult"	
+
+/* ----------------------------------------------------------------------------
+ * TYPES
+ */
+
+/* ----------------------------------------------------------------------------
+ * GLOBAL VARIABLES
+ */
+
+/* ----------------------------------------------------------------------------
+ * LOCAL VARIABLES
+ */
+
+/* ----------------------------------------------------------------------------
+ * PROCEDURES
+ */
+
+/* ----------------------------------------------------------------------------
+ * Usage -- Print usage.
+ *
+ * Arguments:      None.
+ *
+ * Returns:        None.
+ *
+ * Error Messages: None.
+ *
+ */
+void
+Usage()
+{
+
+	fprintf(stderr, "Usage: TecoFillData test_name tru_name mode\n");
+	
+	return;
+	
+} /* End of Usage */
+
+/* ----------------------------------------------------------------------------
+ * MyProc -- .
+ *
+ * Arguments:      None.
+ *
+ * Returns:        None.
+ *
+ * Error Messages: None.
+ *
+ */
+void
+MyProc()
+{
+
+  char name[100];
+  dirent *dp;
+  DIR *dfd;
+
+  printf("my proc\n");
+
+  if ((dfd = opendir("/home/roelli/c_code")) == NULL) {
+    printf("can't open dir");
+    return;
+  }
+  while ((dp = readdir(dfd)) != NULL) {
+    printf("%s %s\n", dir, dp->name);
+  }  
+  closedir(dfd);
+  
+} /* End of MyProc */
+
+/* ----------------------------------------------------------------------------
+ * main -- Main program for TecoFillData.
+ *
+ * Arguments:      None.
+ *
+ * Returns:        None.
+ *
+ * Error Messages: None.
+ *
+ */
+int
+main(int argc, char **argv)
+{
+  int i;
+
+
+  for (i=0;i<argc;i++) {
+     printf("%s\n", argv[i]);
+  }
+  MyProc();
+  exit(0);
+  
+	
+} /* End of main */
+
+/* End of TecoFillData.c */

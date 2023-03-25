@@ -1,0 +1,47 @@
+/* fork.c */
+
+#include <stdio.h>
+#include <signal.h>
+
+int main()
+{
+  int pid;
+  int status;
+  int ret;
+  int child_pid;
+		
+  if ((pid = fork()) < 0) {
+    printf("Could not fork"); 
+    return -1;
+  }
+  else {
+    if (pid == 0) {
+      printf("We are in the child pid:%d|getpid:%d|getppid:%d\n", pid, getpid(), getppid());
+
+      sleep(10);
+
+      printf("child exit\n");
+    } else {
+
+      printf("we are in the parent pid:%d|getpid:%d|getppid:%d\n", pid, getpid(), getppid());
+
+      sleep(12);
+
+      child_pid = wait();
+      printf("wait returns %d\n");
+
+      sleep(10);
+
+      printf("kill(%d, SIGTERM)", pid);
+      ret = kill(pid, SIGTERM);
+      printf("kill returns %d\n", ret);
+
+      printf("parent exit\n");
+
+    }
+
+  }
+
+  return 0;
+
+}

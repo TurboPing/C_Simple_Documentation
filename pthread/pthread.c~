@@ -1,0 +1,329 @@
+/* ----------------------------------------------------------------------------
+ * pthread.c -- config thread test program.
+ * ----------------------------------------------------------------------------
+ *
+ * (c) 2001 - 2008 Nexus Telecom AG, Zuerich, Switzerland.
+ *
+ * ----------------------------------------------------------------------------
+ * Description
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+/*-----------------------------------------------------------------------------
+ * Includes
+ *-----------------------------------------------------------------------------
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/time.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <pthread.h>
+
+/* ----------------------------------------------------------------------------
+ * DEFINES
+ */
+
+#define RAND_NUMBER_RANGE 15
+#define RAND_OFFSET 3
+#define MAXHOSTNAMELEN 300
+#define CONFIG_MAX_ACTIVE_THREADS 100
+
+
+/* ----------------------------------------------------------------------------
+ * TYPES
+ */
+
+typedef struct {
+   pthread_mutex_t *mutualExclusion;  
+   int ident;   	/* thread id             */
+   char hostname[MAXHOSTNAMELEN];	/* hostname to connect   */
+} TestThread;
+
+/* ----------------------------------------------------------------------------
+ * GLOBAL VARIABLES
+ */
+
+/* ----------------------------------------------------------------------------
+ * LOCAL VARIABLES
+ */
+
+pthread_mutex_t mutualExclusion;
+TestThread *testThread;
+int ConfigThreadInitialised = 0;
+
+int configThreadCount = 0;
+int configThreadActive = 0;
+
+static unsigned seedNumber;
+static int configThreadRandomNumber = RAND_NUMBER_RANGE; 
+
+
+
+/*------------------------------------------------------------------------
+ * pthread_sleep takes an integer number of seconds to pause the 
+ * current thread. this function does not exist in the standard pthreads
+ * library. We simply use a function that has a timeout.
+ *
+ * Source : http://www.cs.pitt.edu
+ */
+
+static int pthread_sleep (int seconds) {
+
+  pthread_mutex_t mutex;
+
+  pthread_cond_t conditionvar;
+
+  struct timespec timeout;
+
+  if (pthread_mutex_init(&mutex,NULL)) {
+    return -1;
+  }
+
+  if (pthread_cond_init(&conditionvar,NULL)) {
+    return -1;
+  }
+
+  //When to expire is an absolute time, so get the current time and add it
+  //to our delay time
+
+  timeout.tv_sec = (unsigned int)time(NULL) + seconds;
+  timeout.tv_nsec = 0;
+
+  return pthread_cond_timedwait(&conditionvar, &mutex, &timeout);
+
+}
+
+/* ----------------------------------------------------------------------------
+ * testThreadProcess -- test thread process.
+ *
+ * Arguments:      none
+ *
+ * Returns:        0 OK
+ *
+ * Error Messages:   None.
+ *
+ */
+static void *testThreadProcess( void *pvArg ) {
+
+  int randomNumber;
+  int loop;
+
+  printf("testThreadProcess\n");  
+  TestThread *xtestThread = (TestThread *)pvArg;
+
+  while (1) {
+    if (configThreadActive >= CONFIG_MAX_ACTIVE_THREADS) {
+      pthread_sleep(1);
+    }
+    else {
+      break;
+    }
+  } 
+
+  pthread_mutex_lock(&mutualExclusion);
+  configThreadActive++;
+  pthread_mutex_unlock(&mutualExclusion);
+
+  printf("checkpoint %d\n", configThreadRandomNumber);
+
+  if (configThreadRandomNumber != 0) {
+    randomNumber = (rand_r(&seedNumber) % configThreadRandomNumber) + RAND_OFFSET;
+    printf("randomNumber:%d\n", randomNumber);
+  }
+  else {
+    randomNumber = 0;
+  }
+
+  printf("thread started ident:%d|hostname:%s|delayed:%d\n", 
+  	xtestThread->ident, xtestThread->hostname, randomNumber);  
+
+  while (1) {
+
+    printf("id:%d|hostname:%s|sleep:%d|loop:%d\n", 
+      xtestThread->ident, xtestThread->hostname, randomNumber, loop++);
+  
+    pthread_sleep(randomNumber);
+
+  }
+
+  pthread_mutex_lock(&mutualExclusion);
+  configThreadCount--;
+  configThreadActive--;
+  free(xtestThread);
+  pthread_mutex_unlock(&mutualExclusion);
+
+  printf("exit\n");
+
+  pthread_exit(0);
+
+  return 0;
+
+}
+
+/* ----------------------------------------------------------------------------
+ * startTestThread -- Start the rci service within a thread.
+ *
+ * Arguments:      none
+ *
+ * Returns:        true : OK, false : NOK
+ *
+ * Error Messages:   None.
+ *
+ */
+static
+int
+startTestThread(int id, const char *hostname) {
+
+  pthread_t  *pthreadDesc; 	/* Thread descriptor  */
+
+  printf("startTestThread\n");
+  /* set the thread desriptor */
+  testThread = malloc(sizeof(TestThread));
+  testThread->mutualExclusion = &mutualExclusion;
+  testThread->ident = id;
+  snprintf(testThread->hostname, sizeof(testThread->hostname), "%s", hostname);
+
+  pthreadDesc = (pthread_t *)malloc(sizeof(pthread_t));
+  /* Start the thread */
+  printf("start the thread\n");
+  if (pthread_create(pthreadDesc, NULL,
+                       testThreadProcess, (void*)testThread) == 0) {
+    pthread_detach(*pthreadDesc);
+
+    pthread_mutex_lock(&mutualExclusion); 
+
+    configThreadCount++;
+
+    pthread_mutex_unlock(&mutualExclusion);
+
+  }
+  else {
+    printf("thread not created id:%d", testThread->ident);  
+  }
+
+  free(pthreadDesc);
+
+  return 0;
+
+}
+
+/* ----------------------------------------------------------------------------
+ * ConfigThreadInit -- Initialise the config thread functions 
+ *
+ * Arguments:        None.
+ *
+ * Returns:          None.
+ *
+ * Error Messages:   None.
+ *
+ */
+static
+void
+ConfigThreadInit(void) {
+
+  if (ConfigThreadInitialised == 0) {
+    pthread_mutex_init(&mutualExclusion, NULL);
+    /* Initialise number for random number generator */
+    seedNumber=time(NULL);
+    ConfigThreadInitialised = 1;
+  }
+
+}
+
+/*----------------------------------------------------------------------------
+ FUNCTION : ConfigThreadSetRandomNumber
+ CREATOR  : Guido Roelli
+
+ Return   : 0 ok
+----------------------------------------------------------------------------*/
+int 
+ConfigThreadSetRandomNumber(int randomNumber)
+{
+
+  ConfigThreadInit();
+
+  configThreadRandomNumber = randomNumber;
+
+  return 0;
+
+}
+
+/* ----------------------------------------------------------------------------
+ * ConfigGetThreadCount -- Get the thread counter
+ *
+ * Arguments:        None.
+ *
+ * Returns:          int -- thread counter
+ *
+ * Error Messages:   None.
+ *
+ */
+static
+int
+ConfigGetThreadCount(void) {
+
+  int count;
+
+  ConfigThreadInit();
+  count = configThreadCount;
+  return count;
+
+}
+
+/* ----------------------------------------------------------------------------
+ * ConfigGetThreadActiveCount -- Get the thread active counter
+ *
+ * Arguments:        None.
+ *
+ * Returns:          int -- thread active counter
+ *
+ * Error Messages:   None.
+ *
+ */
+static
+int
+ConfigGetThreadActiveCount(void) {
+
+  int count;
+
+  ConfigThreadInit();
+  count = configThreadActive;
+  return count;
+
+}
+
+/* ----------------------------------------------------------------------------
+ * ConfigStartThreads -- Start Threads.
+ *
+ * Arguments:        
+ *
+ * Returns:          always 0.
+ *
+ * Error Messages:   None. Log message if list is empty.
+ *
+ */
+int
+ConfigStartThreads() {
+
+  int i = 1;
+  char tempHostname[100];
+
+  printf("ConfigStartThreads\n");
+  ConfigThreadInit();
+
+  for (i = 0; i < 5; i++) {
+    sprintf(tempHostname, "test%d", i); 
+    startTestThread(i, tempHostname);
+  }
+
+  return 0;
+
+}
+

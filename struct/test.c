@@ -1,0 +1,91 @@
+/* test.c */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define NAME_LEN 100
+
+struct person {
+  char firstname[NAME_LEN];
+  char lastname[NAME_LEN];
+};
+
+struct {
+  int x;
+  int y;
+  int z;
+} data[10];
+
+typedef struct {
+  int x;
+  int y;
+  int z;
+} data_struct;
+
+typedef struct person Person;
+
+int main(void) {
+
+  int i;
+
+  struct person person[10]; 
+  struct person *personPtr;  
+  struct person *personPtrField[10];    
+ 
+  Person persons[10];
+
+  data_struct dataStruct[10];
+  data_struct *dataStructPtr;
+
+  strcpy(&person[0].firstname[0], "Guido");
+  strcpy(&person[0].lastname[0], "Roelli");
+
+  printf("\n");
+
+  printf("firstname:%s lastname:%s\n", &person[0].firstname[0], &person[0].lastname[0]);
+
+  personPtr =  &person[1];
+
+  strcpy(personPtr->firstname, "Hans");
+  strcpy(personPtr->lastname, "Muster");
+
+  printf("firstname:%s lastname:%s\n", personPtr->firstname, personPtr->lastname);
+
+  for (i = 0; i < 10; i++) {
+    personPtrField[i] = &person[i];
+  } 
+
+  printf("personPtrField[1] firstname:%s lastname:%s\n", personPtrField[1]->firstname, personPtrField[1]->lastname);
+
+  printf("\n");
+
+  strcpy(&persons[0].firstname[0], "Firstname");
+  strcpy(&persons[0].lastname[0], "Lastname");
+
+  printf("persons firstname:%s lastname:%s\n", &persons[0].firstname[0], &persons[0].lastname[0]);
+
+  printf("\n");
+
+
+  data[0].x = 100;
+  data[0].y = 200;
+  data[0].z = 300;
+
+  printf("data x:%d y:%d z:%d\n", data[0].x, data[0].y, data[0].z);
+
+  dataStruct[0].x = 111;
+  dataStruct[0].y = 222;
+  dataStruct[0].z = 333;
+
+  printf("data struct x:%d y:%d z:%d\n", dataStruct[0].x, dataStruct[0].y, dataStruct[0].z);
+
+  dataStructPtr = &dataStruct[1];
+  dataStructPtr->x = 1111;
+  dataStructPtr->y = 2222;
+  dataStructPtr->z = 3333;
+  
+  printf("data struct ptr x:%d y:%d z:%d\n", dataStructPtr->x, dataStructPtr->y, dataStructPtr->z);
+
+  printf("\n");
+  
+}

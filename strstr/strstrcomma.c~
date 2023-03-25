@@ -1,0 +1,65 @@
+/* strstrcomma.c */
+
+#include <stdio.h>
+
+#define MAXARGC		50	
+
+
+int
+SplitLine(char *buf, char *sep, int *argc, char **argv) {
+
+  char *stringPtr;
+  char *ptr;
+  char string[100];
+
+  sprintf(string, "1,2,3,4,5,6,7,8,9,0");
+  printf("string is %s\n", string);
+
+  ptr = string; 
+  while (ptr != NULL) { 
+
+    stringPtr = ptr;
+
+    ptr=(char *) strstr(ptr, ",");
+
+    if (ptr == NULL) {
+      continue;
+    }
+    
+    *ptr='\0';
+
+    /* testdir, mkdir */
+
+    /* *ptr='#'; */
+    ptr++;
+
+    printf("ptr : %s|stringPtr : %s\n", ptr, stringPtr);
+
+  }
+
+    printf("stringPtr : %s\n", stringPtr);
+
+}
+
+
+int main() {
+
+  char	*args[MAXARGC];
+  int   narg;
+
+  printf("decoded : %s\n", buf);
+
+  if (SplitLine(buf, ",", &narg, args) == -1) {
+    printf("decoding error : %s", buf);
+    return -1;
+  }
+
+  /*
+  for (i=0; i<narg; i++) {
+    printf("%d|%s\n", i, args[i]);
+  }
+  */
+
+  return 0;
+
+}

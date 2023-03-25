@@ -1,0 +1,911 @@
+\hypertarget{mainloop__bad_8c}{
+\section{mainloop\_\-bad.c File Reference}
+\label{mainloop__bad_8c}\index{mainloop_bad.c@{mainloop\_\-bad.c}}
+}
+Example for \char`\"{}bad\char`\"{} main loop.  
+
+
+{\tt \#include $<$unistd.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include $<$sys/time.h$>$}\par
+{\tt \#include $<$sys/socket.h$>$}\par
+{\tt \#include $<$signal.h$>$}\par
+{\tt \#include $<$fcntl.h$>$}\par
+\subsection*{Data Structures}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structechoclient__t}{echoclient\_\-t}
+\begin{CompactList}\small\item\em echo client state \item\end{CompactList}\item 
+struct \hyperlink{structchargenclient__t}{chargenclient\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{mainloop__bad_8c_a0}{PORT\_\-ECHO}\ 5005
+\begin{CompactList}\small\item\em tcp port to listen for echo clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__bad_8c_a1}{PORT\_\-CHARGEN}\ 5006
+\begin{CompactList}\small\item\em tcp port to listen for chargen clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__bad_8c_a2}{HEARTBEAT\_\-INTERVAL}\ 2
+\begin{CompactList}\small\item\em heartbeat interval (in seconds) \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__bad_8c_a3}{SLOWHEARTBEAT\_\-INTERVAL}\ 15
+\begin{CompactList}\small\item\em slow heartbeat interval (in seconds) \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__bad_8c_a4}{BUFSIZE}\ 16
+\begin{CompactList}\small\item\em buffer size for echo client \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__bad_8c_a5}{MAXCLIENTS}\ 4
+\begin{CompactList}\small\item\em maximum number of clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__bad_8c_a6}{MSG\_\-HEARTBEAT}\ 0
+\item 
+\#define \hyperlink{mainloop__bad_8c_a7}{MSG\_\-SLOWHEARTBEAT}\ 1
+\item 
+\#define \hyperlink{mainloop__bad_8c_a8}{MSG\_\-MAINLOOP}\ 2
+\item 
+\#define \hyperlink{mainloop__bad_8c_a9}{MSG\_\-ACCEPT}\ 3
+\item 
+\#define \hyperlink{mainloop__bad_8c_a10}{MSG\_\-TOOMANY}\ 4
+\item 
+\#define \hyperlink{mainloop__bad_8c_a11}{MSG\_\-CLOSE}\ 5
+\item 
+\#define \hyperlink{mainloop__bad_8c_a12}{MSG\_\-READ}\ 6
+\item 
+\#define \hyperlink{mainloop__bad_8c_a13}{MSG\_\-WRITE}\ 7
+\item 
+\#define \hyperlink{mainloop__bad_8c_a14}{MSG\_\-FULL}\ 8
+\item 
+\#define \hyperlink{mainloop__bad_8c_a15}{MSG\_\-EMPTY}\ 9
+\item 
+\#define \hyperlink{mainloop__bad_8c_a16}{MIN}(a, b)\ ((a)$<$(b)?(a):(b))
+\item 
+\#define \hyperlink{mainloop__bad_8c_a17}{MAX}(a, b)\ ((a)$>$(b)?(a):(b))
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{mainloop__bad_8c_a19}{message} (int msg)
+\begin{CompactList}\small\item\em print message describing current activity \item\end{CompactList}\item 
+int \hyperlink{mainloop__bad_8c_a20}{listensocket} (int port)
+\begin{CompactList}\small\item\em return tcp socket listening on port specified \item\end{CompactList}\item 
+void \hyperlink{mainloop__bad_8c_a21}{setnonblock} (int fd)
+\begin{CompactList}\small\item\em set a file descriptor to be nonblocking \item\end{CompactList}\item 
+void \hyperlink{mainloop__bad_8c_a22}{sighandler} (int signo)
+\begin{CompactList}\small\item\em signal handler \item\end{CompactList}\item 
+void \hyperlink{mainloop__bad_8c_a23}{readecho} (\hyperlink{structechoclient__t}{echoclient\_\-t} $\ast$client)
+\begin{CompactList}\small\item\em read data from an echo client \item\end{CompactList}\item 
+void \hyperlink{mainloop__bad_8c_a24}{writeecho} (\hyperlink{structechoclient__t}{echoclient\_\-t} $\ast$client)
+\begin{CompactList}\small\item\em write data to an echo client \item\end{CompactList}\item 
+void \hyperlink{mainloop__bad_8c_a25}{writechargen} (\hyperlink{structchargenclient__t}{chargenclient\_\-t} $\ast$client)
+\begin{CompactList}\small\item\em write data to a chargen client \item\end{CompactList}\item 
+int \hyperlink{mainloop__bad_8c_a26}{main} ()
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char \hyperlink{mainloop__bad_8c_a18}{chargen\_\-buf} \mbox{[}$\,$\mbox{]} = \char`\"{}0123456789abcdefghijklmnopqrstuv\char`\"{}
+\begin{CompactList}\small\item\em characters to \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Example for \char`\"{}bad\char`\"{} main loop. 
+
+\begin{Desc}
+\item[Author:]Rico Pajarola\end{Desc}
+This example tries to do everything as bad as possible without doing it just plain wrong (that's not as easy as it sounds). This is done by putting all the logic into one huge main loop, and explicitly spelling out all special cases in place.
+
+Apart from the time spent trying to find worse ways to do things, this example was completed really quick. That is, at least until I tried to add a second client and a second timer...
+
+To emphasize that this is the bad example, select() is used.
+
+Definition in file \hyperlink{mainloop__bad_8c-source}{mainloop\_\-bad.c}.
+
+\subsection{Define Documentation}
+\hypertarget{mainloop__bad_8c_a4}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!BUFSIZE@{BUFSIZE}}
+\index{BUFSIZE@{BUFSIZE}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[BUFSIZE]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFSIZE\ 16}}
+\label{mainloop__bad_8c_a4}
+
+
+buffer size for echo client 
+
+
+
+Definition at line 42 of file mainloop\_\-bad.c.
+
+Referenced by echo\_\-dispatch\_\-read(), echo\_\-dispatch\_\-write(), echo\_\-prepare(), flowecho(), main(), readecho(), and writeecho().\hypertarget{mainloop__bad_8c_a2}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!HEARTBEAT_INTERVAL@{HEARTBEAT\_\-INTERVAL}}
+\index{HEARTBEAT_INTERVAL@{HEARTBEAT\_\-INTERVAL}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[HEARTBEAT\_\-INTERVAL]{\setlength{\rightskip}{0pt plus 5cm}\#define HEARTBEAT\_\-INTERVAL\ 2}}
+\label{mainloop__bad_8c_a2}
+
+
+heartbeat interval (in seconds) 
+
+
+
+Definition at line 36 of file mainloop\_\-bad.c.
+
+Referenced by main(), and sighandler().\hypertarget{mainloop__bad_8c_a17}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MAX@{MAX}}
+\index{MAX@{MAX}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MAX]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX(a, b)\ ((a)$>$(b)?(a):(b))}}
+\label{mainloop__bad_8c_a17}
+
+
+
+
+Definition at line 59 of file mainloop\_\-bad.c.
+
+Referenced by alarmhandler(), and sighandler().\hypertarget{mainloop__bad_8c_a5}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MAXCLIENTS@{MAXCLIENTS}}
+\index{MAXCLIENTS@{MAXCLIENTS}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MAXCLIENTS]{\setlength{\rightskip}{0pt plus 5cm}\#define MAXCLIENTS\ 4}}
+\label{mainloop__bad_8c_a5}
+
+
+maximum number of clients 
+
+
+
+Definition at line 45 of file mainloop\_\-bad.c.
+
+Referenced by addclient(), initclients(), and main().\hypertarget{mainloop__bad_8c_a16}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MIN@{MIN}}
+\index{MIN@{MIN}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MIN]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(a, b)\ ((a)$<$(b)?(a):(b))}}
+\label{mainloop__bad_8c_a16}
+
+
+
+
+Definition at line 58 of file mainloop\_\-bad.c.
+
+Referenced by alarmhandler(), and sighandler().\hypertarget{mainloop__bad_8c_a9}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_ACCEPT@{MSG\_\-ACCEPT}}
+\index{MSG_ACCEPT@{MSG\_\-ACCEPT}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-ACCEPT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-ACCEPT\ 3}}
+\label{mainloop__bad_8c_a9}
+
+
+
+
+Definition at line 50 of file mainloop\_\-bad.c.
+
+Referenced by accept\_\-dispatch(), acceptecho(), main(), and message().\hypertarget{mainloop__bad_8c_a11}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_CLOSE@{MSG\_\-CLOSE}}
+\index{MSG_CLOSE@{MSG\_\-CLOSE}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-CLOSE]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-CLOSE\ 5}}
+\label{mainloop__bad_8c_a11}
+
+
+
+
+Definition at line 52 of file mainloop\_\-bad.c.
+
+Referenced by closeclient(), message(), readecho(), source\_\-close(), writechargen(), and writeecho().\hypertarget{mainloop__bad_8c_a15}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_EMPTY@{MSG\_\-EMPTY}}
+\index{MSG_EMPTY@{MSG\_\-EMPTY}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-EMPTY]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-EMPTY\ 9}}
+\label{mainloop__bad_8c_a15}
+
+
+
+
+Definition at line 56 of file mainloop\_\-bad.c.
+
+Referenced by echo\_\-dispatch\_\-write(), message(), and writeecho().\hypertarget{mainloop__bad_8c_a14}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_FULL@{MSG\_\-FULL}}
+\index{MSG_FULL@{MSG\_\-FULL}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-FULL]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-FULL\ 8}}
+\label{mainloop__bad_8c_a14}
+
+
+
+
+Definition at line 55 of file mainloop\_\-bad.c.
+
+Referenced by echo\_\-dispatch\_\-read(), message(), and readecho().\hypertarget{mainloop__bad_8c_a6}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_HEARTBEAT@{MSG\_\-HEARTBEAT}}
+\index{MSG_HEARTBEAT@{MSG\_\-HEARTBEAT}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-HEARTBEAT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-HEARTBEAT\ 0}}
+\label{mainloop__bad_8c_a6}
+
+
+
+
+Definition at line 47 of file mainloop\_\-bad.c.
+
+Referenced by heartbeat(), message(), and sighandler().\hypertarget{mainloop__bad_8c_a8}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_MAINLOOP@{MSG\_\-MAINLOOP}}
+\index{MSG_MAINLOOP@{MSG\_\-MAINLOOP}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-MAINLOOP]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-MAINLOOP\ 2}}
+\label{mainloop__bad_8c_a8}
+
+
+
+
+Definition at line 49 of file mainloop\_\-bad.c.
+
+Referenced by main(), mainloop(), and message().\hypertarget{mainloop__bad_8c_a12}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_READ@{MSG\_\-READ}}
+\index{MSG_READ@{MSG\_\-READ}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-READ]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-READ\ 6}}
+\label{mainloop__bad_8c_a12}
+
+
+
+
+Definition at line 53 of file mainloop\_\-bad.c.
+
+Referenced by echo\_\-dispatch\_\-read(), message(), and readecho().\hypertarget{mainloop__bad_8c_a7}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_SLOWHEARTBEAT@{MSG\_\-SLOWHEARTBEAT}}
+\index{MSG_SLOWHEARTBEAT@{MSG\_\-SLOWHEARTBEAT}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-SLOWHEARTBEAT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-SLOWHEARTBEAT\ 1}}
+\label{mainloop__bad_8c_a7}
+
+
+
+
+Definition at line 48 of file mainloop\_\-bad.c.
+
+Referenced by message(), sighandler(), and slowheartbeat().\hypertarget{mainloop__bad_8c_a10}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_TOOMANY@{MSG\_\-TOOMANY}}
+\index{MSG_TOOMANY@{MSG\_\-TOOMANY}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-TOOMANY]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-TOOMANY\ 4}}
+\label{mainloop__bad_8c_a10}
+
+
+
+
+Definition at line 51 of file mainloop\_\-bad.c.
+
+Referenced by addclient(), main(), and message().\hypertarget{mainloop__bad_8c_a13}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!MSG_WRITE@{MSG\_\-WRITE}}
+\index{MSG_WRITE@{MSG\_\-WRITE}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[MSG\_\-WRITE]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-WRITE\ 7}}
+\label{mainloop__bad_8c_a13}
+
+
+
+
+Definition at line 54 of file mainloop\_\-bad.c.
+
+Referenced by chargen\_\-dispatch(), echo\_\-dispatch\_\-write(), message(), writechargen(), and writeecho().\hypertarget{mainloop__bad_8c_a1}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!PORT_CHARGEN@{PORT\_\-CHARGEN}}
+\index{PORT_CHARGEN@{PORT\_\-CHARGEN}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[PORT\_\-CHARGEN]{\setlength{\rightskip}{0pt plus 5cm}\#define PORT\_\-CHARGEN\ 5006}}
+\label{mainloop__bad_8c_a1}
+
+
+tcp port to listen for chargen clients 
+
+
+
+Definition at line 33 of file mainloop\_\-bad.c.
+
+Referenced by main().\hypertarget{mainloop__bad_8c_a0}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!PORT_ECHO@{PORT\_\-ECHO}}
+\index{PORT_ECHO@{PORT\_\-ECHO}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[PORT\_\-ECHO]{\setlength{\rightskip}{0pt plus 5cm}\#define PORT\_\-ECHO\ 5005}}
+\label{mainloop__bad_8c_a0}
+
+
+tcp port to listen for echo clients 
+
+
+
+Definition at line 30 of file mainloop\_\-bad.c.
+
+Referenced by main().\hypertarget{mainloop__bad_8c_a3}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\-INTERVAL}}
+\index{SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\-INTERVAL}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[SLOWHEARTBEAT\_\-INTERVAL]{\setlength{\rightskip}{0pt plus 5cm}\#define SLOWHEARTBEAT\_\-INTERVAL\ 15}}
+\label{mainloop__bad_8c_a3}
+
+
+slow heartbeat interval (in seconds) 
+
+
+
+Definition at line 39 of file mainloop\_\-bad.c.
+
+Referenced by main(), and sighandler().
+
+\subsection{Function Documentation}
+\hypertarget{mainloop__bad_8c_a20}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!listensocket@{listensocket}}
+\index{listensocket@{listensocket}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[listensocket]{\setlength{\rightskip}{0pt plus 5cm}int listensocket (int {\em port})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a20}
+
+
+return tcp socket listening on port specified 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em port}]port number in host byte order\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]file descriptor for listening socket\end{Desc}
+The socket is set to be nonblocking 
+
+Definition at line 193 of file mainloop\_\-bad.c.
+
+References setnonblock().
+
+
+
+\footnotesize\begin{verbatim}194 {
+195     int             serverfd;
+196     struct sockaddr_in sain;
+197     int             one;
+198 
+199     /* set up tcp socket for listening */
+200     sain.sin_family = AF_INET;
+201     sain.sin_port = htons(port);
+202     sain.sin_addr.s_addr = INADDR_ANY;
+203     if ((serverfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+204         perror("socket(AF_INET, SOCK_STREAM, 0)");
+205         exit(EXIT_FAILURE);
+206     }
+207     one = 1;
+208     if (setsockopt
+209         (serverfd, SOL_SOCKET, SO_REUSEADDR, &one,
+210          (int) sizeof(one)) == -1) {
+211         perror("setsockopt(SO_REUSEADDR)");
+212         exit(EXIT_FAILURE);
+213     }
+214     if (bind
+215         (serverfd, (struct sockaddr *) &sain,
+216          sizeof(struct sockaddr_in)) == -1) {
+217         perror("bind()");
+218         exit(EXIT_FAILURE);
+219     }
+220     if (listen(serverfd, 5) == -1) {
+221         perror("listen()");
+222         exit(EXIT_FAILURE);
+223     }
+224     setnonblock(serverfd);
+225 
+226     printf("listening on port %d\n", port);
+227 
+228     return serverfd;
+229 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__bad_8c_a26}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!main@{main}}
+\index{main@{main}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[main]{\setlength{\rightskip}{0pt plus 5cm}int main ()}}
+\label{mainloop__bad_8c_a26}
+
+
+
+
+Definition at line 379 of file mainloop\_\-bad.c.
+
+References BUFSIZE, chargenclient\_\-t::fd, echoclient\_\-t::fd, HEARTBEAT\_\-INTERVAL, chargenclient\_\-t::i, listensocket(), MAXCLIENTS, message(), MSG\_\-ACCEPT, MSG\_\-MAINLOOP, MSG\_\-TOOMANY, echoclient\_\-t::n, PORT\_\-CHARGEN, PORT\_\-ECHO, echoclient\_\-t::r, readecho(), setnonblock(), sighandler(), SLOWHEARTBEAT\_\-INTERVAL, echoclient\_\-t::w, writechargen(), and writeecho().
+
+
+
+\footnotesize\begin{verbatim}380 {
+381     int             echoserverfd;
+382     int             chargenserverfd;
+383     echoclient_t    echoclients[MAXCLIENTS];
+384     chargenclient_t chargenclients[MAXCLIENTS];
+385     fd_set          rfdset, wfdset;
+386     int             fdsetmax;
+387     int             n, i;
+388     size_t          s;
+389     struct sockaddr_in sain;
+390 
+391     printf("example: bad main loop\n");
+392 
+393     /* 
+394      * ignore SIGPIPE (this occurs whenever a chargen client closes
+395      * the connection).
+396      */
+397     if (signal(SIGPIPE, SIG_IGN) == SIG_ERR) {
+398         perror("signal(SIGPIPE, SIG_IGN)");
+399         exit(EXIT_FAILURE);
+400     }
+401 
+402     /* 
+403      * install heartbeat. this is done by calling the signal
+404      * handler for SIGALRM which then installs itself as a signal
+405      * handler and starts the alarm clock.
+406      */
+407     printf("heartbeat every %d seconds\n", HEARTBEAT_INTERVAL);
+408     printf("slow heartbeat every %d seconds\n", SLOWHEARTBEAT_INTERVAL);
+409     sighandler(SIGALRM);
+410 
+411     /* 
+412      * create server sockets for echo and chargen services
+413      */
+414     echoserverfd = listensocket(PORT_ECHO);
+415     chargenserverfd = listensocket(PORT_CHARGEN);
+416 
+417     /* 
+418      * reset all client state slots (mark as unused)
+419      */
+420     for (i = 0; i < MAXCLIENTS; i++) {
+421         echoclients[i].fd = -1;
+422         chargenclients[i].fd = -1;
+423     }
+424 
+425     /* 
+426      * initialize fdsets for select()
+427      */
+428     FD_ZERO(&rfdset);
+429     FD_ZERO(&wfdset);
+430     FD_SET(STDIN_FILENO, &rfdset);
+431     FD_SET(echoserverfd, &rfdset);      /* fd 3 */
+432     FD_SET(chargenserverfd, &rfdset);   /* fd 4 */
+433     fdsetmax = chargenserverfd; /* fd 4 */
+434 
+435     /* 
+436      * THE main loop
+437      * Remeber, this is the bad example. On Solaris, select() is a
+438      * (rather clumsy) wrapper around poll(). There is no way to efficiently
+439      * emulate select() using poll().
+440      */
+441     while (((n = select(fdsetmax + 1, &rfdset, &wfdset, NULL, NULL)) != -1)
+442            || (errno == EINTR)) {
+443         message(MSG_MAINLOOP);
+444 
+445         if (n == -1) {
+446             /* got -1 and errno==EINTR */
+447             continue;
+448         }
+449 
+450         /* 
+451          * check for new echo connections
+452          */
+453         if (FD_ISSET(echoserverfd, &rfdset)) {
+454             /* find free slot */
+455             for (i = 0; (i < MAXCLIENTS) && (echoclients[i].fd != -1);
+456                  i++);
+457             if (echoclients[i].fd != -1) {
+458                 /* no free slots */
+459                 s = sizeof(sain);
+460                 i = accept(echoserverfd, (struct sockaddr *) &sain, &s);
+461                 close(i);
+462                 message(MSG_TOOMANY);
+463             } else {
+464                 s = sizeof(sain);
+465                 echoclients[i].fd =
+466                     accept(echoserverfd, (struct sockaddr *) &sain, &s);
+467                 message(MSG_ACCEPT);
+468                 setnonblock(echoclients[i].fd);
+469                 echoclients[i].r = 0;   /* start reading from buffer at pos 0 */
+470                 echoclients[i].w = 0;   /* start writing to buffer at pos 0 */
+471                 echoclients[i].n = 0;   /* 0 bytes in buffer */
+472             }
+473         }
+474 
+475         /* 
+476          * check for new chargen connections
+477          */
+478         if (FD_ISSET(chargenserverfd, &rfdset)) {
+479             /* find free slot */
+480             for (i = 0; (i < MAXCLIENTS) && (chargenclients[i].fd != -1);
+481                  i++);
+482             if (chargenclients[i].fd != -1) {
+483                 /* no free slots */
+484                 s = sizeof(sain);
+485                 i = accept(chargenserverfd, (struct sockaddr *) &sain, &s);
+486                 close(i);
+487                 message(MSG_TOOMANY);
+488             } else {
+489                 s = sizeof(sain);
+490                 chargenclients[i].fd =
+491                     accept(chargenserverfd, (struct sockaddr *) &sain, &s);
+492                 message(MSG_ACCEPT);
+493                 setnonblock(chargenclients[i].fd);
+494                 chargenclients[i].i = 0;        /* start sending from buffer
+495                                                  * at pos 0 */
+496             }
+497         }
+498 
+499         /* 
+500          * try to read/write data for echo clients
+501          */
+502         for (i = 0; i < MAXCLIENTS; i++) {
+503             if ((echoclients[i].fd != -1)
+504                 && (FD_ISSET(echoclients[i].fd, &rfdset))) {
+505                 readecho(&echoclients[i]);
+506             }
+507             if ((echoclients[i].fd != -1)
+508                 && (FD_ISSET(echoclients[i].fd, &wfdset))) {
+509                 writeecho(&echoclients[i]);
+510             }
+511         }
+512 
+513         /* 
+514          * try to write data for chargen clients
+515          */
+516         for (i = 0; i < MAXCLIENTS; i++) {
+517             if ((chargenclients[i].fd != -1)
+518                 && (FD_ISSET(chargenclients[i].fd, &wfdset))) {
+519                 writechargen(&chargenclients[i]);
+520             }
+521         }
+522 
+523         /* 
+524          * reinitialize fdset
+525          */
+526         FD_ZERO(&rfdset);
+527         FD_ZERO(&wfdset);
+528         fdsetmax = chargenserverfd;
+529         FD_SET(echoserverfd, &rfdset);
+530         FD_SET(chargenserverfd, &rfdset);
+531         for (i = 0; i < MAXCLIENTS; i++) {
+532             if (echoclients[i].fd >= 0) {
+533                 if (echoclients[i].n < BUFSIZE) {
+534                     FD_SET(echoclients[i].fd, &rfdset);
+535                     if (echoclients[i].fd > fdsetmax) {
+536                         fdsetmax = echoclients[i].fd;
+537                     }
+538                 }
+539                 if (echoclients[i].n > 0) {
+540                     FD_SET(echoclients[i].fd, &wfdset);
+541                     if (echoclients[i].fd > fdsetmax) {
+542                         fdsetmax = echoclients[i].fd;
+543                     }
+544                 }
+545             }
+546         }
+547         for (i = 0; i < MAXCLIENTS; i++) {
+548             if (chargenclients[i].fd >= 0) {
+549                 FD_SET(chargenclients[i].fd, &wfdset);
+550                 if (chargenclients[i].fd > fdsetmax) {
+551                     fdsetmax = chargenclients[i].fd;
+552                 }
+553             }
+554         }
+555     }
+556     /* notreached */
+557     exit(EXIT_FAILURE);
+558 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__bad_8c_a19}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!message@{message}}
+\index{message@{message}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[message]{\setlength{\rightskip}{0pt plus 5cm}void message (int {\em msg})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a19}
+
+
+print message describing current activity 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em msg}]id of message to print (MSG\_\-XYZ) \end{description}
+\end{Desc}
+
+
+Definition at line 96 of file mainloop\_\-bad.c.
+
+References MSG\_\-ACCEPT, MSG\_\-CLOSE, MSG\_\-EMPTY, MSG\_\-FULL, MSG\_\-HEARTBEAT, MSG\_\-MAINLOOP, MSG\_\-READ, MSG\_\-SLOWHEARTBEAT, MSG\_\-TOOMANY, and MSG\_\-WRITE.
+
+
+
+\footnotesize\begin{verbatim}97 {
+98     switch (msg) {
+99     case MSG_HEARTBEAT:
+100         printf("H");
+101         break;
+102     case MSG_SLOWHEARTBEAT:
+103         printf("S");
+104         break;
+105     case MSG_MAINLOOP:
+106         /* printf("M"); */
+107         break;
+108     case MSG_ACCEPT:
+109         printf("A");
+110         break;
+111     case MSG_TOOMANY:
+112         printf("T");
+113         break;
+114     case MSG_CLOSE:
+115         printf("C");
+116         break;
+117     case MSG_READ:
+118         printf("R");
+119         break;
+120     case MSG_WRITE:
+121         printf("W");
+122         break;
+123     case MSG_FULL:
+124         printf("F");
+125         break;
+126     case MSG_EMPTY:
+127         printf("E");
+128         break;
+129     }
+130     fflush(stdout);
+131 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__bad_8c_a23}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!readecho@{readecho}}
+\index{readecho@{readecho}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[readecho]{\setlength{\rightskip}{0pt plus 5cm}void readecho (\hyperlink{structechoclient__t}{echoclient\_\-t} $\ast$ {\em client})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a23}
+
+
+read data from an echo client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em client}]echo client state\end{description}
+\end{Desc}
+If the buffer is not full, tries to do one read from the filedescriptor associated with the echo client. 
+
+Definition at line 257 of file mainloop\_\-bad.c.
+
+References echoclient\_\-t::buf, BUFSIZE, echoclient\_\-t::fd, message(), MSG\_\-CLOSE, MSG\_\-FULL, MSG\_\-READ, echoclient\_\-t::n, echoclient\_\-t::r, and echoclient\_\-t::w.
+
+
+
+\footnotesize\begin{verbatim}258 {
+259     int             nread;
+260 
+261     if (client->n == BUFSIZE) {
+262         message(MSG_FULL);
+263         return;
+264     }
+265 
+266     if (client->r >= client->w) {
+267         nread =
+268             read(client->fd, client->buf + client->r, BUFSIZE - client->r);
+269     } else {
+270         nread =
+271             read(client->fd, client->buf + client->r,
+272                  client->w - client->r);
+273     }
+274 
+275     switch (nread) {
+276     case 0:
+277         message(MSG_CLOSE);
+278         close(client->fd);
+279         client->fd = -1;
+280         break;
+281     case -1:
+282         if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+283             perror("read()");
+284             exit(EXIT_FAILURE);
+285         }
+286         break;
+287     default:
+288         message(MSG_READ);
+289         client->n += nread;
+290         client->r += nread;
+291         client->r %= BUFSIZE;
+292     }
+293 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__bad_8c_a21}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!setnonblock@{setnonblock}}
+\index{setnonblock@{setnonblock}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[setnonblock]{\setlength{\rightskip}{0pt plus 5cm}void setnonblock (int {\em fd})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a21}
+
+
+set a file descriptor to be nonblocking 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em fd}]file descriptor\end{description}
+\end{Desc}
+Non-Blocking works only for Sockets, Pipes and slow devices, it has no effect when used with regular files 
+
+Definition at line 240 of file mainloop\_\-bad.c.
+
+
+
+\footnotesize\begin{verbatim}241 {
+242     int             flag;
+243 
+244     flag = fcntl(fd, F_GETFL);
+245     fcntl(fd, F_GETFL, flag | O_NONBLOCK);
+246 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__bad_8c_a22}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!sighandler@{sighandler}}
+\index{sighandler@{sighandler}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[sighandler]{\setlength{\rightskip}{0pt plus 5cm}void sighandler (int {\em signo})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a22}
+
+
+signal handler 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signo}]signal number \end{description}
+\end{Desc}
+
+
+Definition at line 139 of file mainloop\_\-bad.c.
+
+References HEARTBEAT\_\-INTERVAL, MAX, message(), MIN, MSG\_\-HEARTBEAT, MSG\_\-SLOWHEARTBEAT, sighandler(), and SLOWHEARTBEAT\_\-INTERVAL.
+
+Referenced by main(), and sighandler().
+
+
+
+\footnotesize\begin{verbatim}140 {
+141     struct timeval  now;
+142     static time_t   time_heartbeat, time_slowheartbeat;
+143     int             nextalarm;
+144 
+145     switch (signo) {
+146     case SIGALRM:
+147         /* 
+148          * (re)install signal handler and set new alarm
+149          * there is a possible race condition, but for alarm()/SIGALRM this is not a real concern
+150          */
+151         if (signal(SIGALRM, &sighandler) == SIG_ERR) {
+152             perror("signal(SIGALRM)");
+153             exit(EXIT_FAILURE);
+154         }
+155         gettimeofday(&now, NULL);
+156         if (time_heartbeat == 0) {
+157             time_heartbeat = now.tv_sec + HEARTBEAT_INTERVAL;
+158             time_slowheartbeat = now.tv_sec + SLOWHEARTBEAT_INTERVAL;
+159         }
+160         if (time_heartbeat <= now.tv_sec) {
+161             time_heartbeat += HEARTBEAT_INTERVAL;
+162             message(MSG_HEARTBEAT);
+163         }
+164         if (time_slowheartbeat <= now.tv_sec) {
+165             time_slowheartbeat += SLOWHEARTBEAT_INTERVAL;
+166             message(MSG_SLOWHEARTBEAT);
+167         }
+168 
+169         nextalarm =
+170             MAX(1, MIN(time_heartbeat, time_slowheartbeat) - now.tv_sec);
+171 
+172         if (alarm(nextalarm) == -1) {
+173             perror("alarm()");
+174             exit(EXIT_FAILURE);
+175         }
+176         break;
+177     default:
+178         /* ignore everything */
+179         break;
+180     }
+181 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__bad_8c_a25}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!writechargen@{writechargen}}
+\index{writechargen@{writechargen}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[writechargen]{\setlength{\rightskip}{0pt plus 5cm}void writechargen (\hyperlink{structchargenclient__t}{chargenclient\_\-t} $\ast$ {\em client})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a25}
+
+
+write data to a chargen client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em client}]chargen client state \end{description}
+\end{Desc}
+
+
+Definition at line 350 of file mainloop\_\-bad.c.
+
+References chargen\_\-buf, chargenclient\_\-t::fd, chargenclient\_\-t::i, message(), MSG\_\-CLOSE, and MSG\_\-WRITE.
+
+
+
+\footnotesize\begin{verbatim}351 {
+352     int             nwrite;
+353 
+354     nwrite =
+355         write(client->fd, chargen_buf + client->i,
+356               sizeof(chargen_buf) - client->i);
+357 
+358     switch (nwrite) {
+359     case -1:
+360         if (errno == EPIPE) {
+361             message(MSG_CLOSE);
+362             close(client->fd);
+363             client->fd = -1;
+364         } else if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+365             perror("write()");
+366             exit(EXIT_FAILURE);
+367         }
+368         break;
+369     case 0:
+370         break;
+371     default:
+372         message(MSG_WRITE);
+373         client->i += nwrite;
+374         client->i %= sizeof(chargen_buf);
+375     }
+376 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__bad_8c_a24}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!writeecho@{writeecho}}
+\index{writeecho@{writeecho}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[writeecho]{\setlength{\rightskip}{0pt plus 5cm}void writeecho (\hyperlink{structechoclient__t}{echoclient\_\-t} $\ast$ {\em client})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a24}
+
+
+write data to an echo client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em client}]echo client state\end{description}
+\end{Desc}
+If the buffer is not empty, tries to do one write to the filedescriptor associated with the echo client. 
+
+Definition at line 304 of file mainloop\_\-bad.c.
+
+References echoclient\_\-t::buf, BUFSIZE, echoclient\_\-t::fd, message(), MSG\_\-CLOSE, MSG\_\-EMPTY, MSG\_\-WRITE, echoclient\_\-t::n, echoclient\_\-t::r, and echoclient\_\-t::w.
+
+
+
+\footnotesize\begin{verbatim}305 {
+306     int             nwrite;
+307 
+308     if (client->n == 0) {
+309         message(MSG_EMPTY);
+310         return;
+311     }
+312 
+313     if (client->r > client->w) {
+314         nwrite =
+315             write(client->fd, client->buf + client->w,
+316                   client->r - client->w);
+317     } else {
+318         nwrite =
+319             write(client->fd, client->buf + client->w,
+320                   BUFSIZE - client->w);
+321     }
+322 
+323     switch (nwrite) {
+324     case -1:
+325         if (errno == EPIPE) {
+326             message(MSG_CLOSE);
+327             close(client->fd);
+328             client->fd = -1;
+329         } else if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+330             perror("write()");
+331             exit(EXIT_FAILURE);
+332         }
+333         break;
+334     case 0:
+335         break;
+336     default:
+337         message(MSG_WRITE);
+338         client->n -= nwrite;
+339         client->w += nwrite;
+340         client->w %= BUFSIZE;
+341     }
+342 }
+\end{verbatim}\normalsize 
+
+
+\subsection{Variable Documentation}
+\hypertarget{mainloop__bad_8c_a18}{
+\index{mainloop_bad.c@{mainloop\_\-bad.c}!chargen_buf@{chargen\_\-buf}}
+\index{chargen_buf@{chargen\_\-buf}!mainloop_bad.c@{mainloop\_\-bad.c}}
+\subsubsection[chargen\_\-buf]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{mainloop__good_8c_a19}{chargen\_\-buf}\mbox{[}$\,$\mbox{]} = \char`\"{}0123456789abcdefghijklmnopqrstuv\char`\"{}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__bad_8c_a18}
+
+
+characters to 
+
+\begin{Desc}
+\item[Returns:]in chargen service \end{Desc}
+
+
+Definition at line 62 of file mainloop\_\-bad.c.
+
+Referenced by writechargen().

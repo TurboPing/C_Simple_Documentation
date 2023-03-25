@@ -1,0 +1,11 @@
+host1      appl1    param1     value1
+host2   appl2         param2			value2
+host3      appl3  param3: value3
+host4   #####      appl4    param4  ###   value4
+
+
+host999
+
+
+host1    $$$	   $$      appl1     $$::::$     param1    value1
+

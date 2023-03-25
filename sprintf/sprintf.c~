@@ -1,0 +1,19 @@
+/* sprintf.c */
+
+#include <stdio.h>
+
+int main()
+{
+
+
+#define ASCII "ascii"
+
+  int bufsize;
+  char buf[100]; 
+
+  sprintf(buf, "first:%s"ASCII"second:%s", "part1", "part2");
+  bufsize = strlen(buf);
+
+  printf("buf:%s\n", buf);
+
+}

@@ -1,0 +1,8 @@
+Clean - cleans weird symbols from file : clean*
+
+Usage: clean source_file destination_file
+----------------------------------------------------------------------------
+
+Kolonnen - format with kolonnen*
+
+Usage: kolonnen source_file destination_file Nr._pos Seite_pos

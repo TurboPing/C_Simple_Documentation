@@ -1,0 +1,2002 @@
+This is pdfTeX, Version 3.14159-1.10b (Web2C 7.4.5) (format=pdflatex 2004.7.14)  19 JUL 2004 16:02
+**refman.tex
+(./refman.tex{/space/pajarri/opt/share/texmf/pdftex/config/pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/space/pajarri/opt/share/texmf/tex/latex/base/book.cls
+Document Class: book 2001/04/21 v1.4e Standard LaTeX document class
+(/space/pajarri/opt/share/texmf/tex/latex/base/bk10.clo
+File: bk10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/space/pajarri/opt/share/texmf/tex/latex/misc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/space/pajarri/opt/share/texmf/tex/latex/ntgclass/a4.sty
+Package: a4 1999/03/03 v1.2f A4 based page layout
+))
+(/space/pajarri/opt/share/texmf/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/space/pajarri/opt/share/texmf/tex/latex/fancyhdr/fancyhdr.sty
+\headwidth=\dimen103
+)
+(/space/pajarri/opt/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/space/pajarri/opt/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/space/pajarri/opt/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/space/pajarri/opt/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/space/pajarri/opt/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2001/08/31 v1.1 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/space/pajarri/opt/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 2002/06/19 v0.03k graphics/color for pdftex
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/space/pajarri/opt/share/texmf/tex/latex/tools/multicol.sty
+Package: multicol 2000/07/10 v1.5z multicolumn formatting (FMi)
+\c@tracingmulticols=\count89
+\mult@box=\box26
+\multicol@leftmargin=\dimen106
+\c@unbalance=\count90
+\c@collectmore=\count91
+\doublecol@number=\count92
+\multicoltolerance=\count93
+\multicolpretolerance=\count94
+\full@width=\dimen107
+\page@free=\dimen108
+\premulticols=\dimen109
+\postmulticols=\dimen110
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count95
+\c@finalcolumnbadness=\count96
+\last@try=\dimen111
+\multicolovershoot=\dimen112
+\multicolundershoot=\dimen113
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+)
+(/space/pajarri/opt/share/texmf/tex/latex/misc/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count97
+\float@exts=\toks15
+\float@box=\box52
+\@float@everytoks=\toks16
+\@floatcapt=\box53
+)
+(/space/pajarri/opt/share/texmf/tex/latex/base/textcomp.sty
+Package: textcomp 2001/06/05 v1.94 Standard LaTeX package
+
+(/space/pajarri/opt/share/texmf/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+))
+(/space/pajarri/opt/share/texmf/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(/space/pajarri/opt/share/texmf/tex/latex/psnfss/times.sty
+Package: times 2002/09/08 PSNFSS-v9.0a (SPQR) 
+)
+(/space/pajarri/opt/share/texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2003/01/22 v6.73n Hypertext links for LaTeX
+\@linkdim=\dimen114
+\Hy@linkcounter=\count98
+\Hy@pagecounter=\count99
+
+(/space/pajarri/opt/share/texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2003/01/22 v6.73n Hyperref: PDFDocEncoding definition (HO)
+)
+(/space/pajarri/opt/share/texmf/tex/latex/config/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive and teTeX
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 1744.
+Package hyperref Info: Hyper figures OFF on input line 1792.
+Package hyperref Info: Link nesting OFF on input line 1797.
+Package hyperref Info: Hyper index ON on input line 1800.
+Package hyperref Info: Plain pages ON on input line 1805.
+Package hyperref Info: Backreferencing ON on input line 1810.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 1916.
+(/space/pajarri/opt/share/texmf/tex/latex/hyperref/backref.sty
+Package: backref 2002/06/09 v1.20 Bibliographical back referencing
+)
+(/space/pajarri/opt/share/texmf/tex/latex/misc/url.sty
+\Urlmuskip=\muskip10
+Package: url 1999/03/28  ver 1.5x  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 2055.
+\Fld@menulength=\count100
+\Field@Width=\dimen115
+\Fld@charsize=\dimen116
+\Choice@toks=\toks17
+\Field@toks=\toks18
+Package hyperref Info: Hyper figures OFF on input line 2513.
+Package hyperref Info: Link nesting OFF on input line 2518.
+Package hyperref Info: Hyper index ON on input line 2521.
+Package hyperref Info: backreferencing ON on input line 2526.
+Package hyperref Info: Link coloring ON on input line 2531.
+\c@Item=\count101
+\c@Hfootnote=\count102
+)
+*hyperref using driver hpdftex*
+(/space/pajarri/opt/share/texmf/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2003/01/22 v6.73n Hyperref driver for pdfTeX
+
+(/space/pajarri/opt/share/texmf/tex/latex/psnfss/pifont.sty
+Package: pifont 2002/09/08 PSNFSS-v9.0a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 62.
+
+(/space/pajarri/opt/share/texmf/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 63.
+
+(/space/pajarri/opt/share/texmf/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\Fld@listcount=\count103
+\@outlinefile=\write3
+) (./doxygen.sty
+Package: doxygen 
+
+(/space/pajarri/opt/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count104
+\calc@Bcount=\count105
+\calc@Adimen=\dimen117
+\calc@Bdimen=\dimen118
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count106
+)
+(/space/pajarri/opt/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen119
+\extrarowheight=\dimen120
+\NC@list=\toks19
+\extratabsurround=\skip47
+\backup@length=\skip48
+)
+\tmplength=\skip49
+)
+(/space/pajarri/opt/share/texmf/tex/latex/base/fontenc.sty
+Package: fontenc 2001/06/05 v1.94 Standard LaTeX package
+
+(/space/pajarri/opt/share/texmf/tex/latex/base/t1enc.def
+File: t1enc.def 2001/06/05 v1.94 Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 38.
+))
+\@indexfile=\write4
+\openout4 = `refman.idx'.
+
+
+Writing index file refman.idx
+(./refman.aux (./structchargen__client__t.aux) (./structchargen__source__t.aux)
+(./structchargenclient__t.aux) (./structclient__t.aux)
+(./structecho__client__t.aux) (./structecho__source__t.aux)
+(./structechoclient__t.aux) (./structlisten__source__t.aux)
+(./structsource__t.aux) (./mainloop__glib_8c.aux) (./mainloop__good_8c.aux)
+(./README.aux))
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 29.
+ (/space/pajarri/opt/share/texmf/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 29.
+
+(/space/pajarri/opt/share/texmf/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+(/space/pajarri/opt/share/texmf/tex/context/base/supp-pdf.tex
+(/space/pajarri/opt/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count107
+\scratchcounter=\count108
+\scratchtoks=\toks20
+\scratchdimen=\dimen121
+\scratchskip=\skip50
+\scratchmuskip=\muskip11
+\scratchbox=\box54
+\scratchread=\read1
+\scratchwrite=\write5
+\zeropoint=\dimen122
+\minusone=\count109
+\thousandpoint=\dimen123
+\emptytoks=\toks21
+\nextbox=\box55
+\nextdepth=\dimen124
+\everyline=\toks22
+\!!counta=\count110
+\!!countb=\count111
+\recursecounter=\count112
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPtoPDFconversion=\toks23
+) (/space/pajarri/opt/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+LaTeX Info: Redefining \color on input line 71.
+
+(/space/pajarri/opt/share/texmf/tex/latex/config/color.cfg
+File: color.cfg 2001/08/31 v1.1 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 125.
+)
+Package hyperref Info: Link coloring ON on input line 29.
+
+(/space/pajarri/opt/share/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2001/01/27 v2.19 Cross-referencing by name of section
+\c@section@level=\count115
+)
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+ (./refman.out)
+(./refman.out)
+\openout3 = `refman.out'.
+
+ [1
+
+
+{/space/pajarri/opt/share/texmf/dvips/config/pdftex.map}]
+[2
+
+]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 42.
+ (./refman.toc
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+)
+\tf@toc=\write6
+\openout6 = `refman.toc'.
+
+
+! pdfTeX warning (ext4): destination with the same identifier (name{page.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.43 \clearemptydoublepage
+                           [1
+
+]
+! pdfTeX warning (ext4): destination with the same identifier (name{page.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.43 \clearemptydoublepage
+                          
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+ [2]
+Chapter 1.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 45.
+(./index.tex
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 5.
+ (/space/pajarri/opt/share/texmf/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+))
+! pdfTeX warning (ext4): destination with the same identifier (name{page.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.47 \chapter
+             {mainloop Data Structure Index} [1
+
+
+]
+! pdfTeX warning (ext4): destination with the same identifier (name{page.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.47 \chapter
+             {mainloop Data Structure Index} [2
+
+]
+Chapter 2.
+(./annotated.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
+
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 5
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 8
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 10
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+) [3] [4
+
+]
+Chapter 3.
+(./files.tex
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 5
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6
+[][]
+ []
+
+) [5] [6
+
+]
+Chapter 4.
+(./pages.tex
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+) [7] [8
+
+]
+Chapter 5.
+(./structalarm__t.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 8.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 11.
+
+(/space/pajarri/opt/share/texmf/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+[9]) [10]
+\openout2 = `structchargen__client__t.aux'.
+
+ (./structchargen__client__t.tex
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+) [11
+
+]
+\openout2 = `structchargen__source__t.aux'.
+
+ (./structchargen__source__t.tex
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+) [12
+
+
+]
+\openout2 = `structchargenclient__t.aux'.
+
+ (./structchargenclient__t.tex
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+) [13
+
+
+]
+\openout2 = `structclient__t.aux'.
+
+ (./structclient__t.tex
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+[14
+
+
+]) [15]
+\openout2 = `structecho__client__t.aux'.
+
+ (./structecho__client__t.tex
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+[16
+
+
+]) [17]
+\openout2 = `structecho__source__t.aux'.
+
+ (./structecho__source__t.tex
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+[18
+
+
+]) [19]
+\openout2 = `structechoclient__t.aux'.
+
+ (./structechoclient__t.tex
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][]
+ []
+
+[20
+
+
+]) [21]
+\openout2 = `structlisten__source__t.aux'.
+
+ (./structlisten__source__t.tex) [22
+
+
+]
+\openout2 = `structsource__t.aux'.
+
+ (./structsource__t.tex
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][]
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 82--85
+[]/ptmr8t/Referenced by accept_-dispatch(), accept_-prepare(), chargen_-dispatc
+h(), chargen_-prepare(), check(),
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 82--85
+/ptmr8t/echo_-dispatch(), echo_-dispatch_-read(), echo_-dispatch_-write(), echo
+_-prepare(), lis-ten-source(), and
+ []
+
+[23
+
+
+]) [24]
+Chapter 6.
+(./mainloop__bad_8c.tex
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][]
+ []
+
+[25
+
+
+]
+Underfull \hbox (badness 10000) detected at line 34
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 34
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 67
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 67
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 69
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 69
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 71
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 71
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 75
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 75
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 77
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 77
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 79
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 79
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 86
+[][]
+ []
+
+[26]
+Underfull \hbox (badness 10000) detected at line 86
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+
+ []
+
+[27] [28]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 319.
+
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--331
+
+ []
+
+[29] [30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
+Underfull \hbox (badness 10000) in paragraph at lines 582--582
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 640--640
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 699--699
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 726--726
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 734--735
+[]/ptmr8t/References HEARTBEAT_-INTERVAL, MAX, mes-sage(), MIN, MSG_-HEARTBEAT,
+ MSG_-
+ []
+
+
+Overfull \hbox (60.21407pt too wide) in paragraph at lines 782--782
+[]/pcrr8t@8.0pt/149          * there is a possible race condition, but for alar
+m()/SIGALRM this is not a real concern[] 
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 793--793
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 842--842
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 906--906
+
+ []
+
+) [37]
+\openout2 = `mainloop__glib_8c.aux'.
+
+ (./mainloop__glib_8c.tex
+Underfull \hbox (badness 10000) detected at line 22
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 33
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 33
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 35
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 35
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 37
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 37
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 39
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 39
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 41
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 41
+[][]
+ []
+
+[38
+
+]
+Underfull \hbox (badness 10000) detected at line 71
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 71
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 75
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 75
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 77
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 77
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 79
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 79
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 81
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 81
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 83
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 83
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 85
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 85
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 87
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 87
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 89
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 89
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 91
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 91
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 93
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 93
+[][]
+ []
+
+[39]
+Underfull \hbox (badness 10000) detected at line 95
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 95
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 97
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 97
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 99
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 99
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 101
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 101
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 103
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 103
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 105
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 105
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 107
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 107
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 114
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 114
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
+
+ []
+
+[40] [41]
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+
+ []
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--363
+
+ []
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 423--423
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 428--428
+
+ []
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+
+ []
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 550--550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 555--555
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
+
+ []
+
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 655--655
+
+ []
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 718--718
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 723--723
+
+ []
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 762--762
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 798--798
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 836--836
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 862--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 867--867
+
+ []
+
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 923--923
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 928--928
+
+ []
+
+[51]
+Underfull \hbox (badness 3536) in paragraph at lines 967--968
+/ptmr8t/INTERVAL, source_-t::id, lis-ten-source(), PORT_-CHARGEN, PORT_-ECHO, s
+low-heart-beat(), and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1024
+
+ []
+
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1082
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1109--1109
+
+ []
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 1135--1135
+
+ []
+
+) [54]
+\openout2 = `mainloop__good_8c.aux'.
+
+ (./mainloop__good_8c.tex
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 27
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 27
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 34
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 34
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 40
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 40
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 42
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 42
+[][]
+ []
+
+[55
+
+
+]
+Underfull \hbox (badness 10000) detected at line 44
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 44
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 75
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 75
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 80
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 80
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 82
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 82
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 84
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 84
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 86
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 86
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 88
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 88
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 90
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 90
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 92
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 92
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 94
+[][]
+ []
+
+[56]
+Underfull \hbox (badness 10000) detected at line 94
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 96
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 96
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 98
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 98
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 100
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 100
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 102
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 102
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 104
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 104
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 106
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 106
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 108
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 108
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 110
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 110
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 112
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 112
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 114
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 114
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 116
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 116
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 118
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 118
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 120
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 120
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 127
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 127
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 129
+[][]
+ []
+
+[57]
+Underfull \hbox (badness 10000) detected at line 129
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 131
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 131
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 133
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 133
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 135
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 135
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
+
+ []
+
+[58] [59]
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+
+ []
+
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 378--378
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 418--418
+
+ []
+
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--466
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--504
+
+ []
+
+[62] [63]
+Underfull \hbox (badness 10000) in paragraph at lines 650--650
+
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 681--681
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+
+ []
+
+[65]
+Underfull \hbox (badness 10000) in paragraph at lines 839--839
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 844--844
+
+ []
+
+[66]
+Underfull \hbox (badness 8132) in paragraph at lines 903--904
+[]/ptmr8t/References ac-ceptchar-gen(), ac-cepte-cho(), ad-dalarm(), ad-d-clien
+t(), block-sig-pipe(), heart-beat(),
+ []
+
+[67] [68]
+Underfull \hbox (badness 10000) in paragraph at lines 993--993
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1053--1053
+
+ []
+
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 1114--1114
+
+ []
+
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 1166--1166
+
+ []
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1216
+
+ []
+
+[72]) [73]
+\openout2 = `README.aux'.
+
+ (./README.tex) [74
+
+
+]
+Chapter 7.
+(./bug.tex) (./refman.ind [75
+
+
+] [76
+
+] [77] [78] [79]) (./refman.aux
+(./structchargen__client__t.aux) (./structchargen__source__t.aux)
+(./structchargenclient__t.aux) (./structclient__t.aux)
+(./structecho__client__t.aux) (./structecho__source__t.aux)
+(./structechoclient__t.aux) (./structlisten__source__t.aux)
+(./structsource__t.aux) (./mainloop__glib_8c.aux) (./mainloop__good_8c.aux)
+(./README.aux)) ) 
+Here is how much of TeX's memory you used:
+ 4416 strings out of 95437
+ 63929 string characters out of 1189365
+ 114696 words of memory out of 1000001
+ 6778 multiletter control sequences out of 10000+50000
+ 44902 words of font info for 49 fonts, out of 500000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 31i,13n,43p,521b,593s stack positions out of 1500i,500n,5000p,200000b,5000s
+ 1446 PDF objects out of 300000
+ 474 named destinations out of 131072
+ 191 words of extra memory for PDF output out of 65536
+
+! pdfTeX warning (dest): name{mainloop__good_8c-source} has been referenced but
+ does not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{mainloop__glib_8c-source} has been referenced but
+ does not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{mainloop__bad_8c-source} has been referenced but 
+does not exist, replaced by a fixed one
+
+{/space/pajarri/opt/share/texmf/dvips/psnfss/8r.enc}{/space/pajarri/opt/share/t
+exmf/dvips/tetex/bbad153f.enc}</space/pajarri/opt/share/texmf/fonts/type1/blues
+ky/cm/cmsy10.pfb>{/space/pajarri/opt/share/texmf/dvips/tetex/aae443f0.enc}</spa
+ce/pajarri/opt/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb>
+Output written on refman.pdf (83 pages, 321787 bytes).
