@@ -1,0 +1,462 @@
+\begin{theindex}
+
+  \item {accept\_\discretionary {-}{}{}dispatch}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{42}
+  \item {accept\_\discretionary {-}{}{}prepare}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{43}
+  \item {acceptchargen}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{61}
+  \item {acceptecho}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{61}
+  \item {addalarm}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{61}
+  \item {addclient}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{62}
+  \item {alarm\_\discretionary {-}{}{}t}, \hyperpage{9}
+    \subitem {flag}, \hyperpage{9}
+    \subitem {handler}, \hyperpage{10}
+    \subitem {interval}, \hyperpage{10}
+    \subitem {nexttime}, \hyperpage{10}
+  \item {alarmhandler}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{63}
+  \item {alarmhandler\_\discretionary {-}{}{}t}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{60}
+  \item {alarms}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{72}
+
+  \indexspace
+
+  \item {blocksigpipe}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{43}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{63}
+  \item {buf}
+    \subitem {echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}, 
+		\hyperpage{16}
+    \subitem {echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{18}
+    \subitem {echoclient\_\discretionary {-}{}{}t}, \hyperpage{20}
+  \item {BUFSIZE}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{27}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{40}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{58}
+
+  \indexspace
+
+  \item {chargen}
+    \subitem {client\_\discretionary {-}{}{}t}, \hyperpage{14}
+    \subitem {source\_\discretionary {-}{}{}t}, \hyperpage{23}
+  \item {chargen\_\discretionary {-}{}{}buf}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{37}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{54}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{72}
+  \item {chargen\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}, 
+		\hyperpage{11}
+    \subitem {i}, \hyperpage{11}
+  \item {chargen\_\discretionary {-}{}{}dispatch}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{44}
+  \item {chargen\_\discretionary {-}{}{}prepare}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{45}
+  \item {chargen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{12}
+    \subitem {i}, \hyperpage{12}
+  \item {chargenclient\_\discretionary {-}{}{}t}, \hyperpage{13}
+    \subitem {fd}, \hyperpage{13}
+    \subitem {i}, \hyperpage{13}
+  \item {check}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{45}
+  \item {checkalarms}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{64}
+  \item {client\_\discretionary {-}{}{}t}, \hyperpage{14}
+    \subitem {chargen}, \hyperpage{14}
+    \subitem {echo}, \hyperpage{14}
+    \subitem {except}, \hyperpage{14}
+    \subitem {fd}, \hyperpage{14}
+    \subitem {read}, \hyperpage{15}
+    \subitem {write}, \hyperpage{15}
+  \item {clients}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{73}
+  \item {closeclient}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{64}
+
+  \indexspace
+
+  \item {delclient}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{64}
+
+  \indexspace
+
+  \item {echo}
+    \subitem {client\_\discretionary {-}{}{}t}, \hyperpage{14}
+    \subitem {source\_\discretionary {-}{}{}t}, \hyperpage{23}
+  \item {echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}, 
+		\hyperpage{16}
+    \subitem {buf}, \hyperpage{16}
+    \subitem {n}, \hyperpage{16}
+    \subitem {r}, \hyperpage{16}
+    \subitem {w}, \hyperpage{16}
+  \item {echo\_\discretionary {-}{}{}dispatch}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{46}
+  \item {echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}read}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{46}
+  \item {echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}write}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{47}
+  \item {echo\_\discretionary {-}{}{}prepare}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{48}
+  \item {echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{18}
+    \subitem {buf}, \hyperpage{18}
+    \subitem {n}, \hyperpage{18}
+    \subitem {r}, \hyperpage{18}
+    \subitem {w}, \hyperpage{18}
+  \item {echoclient\_\discretionary {-}{}{}t}, \hyperpage{20}
+    \subitem {buf}, \hyperpage{20}
+    \subitem {fd}, \hyperpage{20}
+    \subitem {n}, \hyperpage{20}
+    \subitem {r}, \hyperpage{20}
+    \subitem {w}, \hyperpage{21}
+  \item {eventhandler\_\discretionary {-}{}{}t}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{60}
+  \item {except}
+    \subitem {client\_\discretionary {-}{}{}t}, \hyperpage{14}
+
+  \indexspace
+
+  \item {fd}
+    \subitem {chargenclient\_\discretionary {-}{}{}t}, \hyperpage{13}
+    \subitem {client\_\discretionary {-}{}{}t}, \hyperpage{14}
+    \subitem {echoclient\_\discretionary {-}{}{}t}, \hyperpage{20}
+  \item {flag}
+    \subitem {alarm\_\discretionary {-}{}{}t}, \hyperpage{9}
+  \item {flowecho}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{65}
+
+  \indexspace
+
+  \item {getchargenclientsource}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{49}
+  \item {getclientsource}
+    \subitem {listen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{22}
+  \item {getclientsourcefunc}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{42}
+  \item {getechoclientsource}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{49}
+
+  \indexspace
+
+  \item {handler}
+    \subitem {alarm\_\discretionary {-}{}{}t}, \hyperpage{10}
+  \item {heartbeat}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{50}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{65}
+  \item {HEARTBEAT\_\discretionary {-}{}{}INTERVAL}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{27}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{40}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{58}
+
+  \indexspace
+
+  \item {i}
+    \subitem {chargen\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}, 
+		\hyperpage{11}
+    \subitem {chargen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{12}
+    \subitem {chargenclient\_\discretionary {-}{}{}t}, \hyperpage{13}
+  \item {id}
+    \subitem {source\_\discretionary {-}{}{}t}, \hyperpage{23}
+  \item {initalarms}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{66}
+  \item {initclients}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{66}
+  \item {interval}
+    \subitem {alarm\_\discretionary {-}{}{}t}, \hyperpage{10}
+
+  \indexspace
+
+  \item {listen}
+    \subitem {source\_\discretionary {-}{}{}t}, \hyperpage{23}
+  \item {listen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{22}
+    \subitem {getclientsource}, \hyperpage{22}
+  \item {listensocket}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{29}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{50}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{66}
+  \item {listensource}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{51}
+
+  \indexspace
+
+  \item {main}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{30}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{51}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{67}
+  \item {mainloop}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{68}
+  \item {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{25}
+    \subitem {BUFSIZE}, \hyperpage{27}
+    \subitem {chargen\_\discretionary {-}{}{}buf}, \hyperpage{37}
+    \subitem {HEARTBEAT\_\discretionary {-}{}{}INTERVAL}, 
+		\hyperpage{27}
+    \subitem {listensocket}, \hyperpage{29}
+    \subitem {main}, \hyperpage{30}
+    \subitem {MAX}, \hyperpage{27}
+    \subitem {MAXCLIENTS}, \hyperpage{27}
+    \subitem {message}, \hyperpage{33}
+    \subitem {MIN}, \hyperpage{27}
+    \subitem {MSG\_\discretionary {-}{}{}ACCEPT}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}CLOSE}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}EMPTY}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}FULL}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}HEARTBEAT}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}MAINLOOP}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}READ}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}TOOMANY}, \hyperpage{28}
+    \subitem {MSG\_\discretionary {-}{}{}WRITE}, \hyperpage{29}
+    \subitem {PORT\_\discretionary {-}{}{}CHARGEN}, \hyperpage{29}
+    \subitem {PORT\_\discretionary {-}{}{}ECHO}, \hyperpage{29}
+    \subitem {readecho}, \hyperpage{34}
+    \subitem {setnonblock}, \hyperpage{34}
+    \subitem {sighandler}, \hyperpage{35}
+    \subitem {SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}, 
+		\hyperpage{29}
+    \subitem {writechargen}, \hyperpage{36}
+    \subitem {writeecho}, \hyperpage{36}
+  \item {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{38}
+    \subitem {accept\_\discretionary {-}{}{}dispatch}, \hyperpage{42}
+    \subitem {accept\_\discretionary {-}{}{}prepare}, \hyperpage{43}
+    \subitem {blocksigpipe}, \hyperpage{43}
+    \subitem {BUFSIZE}, \hyperpage{40}
+    \subitem {chargen\_\discretionary {-}{}{}buf}, \hyperpage{54}
+    \subitem {chargen\_\discretionary {-}{}{}dispatch}, \hyperpage{44}
+    \subitem {chargen\_\discretionary {-}{}{}prepare}, \hyperpage{45}
+    \subitem {check}, \hyperpage{45}
+    \subitem {echo\_\discretionary {-}{}{}dispatch}, \hyperpage{46}
+    \subitem {echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}read}, 
+		\hyperpage{46}
+    \subitem {echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}write}, 
+		\hyperpage{47}
+    \subitem {echo\_\discretionary {-}{}{}prepare}, \hyperpage{48}
+    \subitem {getchargenclientsource}, \hyperpage{49}
+    \subitem {getclientsourcefunc}, \hyperpage{42}
+    \subitem {getechoclientsource}, \hyperpage{49}
+    \subitem {heartbeat}, \hyperpage{50}
+    \subitem {HEARTBEAT\_\discretionary {-}{}{}INTERVAL}, 
+		\hyperpage{40}
+    \subitem {listensocket}, \hyperpage{50}
+    \subitem {listensource}, \hyperpage{51}
+    \subitem {main}, \hyperpage{51}
+    \subitem {message}, \hyperpage{52}
+    \subitem {MSG\_\discretionary {-}{}{}ACCEPT}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}CLOSE}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}EMPTY}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}FULL}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}HEARTBEAT}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}MAINLOOP}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}READ}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}TOOMANY}, \hyperpage{41}
+    \subitem {MSG\_\discretionary {-}{}{}WRITE}, \hyperpage{41}
+    \subitem {PORT\_\discretionary {-}{}{}CHARGEN}, \hyperpage{41}
+    \subitem {PORT\_\discretionary {-}{}{}ECHO}, \hyperpage{42}
+    \subitem {setnonblock}, \hyperpage{53}
+    \subitem {slowheartbeat}, \hyperpage{53}
+    \subitem {SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}, 
+		\hyperpage{42}
+    \subitem {source\_\discretionary {-}{}{}close}, \hyperpage{54}
+  \item {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{55}
+    \subitem {acceptchargen}, \hyperpage{61}
+    \subitem {acceptecho}, \hyperpage{61}
+    \subitem {addalarm}, \hyperpage{61}
+    \subitem {addclient}, \hyperpage{62}
+    \subitem {alarmhandler}, \hyperpage{63}
+    \subitem {alarmhandler\_\discretionary {-}{}{}t}, \hyperpage{60}
+    \subitem {alarms}, \hyperpage{72}
+    \subitem {blocksigpipe}, \hyperpage{63}
+    \subitem {BUFSIZE}, \hyperpage{58}
+    \subitem {chargen\_\discretionary {-}{}{}buf}, \hyperpage{72}
+    \subitem {checkalarms}, \hyperpage{64}
+    \subitem {clients}, \hyperpage{73}
+    \subitem {closeclient}, \hyperpage{64}
+    \subitem {delclient}, \hyperpage{64}
+    \subitem {eventhandler\_\discretionary {-}{}{}t}, \hyperpage{60}
+    \subitem {flowecho}, \hyperpage{65}
+    \subitem {heartbeat}, \hyperpage{65}
+    \subitem {HEARTBEAT\_\discretionary {-}{}{}INTERVAL}, 
+		\hyperpage{58}
+    \subitem {initalarms}, \hyperpage{66}
+    \subitem {initclients}, \hyperpage{66}
+    \subitem {listensocket}, \hyperpage{66}
+    \subitem {main}, \hyperpage{67}
+    \subitem {mainloop}, \hyperpage{68}
+    \subitem {MAX}, \hyperpage{58}
+    \subitem {MAXALARMS}, \hyperpage{58}
+    \subitem {MAXCLIENTS}, \hyperpage{59}
+    \subitem {message}, \hyperpage{68}
+    \subitem {MIN}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}ACCEPT}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}CLOSE}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}EMPTY}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}FULL}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}HEARTBEAT}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}MAINLOOP}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}READ}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}, \hyperpage{59}
+    \subitem {MSG\_\discretionary {-}{}{}TOOMANY}, \hyperpage{60}
+    \subitem {MSG\_\discretionary {-}{}{}WRITE}, \hyperpage{60}
+    \subitem {npollfd}, \hyperpage{73}
+    \subitem {pollfds}, \hyperpage{73}
+    \subitem {PORT\_\discretionary {-}{}{}CHARGEN}, \hyperpage{60}
+    \subitem {PORT\_\discretionary {-}{}{}ECHO}, \hyperpage{60}
+    \subitem {readecho}, \hyperpage{69}
+    \subitem {setnonblock}, \hyperpage{70}
+    \subitem {slowheartbeat}, \hyperpage{71}
+    \subitem {SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}, 
+		\hyperpage{60}
+    \subitem {writechargen}, \hyperpage{71}
+    \subitem {writeecho}, \hyperpage{71}
+  \item {MAX}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{27}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{58}
+  \item {MAXALARMS}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{58}
+  \item {MAXCLIENTS}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{27}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {message}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{33}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{52}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{68}
+  \item {MIN}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{27}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}ACCEPT}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}CLOSE}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}EMPTY}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}FULL}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}HEARTBEAT}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}MAINLOOP}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}READ}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{59}
+  \item {MSG\_\discretionary {-}{}{}TOOMANY}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{28}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{60}
+  \item {MSG\_\discretionary {-}{}{}WRITE}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{29}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{60}
+
+  \indexspace
+
+  \item {n}
+    \subitem {echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}, 
+		\hyperpage{16}
+    \subitem {echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{18}
+    \subitem {echoclient\_\discretionary {-}{}{}t}, \hyperpage{20}
+  \item {nexttime}
+    \subitem {alarm\_\discretionary {-}{}{}t}, \hyperpage{10}
+  \item {npollfd}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{73}
+
+  \indexspace
+
+  \item {pollfd}
+    \subitem {source\_\discretionary {-}{}{}t}, \hyperpage{23}
+  \item {pollfds}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{73}
+  \item {PORT\_\discretionary {-}{}{}CHARGEN}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{29}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{41}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{60}
+  \item {PORT\_\discretionary {-}{}{}ECHO}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{29}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{42}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{60}
+
+  \indexspace
+
+  \item {r}
+    \subitem {echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}, 
+		\hyperpage{16}
+    \subitem {echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{18}
+    \subitem {echoclient\_\discretionary {-}{}{}t}, \hyperpage{20}
+  \item {read}
+    \subitem {client\_\discretionary {-}{}{}t}, \hyperpage{15}
+  \item {readecho}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{34}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{69}
+  \item {README}, \hyperpage{74}
+
+  \indexspace
+
+  \item {setnonblock}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{34}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{53}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{70}
+  \item {sighandler}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{35}
+  \item {slowheartbeat}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{53}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{71}
+  \item {SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{29}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{42}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{60}
+  \item {source}
+    \subitem {source\_\discretionary {-}{}{}t}, \hyperpage{24}
+  \item {source\_\discretionary {-}{}{}close}
+    \subitem {mainloop\_\discretionary {-}{}{}glib.c}, \hyperpage{54}
+  \item {source\_\discretionary {-}{}{}t}, \hyperpage{23}
+    \subitem {chargen}, \hyperpage{23}
+    \subitem {echo}, \hyperpage{23}
+    \subitem {id}, \hyperpage{23}
+    \subitem {listen}, \hyperpage{23}
+    \subitem {pollfd}, \hyperpage{23}
+    \subitem {source}, \hyperpage{24}
+
+  \indexspace
+
+  \item {w}
+    \subitem {echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}, 
+		\hyperpage{16}
+    \subitem {echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}, 
+		\hyperpage{18}
+    \subitem {echoclient\_\discretionary {-}{}{}t}, \hyperpage{21}
+  \item {write}
+    \subitem {client\_\discretionary {-}{}{}t}, \hyperpage{15}
+  \item {writechargen}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{36}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{71}
+  \item {writeecho}
+    \subitem {mainloop\_\discretionary {-}{}{}bad.c}, \hyperpage{36}
+    \subitem {mainloop\_\discretionary {-}{}{}good.c}, \hyperpage{71}
+
+\end{theindex}

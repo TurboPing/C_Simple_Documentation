@@ -1,0 +1,203 @@
+\contentsline {chapter}{\numberline {1}mainloop Main Page}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}mainloop Data Structure Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}mainloop Data Structures}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}mainloop File Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}mainloop File List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}mainloop Page Index}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}mainloop Related Pages}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}mainloop Data Structure Documentation}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}alarm\_\discretionary {-}{}{}t Struct Reference}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{9}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Field Documentation}{9}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}flag}{9}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}handler}{10}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.3}interval}{10}{subsubsection.5.1.2.3}
+\contentsline {subsubsection}{\numberline {5.1.2.4}nexttime}{10}{subsubsection.5.1.2.4}
+\contentsline {section}{\numberline {5.2}chargen\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t Struct Reference}{11}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{11}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Field Documentation}{11}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}i}{11}{subsubsection.5.2.2.1}
+\contentsline {section}{\numberline {5.3}chargen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t Struct Reference}{12}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{12}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Field Documentation}{12}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}i}{12}{subsubsection.5.3.2.1}
+\contentsline {section}{\numberline {5.4}chargenclient\_\discretionary {-}{}{}t Struct Reference}{13}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Field Documentation}{13}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}fd}{13}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}i}{13}{subsubsection.5.4.1.2}
+\contentsline {section}{\numberline {5.5}client\_\discretionary {-}{}{}t Struct Reference}{14}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{14}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Field Documentation}{14}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}chargen}{14}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}echo}{14}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}except}{14}{subsubsection.5.5.2.3}
+\contentsline {subsubsection}{\numberline {5.5.2.4}fd}{15}{subsubsection.5.5.2.4}
+\contentsline {subsubsection}{\numberline {5.5.2.5}read}{15}{subsubsection.5.5.2.5}
+\contentsline {subsubsection}{\numberline {5.5.2.6}write}{15}{subsubsection.5.5.2.6}
+\contentsline {section}{\numberline {5.6}echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t Struct Reference}{16}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{16}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Field Documentation}{16}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}buf}{16}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}n}{16}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}r}{16}{subsubsection.5.6.2.3}
+\contentsline {subsubsection}{\numberline {5.6.2.4}w}{17}{subsubsection.5.6.2.4}
+\contentsline {section}{\numberline {5.7}echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t Struct Reference}{18}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{18}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Field Documentation}{18}{subsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.2.1}buf}{18}{subsubsection.5.7.2.1}
+\contentsline {subsubsection}{\numberline {5.7.2.2}n}{18}{subsubsection.5.7.2.2}
+\contentsline {subsubsection}{\numberline {5.7.2.3}r}{18}{subsubsection.5.7.2.3}
+\contentsline {subsubsection}{\numberline {5.7.2.4}w}{19}{subsubsection.5.7.2.4}
+\contentsline {section}{\numberline {5.8}echoclient\_\discretionary {-}{}{}t Struct Reference}{20}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{20}{subsection.5.8.1}
+\contentsline {subsection}{\numberline {5.8.2}Field Documentation}{20}{subsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.2.1}buf}{20}{subsubsection.5.8.2.1}
+\contentsline {subsubsection}{\numberline {5.8.2.2}fd}{20}{subsubsection.5.8.2.2}
+\contentsline {subsubsection}{\numberline {5.8.2.3}n}{20}{subsubsection.5.8.2.3}
+\contentsline {subsubsection}{\numberline {5.8.2.4}r}{21}{subsubsection.5.8.2.4}
+\contentsline {subsubsection}{\numberline {5.8.2.5}w}{21}{subsubsection.5.8.2.5}
+\contentsline {section}{\numberline {5.9}listen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t Struct Reference}{22}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{22}{subsection.5.9.1}
+\contentsline {subsection}{\numberline {5.9.2}Field Documentation}{22}{subsection.5.9.2}
+\contentsline {subsubsection}{\numberline {5.9.2.1}getclientsource}{22}{subsubsection.5.9.2.1}
+\contentsline {section}{\numberline {5.10}source\_\discretionary {-}{}{}t Struct Reference}{23}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}Field Documentation}{23}{subsection.5.10.1}
+\contentsline {subsubsection}{\numberline {5.10.1.1}chargen}{23}{subsubsection.5.10.1.1}
+\contentsline {subsubsection}{\numberline {5.10.1.2}echo}{23}{subsubsection.5.10.1.2}
+\contentsline {subsubsection}{\numberline {5.10.1.3}id}{23}{subsubsection.5.10.1.3}
+\contentsline {subsubsection}{\numberline {5.10.1.4}listen}{23}{subsubsection.5.10.1.4}
+\contentsline {subsubsection}{\numberline {5.10.1.5}pollfd}{23}{subsubsection.5.10.1.5}
+\contentsline {subsubsection}{\numberline {5.10.1.6}source}{24}{subsubsection.5.10.1.6}
+\contentsline {chapter}{\numberline {6}mainloop File Documentation}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}mainloop\_\discretionary {-}{}{}bad.c File Reference}{25}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{27}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Define Documentation}{27}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}BUFSIZE}{27}{subsubsection.6.1.2.1}
+\contentsline {subsubsection}{\numberline {6.1.2.2}HEARTBEAT\_\discretionary {-}{}{}INTERVAL}{27}{subsubsection.6.1.2.2}
+\contentsline {subsubsection}{\numberline {6.1.2.3}MAX}{27}{subsubsection.6.1.2.3}
+\contentsline {subsubsection}{\numberline {6.1.2.4}MAXCLIENTS}{27}{subsubsection.6.1.2.4}
+\contentsline {subsubsection}{\numberline {6.1.2.5}MIN}{28}{subsubsection.6.1.2.5}
+\contentsline {subsubsection}{\numberline {6.1.2.6}MSG\_\discretionary {-}{}{}ACCEPT}{28}{subsubsection.6.1.2.6}
+\contentsline {subsubsection}{\numberline {6.1.2.7}MSG\_\discretionary {-}{}{}CLOSE}{28}{subsubsection.6.1.2.7}
+\contentsline {subsubsection}{\numberline {6.1.2.8}MSG\_\discretionary {-}{}{}EMPTY}{28}{subsubsection.6.1.2.8}
+\contentsline {subsubsection}{\numberline {6.1.2.9}MSG\_\discretionary {-}{}{}FULL}{28}{subsubsection.6.1.2.9}
+\contentsline {subsubsection}{\numberline {6.1.2.10}MSG\_\discretionary {-}{}{}HEARTBEAT}{28}{subsubsection.6.1.2.10}
+\contentsline {subsubsection}{\numberline {6.1.2.11}MSG\_\discretionary {-}{}{}MAINLOOP}{28}{subsubsection.6.1.2.11}
+\contentsline {subsubsection}{\numberline {6.1.2.12}MSG\_\discretionary {-}{}{}READ}{28}{subsubsection.6.1.2.12}
+\contentsline {subsubsection}{\numberline {6.1.2.13}MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}{28}{subsubsection.6.1.2.13}
+\contentsline {subsubsection}{\numberline {6.1.2.14}MSG\_\discretionary {-}{}{}TOOMANY}{29}{subsubsection.6.1.2.14}
+\contentsline {subsubsection}{\numberline {6.1.2.15}MSG\_\discretionary {-}{}{}WRITE}{29}{subsubsection.6.1.2.15}
+\contentsline {subsubsection}{\numberline {6.1.2.16}PORT\_\discretionary {-}{}{}CHARGEN}{29}{subsubsection.6.1.2.16}
+\contentsline {subsubsection}{\numberline {6.1.2.17}PORT\_\discretionary {-}{}{}ECHO}{29}{subsubsection.6.1.2.17}
+\contentsline {subsubsection}{\numberline {6.1.2.18}SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}{29}{subsubsection.6.1.2.18}
+\contentsline {subsection}{\numberline {6.1.3}Function Documentation}{29}{subsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3.1}listensocket}{29}{subsubsection.6.1.3.1}
+\contentsline {subsubsection}{\numberline {6.1.3.2}main}{30}{subsubsection.6.1.3.2}
+\contentsline {subsubsection}{\numberline {6.1.3.3}message}{33}{subsubsection.6.1.3.3}
+\contentsline {subsubsection}{\numberline {6.1.3.4}readecho}{34}{subsubsection.6.1.3.4}
+\contentsline {subsubsection}{\numberline {6.1.3.5}setnonblock}{35}{subsubsection.6.1.3.5}
+\contentsline {subsubsection}{\numberline {6.1.3.6}sighandler}{35}{subsubsection.6.1.3.6}
+\contentsline {subsubsection}{\numberline {6.1.3.7}writechargen}{36}{subsubsection.6.1.3.7}
+\contentsline {subsubsection}{\numberline {6.1.3.8}writeecho}{36}{subsubsection.6.1.3.8}
+\contentsline {subsection}{\numberline {6.1.4}Variable Documentation}{37}{subsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.4.1}chargen\_\discretionary {-}{}{}buf}{37}{subsubsection.6.1.4.1}
+\contentsline {section}{\numberline {6.2}mainloop\_\discretionary {-}{}{}glib.c File Reference}{38}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{40}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Define Documentation}{40}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}BUFSIZE}{40}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}HEARTBEAT\_\discretionary {-}{}{}INTERVAL}{41}{subsubsection.6.2.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.3}MSG\_\discretionary {-}{}{}ACCEPT}{41}{subsubsection.6.2.2.3}
+\contentsline {subsubsection}{\numberline {6.2.2.4}MSG\_\discretionary {-}{}{}CLOSE}{41}{subsubsection.6.2.2.4}
+\contentsline {subsubsection}{\numberline {6.2.2.5}MSG\_\discretionary {-}{}{}EMPTY}{41}{subsubsection.6.2.2.5}
+\contentsline {subsubsection}{\numberline {6.2.2.6}MSG\_\discretionary {-}{}{}FULL}{41}{subsubsection.6.2.2.6}
+\contentsline {subsubsection}{\numberline {6.2.2.7}MSG\_\discretionary {-}{}{}HEARTBEAT}{41}{subsubsection.6.2.2.7}
+\contentsline {subsubsection}{\numberline {6.2.2.8}MSG\_\discretionary {-}{}{}MAINLOOP}{41}{subsubsection.6.2.2.8}
+\contentsline {subsubsection}{\numberline {6.2.2.9}MSG\_\discretionary {-}{}{}READ}{41}{subsubsection.6.2.2.9}
+\contentsline {subsubsection}{\numberline {6.2.2.10}MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}{41}{subsubsection.6.2.2.10}
+\contentsline {subsubsection}{\numberline {6.2.2.11}MSG\_\discretionary {-}{}{}TOOMANY}{41}{subsubsection.6.2.2.11}
+\contentsline {subsubsection}{\numberline {6.2.2.12}MSG\_\discretionary {-}{}{}WRITE}{41}{subsubsection.6.2.2.12}
+\contentsline {subsubsection}{\numberline {6.2.2.13}PORT\_\discretionary {-}{}{}CHARGEN}{42}{subsubsection.6.2.2.13}
+\contentsline {subsubsection}{\numberline {6.2.2.14}PORT\_\discretionary {-}{}{}ECHO}{42}{subsubsection.6.2.2.14}
+\contentsline {subsubsection}{\numberline {6.2.2.15}SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}{42}{subsubsection.6.2.2.15}
+\contentsline {subsection}{\numberline {6.2.3}Typedef Documentation}{42}{subsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.3.1}getclientsourcefunc}{42}{subsubsection.6.2.3.1}
+\contentsline {subsection}{\numberline {6.2.4}Function Documentation}{42}{subsection.6.2.4}
+\contentsline {subsubsection}{\numberline {6.2.4.1}accept\_\discretionary {-}{}{}dispatch}{42}{subsubsection.6.2.4.1}
+\contentsline {subsubsection}{\numberline {6.2.4.2}accept\_\discretionary {-}{}{}prepare}{43}{subsubsection.6.2.4.2}
+\contentsline {subsubsection}{\numberline {6.2.4.3}blocksigpipe}{43}{subsubsection.6.2.4.3}
+\contentsline {subsubsection}{\numberline {6.2.4.4}chargen\_\discretionary {-}{}{}dispatch}{44}{subsubsection.6.2.4.4}
+\contentsline {subsubsection}{\numberline {6.2.4.5}chargen\_\discretionary {-}{}{}prepare}{45}{subsubsection.6.2.4.5}
+\contentsline {subsubsection}{\numberline {6.2.4.6}check}{45}{subsubsection.6.2.4.6}
+\contentsline {subsubsection}{\numberline {6.2.4.7}echo\_\discretionary {-}{}{}dispatch}{46}{subsubsection.6.2.4.7}
+\contentsline {subsubsection}{\numberline {6.2.4.8}echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}read}{46}{subsubsection.6.2.4.8}
+\contentsline {subsubsection}{\numberline {6.2.4.9}echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}write}{47}{subsubsection.6.2.4.9}
+\contentsline {subsubsection}{\numberline {6.2.4.10}echo\_\discretionary {-}{}{}prepare}{48}{subsubsection.6.2.4.10}
+\contentsline {subsubsection}{\numberline {6.2.4.11}getchargenclientsource}{49}{subsubsection.6.2.4.11}
+\contentsline {subsubsection}{\numberline {6.2.4.12}getechoclientsource}{49}{subsubsection.6.2.4.12}
+\contentsline {subsubsection}{\numberline {6.2.4.13}heartbeat}{50}{subsubsection.6.2.4.13}
+\contentsline {subsubsection}{\numberline {6.2.4.14}listensocket}{50}{subsubsection.6.2.4.14}
+\contentsline {subsubsection}{\numberline {6.2.4.15}listensource}{51}{subsubsection.6.2.4.15}
+\contentsline {subsubsection}{\numberline {6.2.4.16}main}{52}{subsubsection.6.2.4.16}
+\contentsline {subsubsection}{\numberline {6.2.4.17}message}{52}{subsubsection.6.2.4.17}
+\contentsline {subsubsection}{\numberline {6.2.4.18}setnonblock}{53}{subsubsection.6.2.4.18}
+\contentsline {subsubsection}{\numberline {6.2.4.19}slowheartbeat}{53}{subsubsection.6.2.4.19}
+\contentsline {subsubsection}{\numberline {6.2.4.20}source\_\discretionary {-}{}{}close}{54}{subsubsection.6.2.4.20}
+\contentsline {subsection}{\numberline {6.2.5}Variable Documentation}{54}{subsection.6.2.5}
+\contentsline {subsubsection}{\numberline {6.2.5.1}chargen\_\discretionary {-}{}{}buf}{54}{subsubsection.6.2.5.1}
+\contentsline {section}{\numberline {6.3}mainloop\_\discretionary {-}{}{}good.c File Reference}{55}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{58}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Define Documentation}{58}{subsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.2.1}BUFSIZE}{58}{subsubsection.6.3.2.1}
+\contentsline {subsubsection}{\numberline {6.3.2.2}HEARTBEAT\_\discretionary {-}{}{}INTERVAL}{58}{subsubsection.6.3.2.2}
+\contentsline {subsubsection}{\numberline {6.3.2.3}MAX}{58}{subsubsection.6.3.2.3}
+\contentsline {subsubsection}{\numberline {6.3.2.4}MAXALARMS}{59}{subsubsection.6.3.2.4}
+\contentsline {subsubsection}{\numberline {6.3.2.5}MAXCLIENTS}{59}{subsubsection.6.3.2.5}
+\contentsline {subsubsection}{\numberline {6.3.2.6}MIN}{59}{subsubsection.6.3.2.6}
+\contentsline {subsubsection}{\numberline {6.3.2.7}MSG\_\discretionary {-}{}{}ACCEPT}{59}{subsubsection.6.3.2.7}
+\contentsline {subsubsection}{\numberline {6.3.2.8}MSG\_\discretionary {-}{}{}CLOSE}{59}{subsubsection.6.3.2.8}
+\contentsline {subsubsection}{\numberline {6.3.2.9}MSG\_\discretionary {-}{}{}EMPTY}{59}{subsubsection.6.3.2.9}
+\contentsline {subsubsection}{\numberline {6.3.2.10}MSG\_\discretionary {-}{}{}FULL}{59}{subsubsection.6.3.2.10}
+\contentsline {subsubsection}{\numberline {6.3.2.11}MSG\_\discretionary {-}{}{}HEARTBEAT}{59}{subsubsection.6.3.2.11}
+\contentsline {subsubsection}{\numberline {6.3.2.12}MSG\_\discretionary {-}{}{}MAINLOOP}{59}{subsubsection.6.3.2.12}
+\contentsline {subsubsection}{\numberline {6.3.2.13}MSG\_\discretionary {-}{}{}READ}{59}{subsubsection.6.3.2.13}
+\contentsline {subsubsection}{\numberline {6.3.2.14}MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}{60}{subsubsection.6.3.2.14}
+\contentsline {subsubsection}{\numberline {6.3.2.15}MSG\_\discretionary {-}{}{}TOOMANY}{60}{subsubsection.6.3.2.15}
+\contentsline {subsubsection}{\numberline {6.3.2.16}MSG\_\discretionary {-}{}{}WRITE}{60}{subsubsection.6.3.2.16}
+\contentsline {subsubsection}{\numberline {6.3.2.17}PORT\_\discretionary {-}{}{}CHARGEN}{60}{subsubsection.6.3.2.17}
+\contentsline {subsubsection}{\numberline {6.3.2.18}PORT\_\discretionary {-}{}{}ECHO}{60}{subsubsection.6.3.2.18}
+\contentsline {subsubsection}{\numberline {6.3.2.19}SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}{60}{subsubsection.6.3.2.19}
+\contentsline {subsection}{\numberline {6.3.3}Typedef Documentation}{60}{subsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.3.1}alarmhandler\_\discretionary {-}{}{}t}{60}{subsubsection.6.3.3.1}
+\contentsline {subsubsection}{\numberline {6.3.3.2}eventhandler\_\discretionary {-}{}{}t}{60}{subsubsection.6.3.3.2}
+\contentsline {subsection}{\numberline {6.3.4}Function Documentation}{61}{subsection.6.3.4}
+\contentsline {subsubsection}{\numberline {6.3.4.1}acceptchargen}{61}{subsubsection.6.3.4.1}
+\contentsline {subsubsection}{\numberline {6.3.4.2}acceptecho}{61}{subsubsection.6.3.4.2}
+\contentsline {subsubsection}{\numberline {6.3.4.3}addalarm}{62}{subsubsection.6.3.4.3}
+\contentsline {subsubsection}{\numberline {6.3.4.4}addclient}{62}{subsubsection.6.3.4.4}
+\contentsline {subsubsection}{\numberline {6.3.4.5}alarmhandler}{63}{subsubsection.6.3.4.5}
+\contentsline {subsubsection}{\numberline {6.3.4.6}blocksigpipe}{63}{subsubsection.6.3.4.6}
+\contentsline {subsubsection}{\numberline {6.3.4.7}checkalarms}{64}{subsubsection.6.3.4.7}
+\contentsline {subsubsection}{\numberline {6.3.4.8}closeclient}{64}{subsubsection.6.3.4.8}
+\contentsline {subsubsection}{\numberline {6.3.4.9}delclient}{65}{subsubsection.6.3.4.9}
+\contentsline {subsubsection}{\numberline {6.3.4.10}flowecho}{65}{subsubsection.6.3.4.10}
+\contentsline {subsubsection}{\numberline {6.3.4.11}heartbeat}{65}{subsubsection.6.3.4.11}
+\contentsline {subsubsection}{\numberline {6.3.4.12}initalarms}{66}{subsubsection.6.3.4.12}
+\contentsline {subsubsection}{\numberline {6.3.4.13}initclients}{66}{subsubsection.6.3.4.13}
+\contentsline {subsubsection}{\numberline {6.3.4.14}listensocket}{66}{subsubsection.6.3.4.14}
+\contentsline {subsubsection}{\numberline {6.3.4.15}main}{67}{subsubsection.6.3.4.15}
+\contentsline {subsubsection}{\numberline {6.3.4.16}mainloop}{68}{subsubsection.6.3.4.16}
+\contentsline {subsubsection}{\numberline {6.3.4.17}message}{69}{subsubsection.6.3.4.17}
+\contentsline {subsubsection}{\numberline {6.3.4.18}readecho}{69}{subsubsection.6.3.4.18}
+\contentsline {subsubsection}{\numberline {6.3.4.19}setnonblock}{70}{subsubsection.6.3.4.19}
+\contentsline {subsubsection}{\numberline {6.3.4.20}slowheartbeat}{71}{subsubsection.6.3.4.20}
+\contentsline {subsubsection}{\numberline {6.3.4.21}writechargen}{71}{subsubsection.6.3.4.21}
+\contentsline {subsubsection}{\numberline {6.3.4.22}writeecho}{72}{subsubsection.6.3.4.22}
+\contentsline {subsection}{\numberline {6.3.5}Variable Documentation}{72}{subsection.6.3.5}
+\contentsline {subsubsection}{\numberline {6.3.5.1}alarms}{72}{subsubsection.6.3.5.1}
+\contentsline {subsubsection}{\numberline {6.3.5.2}chargen\_\discretionary {-}{}{}buf}{73}{subsubsection.6.3.5.2}
+\contentsline {subsubsection}{\numberline {6.3.5.3}clients}{73}{subsubsection.6.3.5.3}
+\contentsline {subsubsection}{\numberline {6.3.5.4}npollfd}{73}{subsubsection.6.3.5.4}
+\contentsline {subsubsection}{\numberline {6.3.5.5}pollfds}{73}{subsubsection.6.3.5.5}
+\contentsline {section}{\numberline {6.4}README File Reference}{74}{section.6.4}
+\contentsline {chapter}{\numberline {7}mainloop Page Documentation}{75}{chapter.7}
+\contentsline {section}{\numberline {7.1}Bug List}{75}{section.7.1}

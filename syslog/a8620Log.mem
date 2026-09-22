@@ -1,0 +1,25 @@
+LogDebug(logLevel, messageString);
+
+LogDebug(DEBUG_BASIC, "Stopped");
+LogDebug(DEBUG_SIGNAL, "Caught signal SIGHUP -- Hangup");	
+LogDebug(DEBUG_PROC, ">> ProcessStatusRequest.");
+LogDebug(DEBUG_PROTO, "Send status REPLY.");
+LogDebug(DEBUG_TRU_STATE, "%-10s: (%s) loading with with %s", tru, phone, test);
+LogDebug(DEBUG_STATUS, "ProcessLoadCmd Sync: status = %d", status);
+
+Log Messages 
+
+LogMessage("Nothing pending");
+
+LogReturn("Caught signal SIGPIPE -- Broken Pipe");
+
+
+Log fuer System Errors
+
+LogSystem("Couldn`t create command socket");
+
+
+Log fuer System Errors mit Quit
+
+LogQuit("Caught signal SIGTRAP -- Trace/Breakpoint Trap");
+								

@@ -1,0 +1,32 @@
+Log Library
+-----------
+
+Die neue Log Library soll auf dem System Deamon syslogd aufbauen.
+Dabei sollen die beiden Facilities user und local0-7 verwendet werden. 
+Bei diesen Facilities werden nur die Level err, warning, notice, info 
+und debug verwendet. 
+Bei solcher Verwendung von syslog stoert die LogLib keine anderen Logs.
+
+Module
+------
+
+userModule.c
+  |
+  |
+LogLib.c / .h    -> neue Version von LogLib.c /.h von A. Herren
+  |
+  |
+syslog.h
+
+
+
+Configuration
+-------------
+
+/etc/syslog.conf
+
+
+Reconfiguration
+---------------
+
+kill -1 <syslogd-pid>     ; SIGHUP Signal konfiguriert den Syslog Deamon neu

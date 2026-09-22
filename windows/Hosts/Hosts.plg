@@ -1,0 +1,26 @@
+--------------------Configuration: Hosts - Win32 Debug--------------------
+Begining build with project "I:\c_code\windows\Hosts\Hosts.dsp", at root.
+Active configuration is Win32 (x86) Console Application (based on Win32 (x86) Console Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MLd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Hosts.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c "
+			"Win32 Resource Compiler" with flags "/l 0x409 /d "_DEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Debug/Hosts.bsc" "
+			"COFF Linker for 80x86" with flags "ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Hosts.pdb" /debug /machine:I386 /out:"Debug/Hosts.exe" /pdbtype:sept "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSP7A.tmp" with contents </nologo /MLd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Hosts.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"I:\c_code\windows\Hosts\Hosts.c"
+>
+Creating command line "cl.exe @C:\TEMP\RSP7A.tmp" 
+Creating temp file "C:\TEMP\RSP7B.tmp" with contents <ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Hosts.pdb" /debug /machine:I386 /out:"Debug/Hosts.exe" /pdbtype:sept 
+.\Debug\Hosts.obj>
+Creating command line "link.exe @C:\TEMP\RSP7B.tmp" 
+Compiling...
+Hosts.c
+Linking...
+
+
+
+Hosts.exe - 0 error(s), 0 warning(s)

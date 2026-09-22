@@ -1,0 +1,713 @@
+ALOGD:  (M): --- Logging daemon started ---
+09/13/95 06:14:17 Cop________ [ 1678] (M): AllTests: At 810972857 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:17 Cop________ [ 1678] (M): all_mini: At 810972857 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:17 Cop________ [ 1678] (M): master_test: At 810972857 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:22 Cop________ [ 1678] (M): AllTests: At 810972862 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:22 Cop________ [ 1678] (M): all_mini: At 810972862 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:22 Cop________ [ 1678] (M): master_test: At 810972862 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:27 Cop________ [ 1678] (M): AllTests: At 810972867 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:27 Cop________ [ 1678] (M): all_mini: At 810972867 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:27 Cop________ [ 1678] (M): master_test: At 810972867 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:32 Cop________ [ 1678] (M): AllTests: At 810972872 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:32 Cop________ [ 1678] (M): all_mini: At 810972872 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:32 Cop________ [ 1678] (M): master_test: At 810972872 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:37 Cop________ [ 1678] (M): AllTests: At 810972877 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:37 Cop________ [ 1678] (M): all_mini: At 810972877 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:37 Cop________ [ 1678] (M): master_test: At 810972877 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:42 Cop________ [ 1678] (M): AllTests: At 810972882 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:42 Cop________ [ 1678] (M): all_mini: At 810972882 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:42 Cop________ [ 1678] (M): master_test: At 810972882 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:47 Cop________ [ 1678] (M): AllTests: At 810972887 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:47 Cop________ [ 1678] (M): all_mini: At 810972887 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:47 Cop________ [ 1678] (M): master_test: At 810972887 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:52 Cop________ [ 1678] (M): AllTests: At 810972892 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:52 Cop________ [ 1678] (M): all_mini: At 810972892 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:52 Cop________ [ 1678] (M): master_test: At 810972892 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:57 Cop________ [ 1678] (M): AllTests: At 810972897 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:14:57 Cop________ [ 1678] (M): all_mini: At 810972897 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:14:57 Cop________ [ 1678] (M): master_test: At 810972897 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:02 Cop________ [ 1678] (M): AllTests: At 810972902 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:02 Cop________ [ 1678] (M): all_mini: At 810972902 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:02 Cop________ [ 1678] (M): master_test: At 810972902 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:07 Cop________ [ 1678] (M): AllTests: At 810972907 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:07 Cop________ [ 1678] (M): all_mini: At 810972907 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:07 Cop________ [ 1678] (M): master_test: At 810972907 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:12 Cop________ [ 1678] (M): AllTests: At 810972912 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:12 Cop________ [ 1678] (M): all_mini: At 810972912 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:12 Cop________ [ 1678] (M): master_test: At 810972912 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:17 Cop________ [ 1678] (M): AllTests: At 810972917 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:17 Cop________ [ 1678] (M): all_mini: At 810972917 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:17 Cop________ [ 1678] (M): master_test: At 810972917 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:22 Cop________ [ 1678] (M): AllTests: At 810972922 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:22 Cop________ [ 1678] (M): all_mini: At 810972922 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:22 Cop________ [ 1678] (M): master_test: At 810972922 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:27 Cop________ [ 1678] (M): AllTests: At 810972927 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:27 Cop________ [ 1678] (M): all_mini: At 810972927 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:27 Cop________ [ 1678] (M): master_test: At 810972927 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:32 Cop________ [ 1678] (M): AllTests: At 810972932 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:32 Cop________ [ 1678] (M): all_mini: At 810972932 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:32 Cop________ [ 1678] (M): master_test: At 810972932 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:37 Cop________ [ 1678] (M): AllTests: At 810972937 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:37 Cop________ [ 1678] (M): all_mini: At 810972937 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:37 Cop________ [ 1678] (M): master_test: At 810972937 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:42 Cop________ [ 1678] (M): AllTests: At 810972942 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:42 Cop________ [ 1678] (M): all_mini: At 810972942 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:42 Cop________ [ 1678] (M): master_test: At 810972942 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:47 Cop________ [ 1678] (M): AllTests: At 810972947 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:47 Cop________ [ 1678] (M): all_mini: At 810972947 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:47 Cop________ [ 1678] (M): master_test: At 810972947 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:52 Cop________ [ 1678] (M): AllTests: At 810972952 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:52 Cop________ [ 1678] (M): all_mini: At 810972952 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:52 Cop________ [ 1678] (M): master_test: At 810972952 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:57 Cop________ [ 1678] (M): AllTests: At 810972957 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:15:57 Cop________ [ 1678] (M): all_mini: At 810972957 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:15:57 Cop________ [ 1678] (M): master_test: At 810972957 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:03 Cop________ [ 1678] (M): AllTests: At 810972963 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:03 Cop________ [ 1678] (M): all_mini: At 810972963 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:03 Cop________ [ 1678] (M): master_test: At 810972963 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:08 Cop________ [ 1678] (M): AllTests: At 810972968 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:08 Cop________ [ 1678] (M): all_mini: At 810972968 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:08 Cop________ [ 1678] (M): master_test: At 810972968 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:13 Cop________ [ 1678] (M): AllTests: At 810972973 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:13 Cop________ [ 1678] (M): all_mini: At 810972973 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:13 Cop________ [ 1678] (M): master_test: At 810972973 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:18 Cop________ [ 1678] (M): AllTests: At 810972978 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:18 Cop________ [ 1678] (M): all_mini: At 810972978 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:18 Cop________ [ 1678] (M): master_test: At 810972978 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:23 Cop________ [ 1678] (M): AllTests: At 810972983 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:23 Cop________ [ 1678] (M): all_mini: At 810972983 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:23 Cop________ [ 1678] (M): master_test: At 810972983 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:28 Cop________ [ 1678] (M): AllTests: At 810972988 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:28 Cop________ [ 1678] (M): all_mini: At 810972988 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:28 Cop________ [ 1678] (M): master_test: At 810972988 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:33 Cop________ [ 1678] (M): AllTests: At 810972993 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:33 Cop________ [ 1678] (M): all_mini: At 810972993 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:33 Cop________ [ 1678] (M): master_test: At 810972993 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:38 Cop________ [ 1678] (M): AllTests: At 810972998 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:38 Cop________ [ 1678] (M): all_mini: At 810972998 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:38 Cop________ [ 1678] (M): master_test: At 810972998 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:43 Cop________ [ 1678] (M): AllTests: At 810973003 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:43 Cop________ [ 1678] (M): all_mini: At 810973003 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:43 Cop________ [ 1678] (M): master_test: At 810973003 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:48 Cop________ [ 1678] (M): AllTests: At 810973008 Queues sc=0/ld=2/ru=2/st=0/dn=2/ab=0/mo=5
+09/13/95 06:16:48 Cop________ [ 1678] (M): all_mini: At 810973008 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:48 Cop________ [ 1678] (M): master_test: At 810973008 Queues sc=0/ld=0/ru=9/st=0/dn=0/ab=0
+09/13/95 06:16:52 Cop       [ 4068] (M): Stopping...
+09/13/95 06:16:52 Cop       [ 4068] (M): Done
+09/13/95 06:16:52 Cop________ [ 1678] (M): Caught signal SIGTERM -- Terminated
+09/13/95 06:17:01 Cop________ [ 4090] (M): Started -------------------------------------------------------- Cop Rel 1.0 --
+09/13/95 06:17:01 Cop________ [ 4090] (M): Connection to scheduler on localhost
+09/13/95 06:17:01 Cop________ [ 4090] (M): Worker config: calanda 8101 alvier 1
+09/13/95 06:17:01 Cop________ [ 4090] (M): Starting Worker calanda.8101
+09/13/95 06:17:01  (M): Running for annex alvier.1 on tcp port 8101.
+09/13/95 06:17:02 Cop________ [ 4090] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:17:02   alvier.1  [ 4095] (M): Started ----------------------------------------------------- Worker Rel 1.0 --
+09/13/95 06:17:03 Cop________ [ 4090] (M): Worker config: calanda 8102 alvier 2
+09/13/95 06:17:03 Cop________ [ 4090] (M): Starting Worker calanda.8102
+09/13/95 06:17:03  (M): Running for annex alvier.2 on tcp port 8102.
+09/13/95 06:17:03 Cop________ [ 4090] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:17:03   alvier.2  [ 4103] (M): Started ----------------------------------------------------- Worker Rel 1.0 --
+09/13/95 06:17:04 Cop________ [ 4090] (M): Worker config: calanda 8201 falknis 1
+09/13/95 06:17:04 Cop________ [ 4090] (M): Starting Worker calanda.8201
+09/13/95 06:17:04  (M): Running for annex falknis.1 on tcp port 8201.
+09/13/95 06:17:04 Cop________ [ 4090] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:17:04  falknis.1  [ 4108] (M): Started ----------------------------------------------------- Worker Rel 1.0 --
+09/13/95 06:17:05 Cop________ [ 4090] (M): Worker config: calanda 8202 falknis 2
+09/13/95 06:17:05 Cop________ [ 4090] (M): Starting Worker calanda.8202
+09/13/95 06:17:05  (M): Running for annex falknis.2 on tcp port 8202.
+09/13/95 06:17:05 Cop________ [ 4090] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:17:05  falknis.2  [ 4111] (M): Started ----------------------------------------------------- Worker Rel 1.0 --
+09/13/95 06:17:06 Cop________ [ 4090] (M): Worker config: calanda 8203 falknis 3
+09/13/95 06:17:06 Cop________ [ 4090] (M): Starting Worker calanda.8203
+09/13/95 06:17:06  (M): Running for annex falknis.3 on tcp port 8203.
+09/13/95 06:17:06 Cop________ [ 4090] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:17:06  falknis.3  [ 4120] (M): Started ----------------------------------------------------- Worker Rel 1.0 --
+09/13/95 06:17:07 Cop________ [ 4090] (M): AllTests: At 810973027 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:12 Cop________ [ 4090] (M): AllTests: At 810973032 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:17 Cop________ [ 4090] (M): AllTests: At 810973037 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:22 Cop________ [ 4090] (M): AllTests: At 810973042 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:27 Cop________ [ 4090] (M): AllTests: At 810973047 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:32 Cop________ [ 4090] (M): AllTests: At 810973052 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:37 Cop________ [ 4090] (M): AllTests: At 810973057 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:42 Cop________ [ 4090] (M): AllTests: At 810973062 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:47 Cop________ [ 4090] (M): AllTests: At 810973067 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:52 Cop________ [ 4090] (M): AllTests: At 810973072 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:17:57 Cop________ [ 4090] (M): AllTests: At 810973077 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:02 Cop________ [ 4090] (M): AllTests: At 810973082 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:07 Cop________ [ 4090] (M): AllTests: At 810973087 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:12 Cop________ [ 4090] (M): AllTests: At 810973092 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:17 Cop________ [ 4090] (M): AllTests: At 810973097 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:22 Cop________ [ 4090] (M): AllTests: At 810973102 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:27 Cop________ [ 4090] (M): AllTests: At 810973107 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:32 Cop________ [ 4090] (M): AllTests: At 810973112 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:37 Cop________ [ 4090] (M): AllTests: At 810973117 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:42 Cop________ [ 4090] (M): AllTests: At 810973122 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:47 Cop________ [ 4090] (M): AllTests: At 810973127 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:52 Cop________ [ 4090] (M): AllTests: At 810973132 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:18:57 Cop________ [ 4090] (M): AllTests: At 810973137 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:02 Cop________ [ 4090] (M): AllTests: At 810973142 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:07 Cop________ [ 4090] (M): AllTests: At 810973147 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:12 Cop________ [ 4090] (M): AllTests: At 810973152 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:17 Cop________ [ 4090] (M): AllTests: At 810973157 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:22 Cop________ [ 4090] (M): AllTests: At 810973162 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:27 Cop________ [ 4090] (M): AllTests: At 810973167 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:32 Cop________ [ 4090] (M): AllTests: At 810973172 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:38 Cop________ [ 4090] (M): AllTests: At 810973178 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:43 Cop________ [ 4090] (M): AllTests: At 810973183 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:48 Cop________ [ 4090] (M): AllTests: At 810973188 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:53 Cop________ [ 4090] (M): AllTests: At 810973193 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:19:58 Cop________ [ 4090] (M): AllTests: At 810973198 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:03 Cop________ [ 4090] (M): AllTests: At 810973203 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:08 Cop________ [ 4090] (M): AllTests: At 810973208 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:13 Cop________ [ 4090] (M): AllTests: At 810973213 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:18 Cop________ [ 4090] (M): AllTests: At 810973218 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:23 Cop________ [ 4090] (M): AllTests: At 810973223 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:28 Cop________ [ 4090] (M): AllTests: At 810973228 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:33 Cop________ [ 4090] (M): AllTests: At 810973233 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:38 Cop________ [ 4090] (M): AllTests: At 810973238 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:43 Cop________ [ 4090] (M): AllTests: At 810973243 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:48 Cop________ [ 4090] (M): AllTests: At 810973248 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:53 Cop________ [ 4090] (M): AllTests: At 810973253 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:20:58 Cop________ [ 4090] (M): AllTests: At 810973258 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:03 Cop________ [ 4090] (M): AllTests: At 810973263 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:08 Cop________ [ 4090] (M): AllTests: At 810973268 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:13 Cop________ [ 4090] (M): AllTests: At 810973273 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:18 Cop________ [ 4090] (M): AllTests: At 810973278 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:23 Cop________ [ 4090] (M): AllTests: At 810973283 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:28 Cop________ [ 4090] (M): AllTests: At 810973288 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:33 Cop________ [ 4090] (M): AllTests: At 810973293 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:38 Cop________ [ 4090] (M): AllTests: At 810973298 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:43 Cop________ [ 4090] (M): AllTests: At 810973303 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:48 Cop________ [ 4090] (M): AllTests: At 810973308 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:53 Cop________ [ 4090] (M): AllTests: At 810973313 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:21:58 Cop________ [ 4090] (M): AllTests: At 810973318 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:03 Cop________ [ 4090] (M): AllTests: At 810973323 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:08 Cop________ [ 4090] (M): AllTests: At 810973328 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:13 Cop________ [ 4090] (M): AllTests: At 810973333 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:18 Cop________ [ 4090] (M): AllTests: At 810973338 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:23 Cop________ [ 4090] (M): AllTests: At 810973343 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:28 Cop________ [ 4090] (M): AllTests: At 810973348 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:33 Cop________ [ 4090] (M): AllTests: At 810973353 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:38 Cop________ [ 4090] (M): AllTests: At 810973358 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:43 Cop________ [ 4090] (M): AllTests: At 810973363 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:48 Cop________ [ 4090] (M): AllTests: At 810973368 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:53 Cop________ [ 4090] (M): AllTests: At 810973373 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:22:58 Cop________ [ 4090] (M): AllTests: At 810973378 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:03 Cop________ [ 4090] (M): AllTests: At 810973383 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:08 Cop________ [ 4090] (M): AllTests: At 810973388 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:13 Cop________ [ 4090] (M): AllTests: At 810973393 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:18 Cop________ [ 4090] (M): AllTests: At 810973398 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:23 Cop________ [ 4090] (M): AllTests: At 810973403 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:28 Cop________ [ 4090] (M): AllTests: At 810973408 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:33 Cop________ [ 4090] (M): AllTests: At 810973413 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:38 Cop________ [ 4090] (M): AllTests: At 810973418 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:43 Cop________ [ 4090] (M): AllTests: At 810973423 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:48 Cop________ [ 4090] (M): AllTests: At 810973428 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:53 Cop________ [ 4090] (M): AllTests: At 810973433 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:23:58 Cop________ [ 4090] (M): AllTests: At 810973438 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:03 Cop________ [ 4090] (M): AllTests: At 810973443 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:08 Cop________ [ 4090] (M): AllTests: At 810973448 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:13 Cop________ [ 4090] (M): AllTests: At 810973453 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:18 Cop________ [ 4090] (M): AllTests: At 810973458 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:23 Cop________ [ 4090] (M): AllTests: At 810973463 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:28 Cop________ [ 4090] (M): AllTests: At 810973468 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:33 Cop________ [ 4090] (M): AllTests: At 810973473 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:38 Cop________ [ 4090] (M): AllTests: At 810973478 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:43 Cop________ [ 4090] (M): AllTests: At 810973483 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:48 Cop________ [ 4090] (M): AllTests: At 810973488 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:53 Cop________ [ 4090] (M): AllTests: At 810973493 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:24:58 Cop________ [ 4090] (M): AllTests: At 810973498 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:03 Cop________ [ 4090] (M): AllTests: At 810973503 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:08 Cop________ [ 4090] (M): AllTests: At 810973508 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:13 Cop________ [ 4090] (M): AllTests: At 810973513 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:18 Cop________ [ 4090] (M): AllTests: At 810973518 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:23 Cop________ [ 4090] (M): AllTests: At 810973523 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:28 Cop________ [ 4090] (M): AllTests: At 810973528 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:33 Cop________ [ 4090] (M): AllTests: At 810973533 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:38 Cop________ [ 4090] (M): AllTests: At 810973538 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:43 Cop________ [ 4090] (M): AllTests: At 810973543 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:48 Cop________ [ 4090] (M): AllTests: At 810973548 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:53 Cop________ [ 4090] (M): AllTests: At 810973553 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:25:58 Cop________ [ 4090] (M): AllTests: At 810973558 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:03 Cop________ [ 4090] (M): AllTests: At 810973563 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:08 Cop________ [ 4090] (M): AllTests: At 810973568 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:13 Cop________ [ 4090] (M): AllTests: At 810973573 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:18 Cop________ [ 4090] (M): AllTests: At 810973578 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:23 Cop________ [ 4090] (M): AllTests: At 810973583 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:28 Cop________ [ 4090] (M): AllTests: At 810973588 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:33 Cop________ [ 4090] (M): AllTests: At 810973593 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:38 Cop________ [ 4090] (M): AllTests: At 810973598 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:43 Cop________ [ 4090] (M): AllTests: At 810973603 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:49 Cop________ [ 4090] (M): AllTests: At 810973609 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:54 Cop________ [ 4090] (M): AllTests: At 810973614 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:26:59 Cop________ [ 4090] (M): AllTests: At 810973619 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:04 Cop________ [ 4090] (M): AllTests: At 810973624 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:09 Cop________ [ 4090] (M): AllTests: At 810973629 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:14 Cop________ [ 4090] (M): AllTests: At 810973634 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:19 Cop________ [ 4090] (M): AllTests: At 810973639 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:24 Cop________ [ 4090] (M): AllTests: At 810973644 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:29 Cop________ [ 4090] (M): AllTests: At 810973649 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:34 Cop________ [ 4090] (M): AllTests: At 810973654 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:39 Cop________ [ 4090] (M): AllTests: At 810973659 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:44 Cop________ [ 4090] (M): AllTests: At 810973664 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:49 Cop________ [ 4090] (M): AllTests: At 810973669 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:54 Cop________ [ 4090] (M): AllTests: At 810973674 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:27:59 Cop________ [ 4090] (M): AllTests: At 810973679 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:04 Cop________ [ 4090] (M): AllTests: At 810973684 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:09 Cop________ [ 4090] (M): AllTests: At 810973689 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:14 Cop________ [ 4090] (M): AllTests: At 810973694 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:19 Cop________ [ 4090] (M): AllTests: At 810973699 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:24 Cop________ [ 4090] (M): AllTests: At 810973704 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:29 Cop________ [ 4090] (M): AllTests: At 810973709 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:34 Cop________ [ 4090] (M): AllTests: At 810973714 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:39 Cop________ [ 4090] (M): AllTests: At 810973719 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:44 Cop________ [ 4090] (M): AllTests: At 810973724 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:49 Cop________ [ 4090] (M): AllTests: At 810973729 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:54 Cop________ [ 4090] (M): AllTests: At 810973734 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:28:59 Cop________ [ 4090] (M): AllTests: At 810973739 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:04 Cop________ [ 4090] (M): AllTests: At 810973744 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:09 Cop________ [ 4090] (M): AllTests: At 810973749 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:14 Cop________ [ 4090] (M): AllTests: At 810973754 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:19 Cop________ [ 4090] (M): AllTests: At 810973759 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:24 Cop________ [ 4090] (M): AllTests: At 810973764 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:29 Cop________ [ 4090] (M): AllTests: At 810973769 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:34 Cop________ [ 4090] (M): AllTests: At 810973774 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:39 Cop________ [ 4090] (M): AllTests: At 810973779 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:44 Cop________ [ 4090] (M): AllTests: At 810973784 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:49 Cop________ [ 4090] (M): AllTests: At 810973789 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:54 Cop________ [ 4090] (M): AllTests: At 810973794 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:29:59 Cop________ [ 4090] (M): AllTests: At 810973799 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:04 Cop________ [ 4090] (M): AllTests: At 810973804 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:09 Cop________ [ 4090] (M): AllTests: At 810973809 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:14 Cop________ [ 4090] (M): AllTests: At 810973814 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:19 Cop________ [ 4090] (M): AllTests: At 810973819 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:24 Cop________ [ 4090] (M): AllTests: At 810973824 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:29 Cop________ [ 4090] (M): AllTests: At 810973829 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:34 Cop________ [ 4090] (M): AllTests: At 810973834 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:39 Cop________ [ 4090] (M): AllTests: At 810973839 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:44 Cop________ [ 4090] (M): AllTests: At 810973844 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:49 Cop________ [ 4090] (M): AllTests: At 810973849 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:54 Cop________ [ 4090] (M): AllTests: At 810973854 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:30:59 Cop________ [ 4090] (M): AllTests: At 810973859 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:04 Cop________ [ 4090] (M): AllTests: At 810973864 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:09 Cop________ [ 4090] (M): AllTests: At 810973869 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:14 Cop________ [ 4090] (M): AllTests: At 810973874 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:19 Cop________ [ 4090] (M): AllTests: At 810973879 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:24 Cop________ [ 4090] (M): AllTests: At 810973884 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:29 Cop________ [ 4090] (M): AllTests: At 810973889 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:34 Cop________ [ 4090] (M): AllTests: At 810973894 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:39 Cop________ [ 4090] (M): AllTests: At 810973899 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:44 Cop________ [ 4090] (M): AllTests: At 810973904 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:49 Cop________ [ 4090] (M): AllTests: At 810973909 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:54 Cop________ [ 4090] (M): AllTests: At 810973914 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:31:59 Cop________ [ 4090] (M): AllTests: At 810973919 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:04 Cop________ [ 4090] (M): AllTests: At 810973924 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:09 Cop________ [ 4090] (M): AllTests: At 810973929 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:14 Cop________ [ 4090] (M): AllTests: At 810973934 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:19 Cop________ [ 4090] (M): AllTests: At 810973939 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:24 Cop________ [ 4090] (M): AllTests: At 810973944 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:29 Cop________ [ 4090] (M): AllTests: At 810973949 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:34 Cop________ [ 4090] (M): AllTests: At 810973954 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:39 Cop________ [ 4090] (M): AllTests: At 810973959 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:44 Cop________ [ 4090] (M): AllTests: At 810973964 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:49 Cop________ [ 4090] (M): AllTests: At 810973969 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:54 Cop________ [ 4090] (M): AllTests: At 810973974 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:32:59 Cop________ [ 4090] (M): AllTests: At 810973979 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:04 Cop________ [ 4090] (M): AllTests: At 810973984 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:09 Cop________ [ 4090] (M): AllTests: At 810973989 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:14 Cop________ [ 4090] (M): AllTests: At 810973994 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:20 Cop________ [ 4090] (M): AllTests: At 810974000 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:25 Cop________ [ 4090] (M): AllTests: At 810974005 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:30 Cop________ [ 4090] (M): AllTests: At 810974010 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:35 Cop________ [ 4090] (M): AllTests: At 810974015 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:40 Cop________ [ 4090] (M): AllTests: At 810974020 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:45 Cop________ [ 4090] (M): AllTests: At 810974025 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:50 Cop________ [ 4090] (M): AllTests: At 810974030 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:33:55 Cop________ [ 4090] (M): AllTests: At 810974035 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:00 Cop________ [ 4090] (M): AllTests: At 810974040 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:05 Cop________ [ 4090] (M): AllTests: At 810974045 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:10 Cop________ [ 4090] (M): AllTests: At 810974050 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:15 Cop________ [ 4090] (M): AllTests: At 810974055 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:20 Cop________ [ 4090] (M): AllTests: At 810974060 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:25 Cop________ [ 4090] (M): AllTests: At 810974065 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:30 Cop________ [ 4090] (M): AllTests: At 810974070 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:35 Cop________ [ 4090] (M): AllTests: At 810974075 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:40 Cop________ [ 4090] (M): AllTests: At 810974080 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:45 Cop________ [ 4090] (M): AllTests: At 810974085 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:50 Cop________ [ 4090] (M): AllTests: At 810974090 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:34:55 Cop________ [ 4090] (M): AllTests: At 810974095 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:00 Cop________ [ 4090] (M): AllTests: At 810974100 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:05 Cop________ [ 4090] (M): AllTests: At 810974105 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:10 Cop________ [ 4090] (M): AllTests: At 810974110 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:15 Cop________ [ 4090] (M): AllTests: At 810974115 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:20 Cop________ [ 4090] (M): AllTests: At 810974120 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:25 Cop________ [ 4090] (M): AllTests: At 810974125 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:30 Cop________ [ 4090] (M): AllTests: At 810974130 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:35 Cop________ [ 4090] (M): AllTests: At 810974135 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:40 Cop________ [ 4090] (M): AllTests: At 810974140 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:45 Cop________ [ 4090] (M): AllTests: At 810974145 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:50 Cop________ [ 4090] (M): AllTests: At 810974150 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:35:55 Cop________ [ 4090] (M): AllTests: At 810974155 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:00 Cop________ [ 4090] (M): AllTests: At 810974160 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:05 Cop________ [ 4090] (M): AllTests: At 810974165 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:10 Cop________ [ 4090] (M): AllTests: At 810974170 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:15 Cop________ [ 4090] (M): AllTests: At 810974175 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:20 Cop________ [ 4090] (M): AllTests: At 810974180 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:25 Cop________ [ 4090] (M): AllTests: At 810974185 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:30 Cop________ [ 4090] (M): AllTests: At 810974190 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:35 Cop________ [ 4090] (M): AllTests: At 810974195 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:40 Cop________ [ 4090] (M): AllTests: At 810974200 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:45 Cop________ [ 4090] (M): AllTests: At 810974205 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:50 Cop________ [ 4090] (M): AllTests: At 810974210 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:36:55 Cop________ [ 4090] (M): AllTests: At 810974215 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:00 Cop________ [ 4090] (M): AllTests: At 810974220 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:05 Cop________ [ 4090] (M): AllTests: At 810974225 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:10 Cop________ [ 4090] (M): AllTests: At 810974230 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:15 Cop________ [ 4090] (M): AllTests: At 810974235 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:20 Cop________ [ 4090] (M): AllTests: At 810974240 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:25 Cop________ [ 4090] (M): AllTests: At 810974245 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:30 Cop________ [ 4090] (M): AllTests: At 810974250 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:35 Cop________ [ 4090] (M): AllTests: At 810974255 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:40 Cop________ [ 4090] (M): AllTests: At 810974260 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:45 Cop________ [ 4090] (M): AllTests: At 810974265 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:50 Cop________ [ 4090] (M): AllTests: At 810974270 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:37:55 Cop________ [ 4090] (M): AllTests: At 810974275 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:00 Cop________ [ 4090] (M): AllTests: At 810974280 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:05 Cop________ [ 4090] (M): AllTests: At 810974285 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:10 Cop________ [ 4090] (M): AllTests: At 810974290 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:15 Cop________ [ 4090] (M): AllTests: At 810974295 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:20 Cop________ [ 4090] (M): AllTests: At 810974300 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:25 Cop________ [ 4090] (M): AllTests: At 810974305 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:30 Cop________ [ 4090] (M): AllTests: At 810974310 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:35 Cop________ [ 4090] (M): AllTests: At 810974315 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:40 Cop________ [ 4090] (M): AllTests: At 810974320 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:45 Cop________ [ 4090] (M): AllTests: At 810974325 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:50 Cop________ [ 4090] (M): AllTests: At 810974330 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:38:55 Cop________ [ 4090] (M): AllTests: At 810974335 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:00 Cop________ [ 4090] (M): AllTests: At 810974340 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:05 Cop________ [ 4090] (M): AllTests: At 810974345 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:10 Cop________ [ 4090] (M): AllTests: At 810974350 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:15 Cop________ [ 4090] (M): AllTests: At 810974355 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:20 Cop________ [ 4090] (M): AllTests: At 810974360 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:25 Cop________ [ 4090] (M): AllTests: At 810974365 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:30 Cop________ [ 4090] (M): AllTests: At 810974370 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:35 Cop________ [ 4090] (M): AllTests: At 810974375 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:40 Cop________ [ 4090] (M): AllTests: At 810974380 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:45 Cop________ [ 4090] (M): AllTests: At 810974385 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:50 Cop________ [ 4090] (M): AllTests: At 810974390 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:39:55 Cop________ [ 4090] (M): AllTests: At 810974395 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:00 Cop________ [ 4090] (M): AllTests: At 810974400 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:05 Cop________ [ 4090] (M): AllTests: At 810974405 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:10 Cop________ [ 4090] (M): AllTests: At 810974410 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:15 Cop________ [ 4090] (M): AllTests: At 810974415 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:21 Cop________ [ 4090] (M): AllTests: At 810974421 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:26 Cop________ [ 4090] (M): AllTests: At 810974426 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:31 Cop________ [ 4090] (M): AllTests: At 810974431 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:36 Cop________ [ 4090] (M): AllTests: At 810974436 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:41 Cop________ [ 4090] (M): AllTests: At 810974441 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:46 Cop________ [ 4090] (M): AllTests: At 810974446 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:51 Cop________ [ 4090] (M): AllTests: At 810974451 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:40:56 Cop________ [ 4090] (M): AllTests: At 810974456 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:01 Cop________ [ 4090] (M): AllTests: At 810974461 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:06 Cop________ [ 4090] (M): AllTests: At 810974466 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:11 Cop________ [ 4090] (M): AllTests: At 810974471 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:16 Cop________ [ 4090] (M): AllTests: At 810974476 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:21 Cop________ [ 4090] (M): AllTests: At 810974481 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:26 Cop________ [ 4090] (M): AllTests: At 810974486 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:31 Cop________ [ 4090] (M): AllTests: At 810974491 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:36 Cop________ [ 4090] (M): AllTests: At 810974496 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:41 Cop________ [ 4090] (M): AllTests: At 810974501 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:46 Cop________ [ 4090] (M): AllTests: At 810974506 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:51 Cop________ [ 4090] (M): AllTests: At 810974511 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:41:56 Cop________ [ 4090] (M): AllTests: At 810974516 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:01 Cop________ [ 4090] (M): AllTests: At 810974521 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:06 Cop________ [ 4090] (M): AllTests: At 810974526 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:11 Cop________ [ 4090] (M): AllTests: At 810974531 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:16 Cop________ [ 4090] (M): AllTests: At 810974536 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:21 Cop________ [ 4090] (M): AllTests: At 810974541 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:26 Cop________ [ 4090] (M): AllTests: At 810974546 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:31 Cop________ [ 4090] (M): AllTests: At 810974551 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:36 Cop________ [ 4090] (M): AllTests: At 810974556 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:41 Cop________ [ 4090] (M): AllTests: At 810974561 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:46 Cop________ [ 4090] (M): AllTests: At 810974566 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:51 Cop________ [ 4090] (M): AllTests: At 810974571 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:42:56 Cop________ [ 4090] (M): AllTests: At 810974576 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:01 Cop________ [ 4090] (M): AllTests: At 810974581 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:06 Cop________ [ 4090] (M): AllTests: At 810974586 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:11 Cop________ [ 4090] (M): AllTests: At 810974591 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:16 Cop________ [ 4090] (M): AllTests: At 810974596 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:21 Cop________ [ 4090] (M): AllTests: At 810974601 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:26 Cop________ [ 4090] (M): AllTests: At 810974606 Queues sc=0/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:30 Cop________ [ 4090] (M): SCHEDULER sent 'Test(start,all_mini)'
+09/13/95 06:43:30 Cop________ [ 4090] (M): SCHEDULER operation 'Test' on 'all_mini'
+09/13/95 06:43:30 Cop________ [ 4090] (M): New test all_mini
+09/13/95 06:43:31 Cop________ [ 4090] (M): CopTestCreate all_mini 810974610/1200000000/1200000000
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): riedtli 0w3618244
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): pizol 0w4653381
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): wiedikon 0w4628320
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): affoltern 0w3715600
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): aussersihl 0w2419890
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): albisrieden 0w4919570
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): gonzen 0w4653380
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): hades 1952
+09/13/95 06:43:31 Cop________ [ 4090] (M): Teco config (all_mini): vilan 0w4620694
+09/13/95 06:43:31 Cop________ [ 4090] (M): AllTests: At 810974611 Queues sc=1/ld=0/ru=0/st=0/dn=0/ab=0/mo=5
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: Scheduled --> loading (next event in 389025389)
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: At 810974611 Queues sc=9/ld=0/ru=0/st=0/dn=0/ab=0
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: Allocating worker/modem.
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: TRU riedtli (via calanda.8101) is now loading.
+09/13/95 06:43:31 Cop________ [ 4090] (M): riedtli   : Saved worker alvier.1
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: Allocating worker/modem.
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: TRU pizol (via calanda.8102) is now loading.
+09/13/95 06:43:31 Cop________ [ 4090] (M): pizol     : Saved worker alvier.2
+09/13/95 06:43:31   alvier.1  [ 4095] (M): riedtli   : (0w3618244) loading with with all_mini
+09/13/95 06:43:31   alvier.1  [ 4095] (M): riedtli   : Programming annex: riedtli 200.2.104.15 0w3618244
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: Allocating worker/modem.
+09/13/95 06:43:31 Cop________ [ 4090] (M): all_mini: TRU wiedikon (via calanda.8201) is now loading.
+09/13/95 06:43:31   alvier.2  [ 4103] (M): pizol     : (0w4653381) loading with with all_mini
+09/13/95 06:43:31 Cop________ [ 4090] (M): wiedikon  : Saved worker falknis.1
+09/13/95 06:43:31   alvier.2  [ 4103] (M): pizol     : Programming annex: pizol 200.2.104.22 0w4653381
+09/13/95 06:43:32 Cop________ [ 4090] (M): all_mini: Allocating worker/modem.
+09/13/95 06:43:32 Cop________ [ 4090] (M): all_mini: TRU affoltern (via calanda.8202) is now loading.
+09/13/95 06:43:32 Cop________ [ 4090] (M): affoltern : Saved worker falknis.2
+09/13/95 06:43:32  falknis.1  [ 4108] (M): wiedikon  : (0w4628320) loading with with all_mini
+09/13/95 06:43:32  falknis.1  [ 4108] (M): wiedikon  : Programming annex: wiedikon 200.2.104.16 0w4628320
+09/13/95 06:43:32  falknis.2  [ 4111] (M): affoltern : (0w3715600) loading with with all_mini
+09/13/95 06:43:32 Cop________ [ 4090] (M): all_mini: Allocating worker/modem.
+09/13/95 06:43:32 Cop________ [ 4090] (M): all_mini: TRU aussersihl (via calanda.8203) is now loading.
+09/13/95 06:43:32 Cop________ [ 4090] (M): aussersihl: Saved worker falknis.3
+09/13/95 06:43:32  falknis.2  [ 4111] (M): affoltern : Programming annex: affoltern 200.2.104.11 0w3715600
+09/13/95 06:43:32 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 0 >= maximum 5)
+09/13/95 06:43:32  falknis.3  [ 4120] (M): aussersihl: (0w2419890) loading with with all_mini
+09/13/95 06:43:32 Cop________ [ 4090] (M): all_mini: Now Scheduled --> GARBAGE.
+09/13/95 06:43:32 Cop________ [ 4090] (M): all_mini: Now Loading --> SCHED_TC_QUEUED.
+09/13/95 06:43:32 Cop________ [ 4090] (M): riedtli   : Now Loading --> GARBAGE.
+09/13/95 06:43:32 Cop________ [ 4090] (M): pizol     : Now Loading --> GARBAGE.
+09/13/95 06:43:32 Cop________ [ 4090] (M): wiedikon  : Now Loading --> GARBAGE.
+09/13/95 06:43:32 Cop________ [ 4090] (M): affoltern : Now Loading --> GARBAGE.
+09/13/95 06:43:32 Cop________ [ 4090] (M): aussersihl: Now Loading --> GARBAGE.
+09/13/95 06:43:32  falknis.3  [ 4120] (M): aussersihl: Programming annex: aussersihl 200.2.104.14 0w2419890
+09/13/95 06:43:33  falknis.1  [ 4108] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:33   alvier.1  [ 4095] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:33   alvier.2  [ 4103] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:33  falknis.2  [ 4111] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:34  falknis.3  [ 4120] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:36  falknis.1  [ 4108] (M): wiedikon  : /usr/etc/route add host wiedikon falknis 1 > /dev/null 2>&1
+09/13/95 06:43:36   alvier.1  [ 4095] (M): riedtli   : /usr/etc/route add host riedtli alvier 1 > /dev/null 2>&1
+09/13/95 06:43:36   alvier.2  [ 4103] (M): pizol     : /usr/etc/route add host pizol alvier 1 > /dev/null 2>&1
+09/13/95 06:43:36  falknis.2  [ 4111] (M): affoltern : /usr/etc/route add host affoltern falknis 1 > /dev/null 2>&1
+09/13/95 06:43:37  falknis.1  [ 4108] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:37  falknis.1  [ 4108] (M): wiedikon  : Opening connection.
+09/13/95 06:43:37   alvier.1  [ 4095] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:37   alvier.1  [ 4095] (M): riedtli   : Opening connection.
+09/13/95 06:43:37   alvier.2  [ 4103] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:37   alvier.2  [ 4103] (M): pizol     : Opening connection.
+09/13/95 06:43:37  falknis.2  [ 4111] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:37  falknis.2  [ 4111] (M): affoltern : Opening connection.
+09/13/95 06:43:37  falknis.3  [ 4120] (M): aussersihl: /usr/etc/route add host aussersihl falknis 1 > /dev/null 2>&1
+09/13/95 06:43:37  falknis.3  [ 4120] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:43:37  falknis.3  [ 4120] (M): aussersihl: Opening connection.
+09/13/95 06:43:37 Cop________ [ 4090] (M): AllTests: At 810974617 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:43:37 Cop________ [ 4090] (M): all_mini: At 810974617 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:43:37 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:43:42 Cop________ [ 4090] (M): AllTests: At 810974622 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:43:42 Cop________ [ 4090] (M): all_mini: At 810974622 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:43:42 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:43:47 Cop________ [ 4090] (M): AllTests: At 810974627 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:43:47 Cop________ [ 4090] (M): all_mini: At 810974627 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:43:47 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:43:52 Cop________ [ 4090] (M): AllTests: At 810974632 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:43:52 Cop________ [ 4090] (M): all_mini: At 810974632 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:43:52 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:43:57 Cop________ [ 4090] (M): AllTests: At 810974637 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:43:57 Cop________ [ 4090] (M): all_mini: At 810974637 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:43:57 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:02 Cop________ [ 4090] (M): AllTests: At 810974642 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:02 Cop________ [ 4090] (M): all_mini: At 810974642 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:02 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:07 Cop________ [ 4090] (M): AllTests: At 810974647 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:07 Cop________ [ 4090] (M): all_mini: At 810974647 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:07 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:13 Cop________ [ 4090] (M): AllTests: At 810974653 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:13 Cop________ [ 4090] (M): all_mini: At 810974653 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:13 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:18 Cop________ [ 4090] (M): AllTests: At 810974658 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:18 Cop________ [ 4090] (M): all_mini: At 810974658 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:18 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:23 Cop________ [ 4090] (M): AllTests: At 810974663 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:23 Cop________ [ 4090] (M): all_mini: At 810974663 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:23 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:24   alvier.2  [ 4103] (E): Caught signal SIGPIPE -- Broken Pipe
+09/13/95 06:44:24   alvier.2  [ 4103] (M): pizol     : I still have 9 retries to connect (echo write).
+09/13/95 06:44:26  falknis.1  [ 4108] (M): wiedikon  : Needed 54 seconds to connect
+09/13/95 06:44:27   alvier.2  [ 4103] (M): pizol     : Opening connection.
+09/13/95 06:44:27  falknis.2  [ 4111] (M): affoltern : Needed 55 seconds to connect
+09/13/95 06:44:28 Cop________ [ 4090] (M): AllTests: At 810974668 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:28 Cop________ [ 4090] (M): all_mini: At 810974668 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:28 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:30  falknis.1  [ 4108] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:44:30  falknis.1  [ 4108] (M): wiedikon  : Sending request.
+09/13/95 06:44:31  falknis.1  [ 4108] (M): wiedikon  : Received answer.
+09/13/95 06:44:31  falknis.2  [ 4111] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:44:31  falknis.2  [ 4111] (M): affoltern : Sending request.
+09/13/95 06:44:32  falknis.2  [ 4111] (M): affoltern : Received answer.
+09/13/95 06:44:33   alvier.2  [ 4103] (M): pizol     : Needed 62 seconds to connect
+09/13/95 06:44:33 Cop________ [ 4090] (M): AllTests: At 810974673 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:33 Cop________ [ 4090] (M): all_mini: At 810974673 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:33 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:36  falknis.1  [ 4108] (M): wiedikon  : Final state RESU_TEST_RUNNING/SCEN_READY after 4 seconds
+09/13/95 06:44:36  falknis.1  [ 4108] (M): wiedikon  : Starting to transfer test all_mini.
+09/13/95 06:44:37  falknis.2  [ 4111] (M): affoltern : Final state RESU_TEST_RUNNING/SCEN_READY after 4 seconds
+09/13/95 06:44:37  falknis.2  [ 4111] (M): affoltern : Starting to transfer test all_mini.
+09/13/95 06:44:37   alvier.2  [ 4103] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:44:37   alvier.2  [ 4103] (M): pizol     : Sending request.
+09/13/95 06:44:38 Cop________ [ 4090] (M): AllTests: At 810974678 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:38 Cop________ [ 4090] (M): all_mini: At 810974678 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:38 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:38   alvier.2  [ 4103] (M): pizol     : Received answer.
+09/13/95 06:44:42   alvier.2  [ 4103] (M): pizol     : Final state RESU_TEST_RUNNING/SCEN_READY after 3 seconds
+09/13/95 06:44:42   alvier.2  [ 4103] (M): pizol     : Starting to transfer test all_mini.
+09/13/95 06:44:43 Cop________ [ 4090] (M): AllTests: At 810974683 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:43 Cop________ [ 4090] (M): all_mini: At 810974683 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:43 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:48 Cop________ [ 4090] (M): AllTests: At 810974688 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:48 Cop________ [ 4090] (M): all_mini: At 810974688 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:48 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:53  falknis.3  [ 4120] (M): Couldn`t connect socket
+09/13/95 06:44:53   alvier.1  [ 4095] (M): Couldn`t connect socket
+09/13/95 06:44:53   alvier.1  [ 4095] (E): riedtli   : I still have 4 retries to connect (echo open).
+09/13/95 06:44:53  falknis.3  [ 4120] (E): aussersihl: I still have 4 retries to connect (echo open).
+09/13/95 06:44:53 Cop________ [ 4090] (M): AllTests: At 810974693 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:53 Cop________ [ 4090] (M): all_mini: At 810974693 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:53 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:44:58 Cop________ [ 4090] (M): AllTests: At 810974698 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:44:58 Cop________ [ 4090] (M): all_mini: At 810974698 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:44:58 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:03   alvier.1  [ 4095] (M): riedtli   : Opening connection.
+09/13/95 06:45:03  falknis.3  [ 4120] (M): aussersihl: Opening connection.
+09/13/95 06:45:03 Cop________ [ 4090] (M): AllTests: At 810974703 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:03 Cop________ [ 4090] (M): all_mini: At 810974703 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:03 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:08 Cop________ [ 4090] (M): AllTests: At 810974708 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:08 Cop________ [ 4090] (M): all_mini: At 810974708 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:08 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:09   alvier.1  [ 4095] (M): riedtli   : Needed 98 seconds to connect
+09/13/95 06:45:13 Cop________ [ 4090] (M): AllTests: At 810974713 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:13 Cop________ [ 4090] (M): all_mini: At 810974713 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:13 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:13   alvier.1  [ 4095] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:45:13   alvier.1  [ 4095] (M): riedtli   : Sending request.
+09/13/95 06:45:14   alvier.1  [ 4095] (M): riedtli   : Received answer.
+09/13/95 06:45:18   alvier.1  [ 4095] (M): riedtli   : Final state RESU_TEST_RUNNING/SCEN_READY after 3 seconds
+09/13/95 06:45:18   alvier.1  [ 4095] (M): riedtli   : Starting to transfer test all_mini.
+09/13/95 06:45:18 Cop________ [ 4090] (M): AllTests: At 810974718 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:18 Cop________ [ 4090] (M): all_mini: At 810974718 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:18 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:23 Cop________ [ 4090] (M): AllTests: At 810974723 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:23 Cop________ [ 4090] (M): all_mini: At 810974723 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:23 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:29 Cop________ [ 4090] (M): AllTests: At 810974729 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:29 Cop________ [ 4090] (M): all_mini: At 810974729 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:29 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:34 Cop________ [ 4090] (M): AllTests: At 810974734 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:34 Cop________ [ 4090] (M): all_mini: At 810974734 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:34 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:39 Cop________ [ 4090] (M): AllTests: At 810974739 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:39 Cop________ [ 4090] (M): all_mini: At 810974739 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:39 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:44 Cop________ [ 4090] (M): AllTests: At 810974744 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:44 Cop________ [ 4090] (M): all_mini: At 810974744 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:44 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:49 Cop________ [ 4090] (M): AllTests: At 810974749 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:49 Cop________ [ 4090] (M): all_mini: At 810974749 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:49 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:50  falknis.1  [ 4108] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:45:51  falknis.2  [ 4111] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:45:53   alvier.2  [ 4103] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:45:54 Cop________ [ 4090] (M): AllTests: At 810974754 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:54 Cop________ [ 4090] (M): all_mini: At 810974754 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:54 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:55  falknis.1  [ 4108] (M): wiedikon  : Needed 79 seconds to transfer
+09/13/95 06:45:55  falknis.1  [ 4108] (M): wiedikon  : Waiting for test all_mini to get ready.
+09/13/95 06:45:57  falknis.2  [ 4111] (M): affoltern : Needed 80 seconds to transfer
+09/13/95 06:45:57  falknis.2  [ 4111] (M): affoltern : Waiting for test all_mini to get ready.
+09/13/95 06:45:59 Cop________ [ 4090] (M): AllTests: At 810974759 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:45:59 Cop________ [ 4090] (M): all_mini: At 810974759 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:45:59 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:45:59   alvier.2  [ 4103] (M): pizol     : Needed 77 seconds to transfer
+09/13/95 06:45:59   alvier.2  [ 4103] (M): pizol     : Waiting for test all_mini to get ready.
+09/13/95 06:45:59  falknis.1  [ 4108] (M): wiedikon  : Current state RESU_TEST_LOADED/SCEN_KILLED after 4 seconds
+09/13/95 06:46:00  falknis.2  [ 4111] (M): affoltern : Current state RESU_TEST_LOADED/SCEN_KILLED after 3 seconds
+09/13/95 06:46:03   alvier.2  [ 4103] (M): pizol     : Current state RESU_TEST_LOADED/SCEN_KILLED after 4 seconds
+09/13/95 06:46:04 Cop________ [ 4090] (M): AllTests: At 810974764 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:04 Cop________ [ 4090] (M): all_mini: At 810974764 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:04 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:09 Cop________ [ 4090] (M): AllTests: At 810974769 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:09 Cop________ [ 4090] (M): all_mini: At 810974769 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:09 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:13  falknis.1  [ 4108] (M): wiedikon  : Current state RESU_TEST_LOADED/SCEN_KILLED after 18 seconds
+09/13/95 06:46:14  falknis.2  [ 4111] (M): affoltern : Current state RESU_TEST_LOADED/SCEN_KILLED after 17 seconds
+09/13/95 06:46:14 Cop________ [ 4090] (M): AllTests: At 810974774 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:14 Cop________ [ 4090] (M): all_mini: At 810974774 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:14 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:17   alvier.2  [ 4103] (M): pizol     : Current state RESU_TEST_LOADED/SCEN_KILLED after 18 seconds
+09/13/95 06:46:18  falknis.3  [ 4120] (M): Couldn`t connect socket
+09/13/95 06:46:18  falknis.3  [ 4120] (E): aussersihl: I still have 3 retries to connect (echo open).
+09/13/95 06:46:19 Cop________ [ 4090] (M): AllTests: At 810974779 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:19 Cop________ [ 4090] (M): all_mini: At 810974779 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:19 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:24 Cop________ [ 4090] (M): AllTests: At 810974784 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:24 Cop________ [ 4090] (M): all_mini: At 810974784 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:24 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:27  falknis.1  [ 4108] (M): wiedikon  : Current state RESU_TEST_LOADED/SCEN_KILLED after 32 seconds
+09/13/95 06:46:28  falknis.2  [ 4111] (M): affoltern : Current state RESU_TEST_LOADED/SCEN_KILLED after 31 seconds
+09/13/95 06:46:28  falknis.3  [ 4120] (M): aussersihl: Opening connection.
+09/13/95 06:46:28   alvier.1  [ 4095] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:46:29 Cop________ [ 4090] (M): AllTests: At 810974789 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:29 Cop________ [ 4090] (M): all_mini: At 810974789 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:29 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:31   alvier.2  [ 4103] (M): pizol     : Current state RESU_TEST_LOADED/SCEN_KILLED after 32 seconds
+09/13/95 06:46:34   alvier.1  [ 4095] (M): riedtli   : Needed 76 seconds to transfer
+09/13/95 06:46:34   alvier.1  [ 4095] (M): riedtli   : Waiting for test all_mini to get ready.
+09/13/95 06:46:34 Cop________ [ 4090] (M): AllTests: At 810974794 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:34 Cop________ [ 4090] (M): all_mini: At 810974794 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:34 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:34  falknis.3  [ 4120] (M): aussersihl: Needed 182 seconds to connect
+09/13/95 06:46:38   alvier.1  [ 4095] (M): riedtli   : Current state RESU_TEST_LOADED/SCEN_KILLED after 4 seconds
+09/13/95 06:46:39  falknis.3  [ 4120] (M): Caught signal SIGCHLD -- Child Status Changed
+09/13/95 06:46:39  falknis.3  [ 4120] (M): aussersihl: Sending request.
+09/13/95 06:46:39 Cop________ [ 4090] (M): AllTests: At 810974799 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:39 Cop________ [ 4090] (M): all_mini: At 810974799 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:39 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:41  falknis.1  [ 4108] (M): wiedikon  : Current state RESU_TEST_LOADED/SCEN_KILLED after 46 seconds
+09/13/95 06:46:42  falknis.2  [ 4111] (M): affoltern : Current state RESU_TEST_LOADED/SCEN_KILLED after 45 seconds
+09/13/95 06:46:44   alvier.2  [ 4103] (M): pizol     : Current state RESU_TEST_LOADED/SCEN_KILLED after 45 seconds
+09/13/95 06:46:44 Cop________ [ 4090] (M): AllTests: At 810974804 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:44 Cop________ [ 4090] (M): all_mini: At 810974804 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:44 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:49  falknis.3  [ 4120] (M): aussersihl: Sending request.
+09/13/95 06:46:50 Cop________ [ 4090] (M): AllTests: At 810974810 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:50 Cop________ [ 4090] (M): all_mini: At 810974810 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:50 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:52   alvier.1  [ 4095] (M): riedtli   : Current state RESU_TEST_LOADED/SCEN_KILLED after 18 seconds
+09/13/95 06:46:54  falknis.1  [ 4108] (M): wiedikon  : Current state RESU_TEST_LOADED/SCEN_KILLED after 59 seconds
+09/13/95 06:46:55 Cop________ [ 4090] (M): AllTests: At 810974815 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:46:55 Cop________ [ 4090] (M): all_mini: At 810974815 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:46:55 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:46:55  falknis.2  [ 4111] (M): affoltern : Current state RESU_TEST_LOADED/SCEN_KILLED after 58 seconds
+09/13/95 06:46:58   alvier.2  [ 4103] (M): pizol     : Current state RESU_TEST_LOADED/SCEN_KILLED after 59 seconds
+09/13/95 06:46:59  falknis.3  [ 4120] (M): aussersihl: Sending request.
+09/13/95 06:47:00 Cop________ [ 4090] (M): AllTests: At 810974820 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:47:00 Cop________ [ 4090] (M): all_mini: At 810974820 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:47:00 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:47:05 Cop________ [ 4090] (M): AllTests: At 810974825 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:47:05 Cop________ [ 4090] (M): all_mini: At 810974825 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:47:05 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:47:05   alvier.1  [ 4095] (M): riedtli   : Current state RESU_TEST_LOADED/SCEN_KILLED after 31 seconds
+09/13/95 06:47:08  falknis.1  [ 4108] (M): wiedikon  : Current state RESU_TEST_LOADED/SCEN_KILLED after 73 seconds
+09/13/95 06:47:09  falknis.3  [ 4120] (M): aussersihl: Sending request.
+09/13/95 06:47:09  falknis.2  [ 4111] (M): affoltern : Current state RESU_TEST_LOADED/SCEN_KILLED after 72 seconds
+09/13/95 06:47:10 Cop________ [ 4090] (M): AllTests: At 810974830 Queues sc=0/ld=1/ru=0/st=0/dn=0/ab=0/mo=0
+09/13/95 06:47:10 Cop________ [ 4090] (M): all_mini: At 810974830 Queues sc=4/ld=5/ru=0/st=0/dn=0/ab=0
+09/13/95 06:47:10 Cop________ [ 4090] (M): all_mini: No modems available (ready = 0 (0) or loading 5 >= maximum 5)
+09/13/95 06:47:12   alvier.2  [ 4103] (M): pizol     : Cu

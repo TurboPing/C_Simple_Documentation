@@ -1,0 +1,306 @@
+\indexentry{alarm_t@{alarm\_\discretionary {-}{}{}t}|hyperpage}{9}
+\indexentry{alarm_t@{alarm\_\discretionary {-}{}{}t}!flag@{flag}|hyperpage}{9}
+\indexentry{flag@{flag}!alarm_t@{alarm\_\discretionary {-}{}{}t}|hyperpage}{9}
+\indexentry{alarm_t@{alarm\_\discretionary {-}{}{}t}!handler@{handler}|hyperpage}{10}
+\indexentry{handler@{handler}!alarm_t@{alarm\_\discretionary {-}{}{}t}|hyperpage}{10}
+\indexentry{alarm_t@{alarm\_\discretionary {-}{}{}t}!interval@{interval}|hyperpage}{10}
+\indexentry{interval@{interval}!alarm_t@{alarm\_\discretionary {-}{}{}t}|hyperpage}{10}
+\indexentry{alarm_t@{alarm\_\discretionary {-}{}{}t}!nexttime@{nexttime}|hyperpage}{10}
+\indexentry{nexttime@{nexttime}!alarm_t@{alarm\_\discretionary {-}{}{}t}|hyperpage}{10}
+\indexentry{chargen_client_t@{chargen\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}|hyperpage}{11}
+\indexentry{chargen_client_t@{chargen\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}!i@{i}|hyperpage}{11}
+\indexentry{i@{i}!chargen_client_t@{chargen\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}|hyperpage}{11}
+\indexentry{chargen_source_t@{chargen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{12}
+\indexentry{chargen_source_t@{chargen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}!i@{i}|hyperpage}{12}
+\indexentry{i@{i}!chargen_source_t@{chargen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{12}
+\indexentry{chargenclient_t@{chargenclient\_\discretionary {-}{}{}t}|hyperpage}{13}
+\indexentry{chargenclient_t@{chargenclient\_\discretionary {-}{}{}t}!fd@{fd}|hyperpage}{13}
+\indexentry{fd@{fd}!chargenclient_t@{chargenclient\_\discretionary {-}{}{}t}|hyperpage}{13}
+\indexentry{chargenclient_t@{chargenclient\_\discretionary {-}{}{}t}!i@{i}|hyperpage}{13}
+\indexentry{i@{i}!chargenclient_t@{chargenclient\_\discretionary {-}{}{}t}|hyperpage}{13}
+\indexentry{client_t@{client\_\discretionary {-}{}{}t}|hyperpage}{14}
+\indexentry{client_t@{client\_\discretionary {-}{}{}t}!chargen@{chargen}|hyperpage}{14}
+\indexentry{chargen@{chargen}!client_t@{client\_\discretionary {-}{}{}t}|hyperpage}{14}
+\indexentry{client_t@{client\_\discretionary {-}{}{}t}!echo@{echo}|hyperpage}{14}
+\indexentry{echo@{echo}!client_t@{client\_\discretionary {-}{}{}t}|hyperpage}{14}
+\indexentry{client_t@{client\_\discretionary {-}{}{}t}!except@{except}|hyperpage}{14}
+\indexentry{except@{except}!client_t@{client\_\discretionary {-}{}{}t}|hyperpage}{14}
+\indexentry{client_t@{client\_\discretionary {-}{}{}t}!fd@{fd}|hyperpage}{14}
+\indexentry{fd@{fd}!client_t@{client\_\discretionary {-}{}{}t}|hyperpage}{14}
+\indexentry{client_t@{client\_\discretionary {-}{}{}t}!read@{read}|hyperpage}{15}
+\indexentry{read@{read}!client_t@{client\_\discretionary {-}{}{}t}|hyperpage}{15}
+\indexentry{client_t@{client\_\discretionary {-}{}{}t}!write@{write}|hyperpage}{15}
+\indexentry{write@{write}!client_t@{client\_\discretionary {-}{}{}t}|hyperpage}{15}
+\indexentry{echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}|hyperpage}{16}
+\indexentry{echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}!buf@{buf}|hyperpage}{16}
+\indexentry{buf@{buf}!echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}|hyperpage}{16}
+\indexentry{echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}!n@{n}|hyperpage}{16}
+\indexentry{n@{n}!echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}|hyperpage}{16}
+\indexentry{echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}!r@{r}|hyperpage}{16}
+\indexentry{r@{r}!echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}|hyperpage}{16}
+\indexentry{echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}!w@{w}|hyperpage}{16}
+\indexentry{w@{w}!echo_client_t@{echo\_\discretionary {-}{}{}client\_\discretionary {-}{}{}t}|hyperpage}{16}
+\indexentry{echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{18}
+\indexentry{echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}!buf@{buf}|hyperpage}{18}
+\indexentry{buf@{buf}!echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{18}
+\indexentry{echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}!n@{n}|hyperpage}{18}
+\indexentry{n@{n}!echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{18}
+\indexentry{echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}!r@{r}|hyperpage}{18}
+\indexentry{r@{r}!echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{18}
+\indexentry{echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}!w@{w}|hyperpage}{18}
+\indexentry{w@{w}!echo_source_t@{echo\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{18}
+\indexentry{echoclient_t@{echoclient\_\discretionary {-}{}{}t}|hyperpage}{20}
+\indexentry{echoclient_t@{echoclient\_\discretionary {-}{}{}t}!buf@{buf}|hyperpage}{20}
+\indexentry{buf@{buf}!echoclient_t@{echoclient\_\discretionary {-}{}{}t}|hyperpage}{20}
+\indexentry{echoclient_t@{echoclient\_\discretionary {-}{}{}t}!fd@{fd}|hyperpage}{20}
+\indexentry{fd@{fd}!echoclient_t@{echoclient\_\discretionary {-}{}{}t}|hyperpage}{20}
+\indexentry{echoclient_t@{echoclient\_\discretionary {-}{}{}t}!n@{n}|hyperpage}{20}
+\indexentry{n@{n}!echoclient_t@{echoclient\_\discretionary {-}{}{}t}|hyperpage}{20}
+\indexentry{echoclient_t@{echoclient\_\discretionary {-}{}{}t}!r@{r}|hyperpage}{20}
+\indexentry{r@{r}!echoclient_t@{echoclient\_\discretionary {-}{}{}t}|hyperpage}{20}
+\indexentry{echoclient_t@{echoclient\_\discretionary {-}{}{}t}!w@{w}|hyperpage}{21}
+\indexentry{w@{w}!echoclient_t@{echoclient\_\discretionary {-}{}{}t}|hyperpage}{21}
+\indexentry{listen_source_t@{listen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{22}
+\indexentry{listen_source_t@{listen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}!getclientsource@{getclientsource}|hyperpage}{22}
+\indexentry{getclientsource@{getclientsource}!listen_source_t@{listen\_\discretionary {-}{}{}source\_\discretionary {-}{}{}t}|hyperpage}{22}
+\indexentry{source_t@{source\_\discretionary {-}{}{}t}|hyperpage}{23}
+\indexentry{source_t@{source\_\discretionary {-}{}{}t}!chargen@{chargen}|hyperpage}{23}
+\indexentry{chargen@{chargen}!source_t@{source\_\discretionary {-}{}{}t}|hyperpage}{23}
+\indexentry{source_t@{source\_\discretionary {-}{}{}t}!echo@{echo}|hyperpage}{23}
+\indexentry{echo@{echo}!source_t@{source\_\discretionary {-}{}{}t}|hyperpage}{23}
+\indexentry{source_t@{source\_\discretionary {-}{}{}t}!id@{id}|hyperpage}{23}
+\indexentry{id@{id}!source_t@{source\_\discretionary {-}{}{}t}|hyperpage}{23}
+\indexentry{source_t@{source\_\discretionary {-}{}{}t}!listen@{listen}|hyperpage}{23}
+\indexentry{listen@{listen}!source_t@{source\_\discretionary {-}{}{}t}|hyperpage}{23}
+\indexentry{source_t@{source\_\discretionary {-}{}{}t}!pollfd@{pollfd}|hyperpage}{23}
+\indexentry{pollfd@{pollfd}!source_t@{source\_\discretionary {-}{}{}t}|hyperpage}{23}
+\indexentry{source_t@{source\_\discretionary {-}{}{}t}!source@{source}|hyperpage}{24}
+\indexentry{source@{source}!source_t@{source\_\discretionary {-}{}{}t}|hyperpage}{24}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{25}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!BUFSIZE@{BUFSIZE}|hyperpage}{27}
+\indexentry{BUFSIZE@{BUFSIZE}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{27}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!HEARTBEAT_INTERVAL@{HEARTBEAT\_\discretionary {-}{}{}INTERVAL}|hyperpage}{27}
+\indexentry{HEARTBEAT_INTERVAL@{HEARTBEAT\_\discretionary {-}{}{}INTERVAL}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{27}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MAX@{MAX}|hyperpage}{27}
+\indexentry{MAX@{MAX}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{27}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MAXCLIENTS@{MAXCLIENTS}|hyperpage}{27}
+\indexentry{MAXCLIENTS@{MAXCLIENTS}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{27}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MIN@{MIN}|hyperpage}{27}
+\indexentry{MIN@{MIN}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{27}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_ACCEPT@{MSG\_\discretionary {-}{}{}ACCEPT}|hyperpage}{28}
+\indexentry{MSG_ACCEPT@{MSG\_\discretionary {-}{}{}ACCEPT}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_CLOSE@{MSG\_\discretionary {-}{}{}CLOSE}|hyperpage}{28}
+\indexentry{MSG_CLOSE@{MSG\_\discretionary {-}{}{}CLOSE}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_EMPTY@{MSG\_\discretionary {-}{}{}EMPTY}|hyperpage}{28}
+\indexentry{MSG_EMPTY@{MSG\_\discretionary {-}{}{}EMPTY}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_FULL@{MSG\_\discretionary {-}{}{}FULL}|hyperpage}{28}
+\indexentry{MSG_FULL@{MSG\_\discretionary {-}{}{}FULL}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_HEARTBEAT@{MSG\_\discretionary {-}{}{}HEARTBEAT}|hyperpage}{28}
+\indexentry{MSG_HEARTBEAT@{MSG\_\discretionary {-}{}{}HEARTBEAT}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_MAINLOOP@{MSG\_\discretionary {-}{}{}MAINLOOP}|hyperpage}{28}
+\indexentry{MSG_MAINLOOP@{MSG\_\discretionary {-}{}{}MAINLOOP}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_READ@{MSG\_\discretionary {-}{}{}READ}|hyperpage}{28}
+\indexentry{MSG_READ@{MSG\_\discretionary {-}{}{}READ}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_SLOWHEARTBEAT@{MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}|hyperpage}{28}
+\indexentry{MSG_SLOWHEARTBEAT@{MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_TOOMANY@{MSG\_\discretionary {-}{}{}TOOMANY}|hyperpage}{28}
+\indexentry{MSG_TOOMANY@{MSG\_\discretionary {-}{}{}TOOMANY}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{28}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!MSG_WRITE@{MSG\_\discretionary {-}{}{}WRITE}|hyperpage}{29}
+\indexentry{MSG_WRITE@{MSG\_\discretionary {-}{}{}WRITE}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{29}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!PORT_CHARGEN@{PORT\_\discretionary {-}{}{}CHARGEN}|hyperpage}{29}
+\indexentry{PORT_CHARGEN@{PORT\_\discretionary {-}{}{}CHARGEN}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{29}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!PORT_ECHO@{PORT\_\discretionary {-}{}{}ECHO}|hyperpage}{29}
+\indexentry{PORT_ECHO@{PORT\_\discretionary {-}{}{}ECHO}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{29}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}|hyperpage}{29}
+\indexentry{SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{29}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!listensocket@{listensocket}|hyperpage}{29}
+\indexentry{listensocket@{listensocket}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{29}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!main@{main}|hyperpage}{30}
+\indexentry{main@{main}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{30}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!message@{message}|hyperpage}{33}
+\indexentry{message@{message}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{33}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!readecho@{readecho}|hyperpage}{34}
+\indexentry{readecho@{readecho}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{34}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!setnonblock@{setnonblock}|hyperpage}{34}
+\indexentry{setnonblock@{setnonblock}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{34}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!sighandler@{sighandler}|hyperpage}{35}
+\indexentry{sighandler@{sighandler}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{35}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!writechargen@{writechargen}|hyperpage}{36}
+\indexentry{writechargen@{writechargen}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{36}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!writeecho@{writeecho}|hyperpage}{36}
+\indexentry{writeecho@{writeecho}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{36}
+\indexentry{mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}!chargen_buf@{chargen\_\discretionary {-}{}{}buf}|hyperpage}{37}
+\indexentry{chargen_buf@{chargen\_\discretionary {-}{}{}buf}!mainloop_bad.c@{mainloop\_\discretionary {-}{}{}bad.c}|hyperpage}{37}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{38}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!BUFSIZE@{BUFSIZE}|hyperpage}{40}
+\indexentry{BUFSIZE@{BUFSIZE}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{40}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!HEARTBEAT_INTERVAL@{HEARTBEAT\_\discretionary {-}{}{}INTERVAL}|hyperpage}{40}
+\indexentry{HEARTBEAT_INTERVAL@{HEARTBEAT\_\discretionary {-}{}{}INTERVAL}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{40}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_ACCEPT@{MSG\_\discretionary {-}{}{}ACCEPT}|hyperpage}{41}
+\indexentry{MSG_ACCEPT@{MSG\_\discretionary {-}{}{}ACCEPT}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_CLOSE@{MSG\_\discretionary {-}{}{}CLOSE}|hyperpage}{41}
+\indexentry{MSG_CLOSE@{MSG\_\discretionary {-}{}{}CLOSE}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_EMPTY@{MSG\_\discretionary {-}{}{}EMPTY}|hyperpage}{41}
+\indexentry{MSG_EMPTY@{MSG\_\discretionary {-}{}{}EMPTY}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_FULL@{MSG\_\discretionary {-}{}{}FULL}|hyperpage}{41}
+\indexentry{MSG_FULL@{MSG\_\discretionary {-}{}{}FULL}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_HEARTBEAT@{MSG\_\discretionary {-}{}{}HEARTBEAT}|hyperpage}{41}
+\indexentry{MSG_HEARTBEAT@{MSG\_\discretionary {-}{}{}HEARTBEAT}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_MAINLOOP@{MSG\_\discretionary {-}{}{}MAINLOOP}|hyperpage}{41}
+\indexentry{MSG_MAINLOOP@{MSG\_\discretionary {-}{}{}MAINLOOP}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_READ@{MSG\_\discretionary {-}{}{}READ}|hyperpage}{41}
+\indexentry{MSG_READ@{MSG\_\discretionary {-}{}{}READ}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_SLOWHEARTBEAT@{MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}|hyperpage}{41}
+\indexentry{MSG_SLOWHEARTBEAT@{MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_TOOMANY@{MSG\_\discretionary {-}{}{}TOOMANY}|hyperpage}{41}
+\indexentry{MSG_TOOMANY@{MSG\_\discretionary {-}{}{}TOOMANY}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!MSG_WRITE@{MSG\_\discretionary {-}{}{}WRITE}|hyperpage}{41}
+\indexentry{MSG_WRITE@{MSG\_\discretionary {-}{}{}WRITE}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!PORT_CHARGEN@{PORT\_\discretionary {-}{}{}CHARGEN}|hyperpage}{41}
+\indexentry{PORT_CHARGEN@{PORT\_\discretionary {-}{}{}CHARGEN}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{41}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!PORT_ECHO@{PORT\_\discretionary {-}{}{}ECHO}|hyperpage}{42}
+\indexentry{PORT_ECHO@{PORT\_\discretionary {-}{}{}ECHO}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{42}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}|hyperpage}{42}
+\indexentry{SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{42}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!getclientsourcefunc@{getclientsourcefunc}|hyperpage}{42}
+\indexentry{getclientsourcefunc@{getclientsourcefunc}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{42}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!accept_dispatch@{accept\_\discretionary {-}{}{}dispatch}|hyperpage}{42}
+\indexentry{accept_dispatch@{accept\_\discretionary {-}{}{}dispatch}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{42}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!accept_prepare@{accept\_\discretionary {-}{}{}prepare}|hyperpage}{43}
+\indexentry{accept_prepare@{accept\_\discretionary {-}{}{}prepare}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{43}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!blocksigpipe@{blocksigpipe}|hyperpage}{43}
+\indexentry{blocksigpipe@{blocksigpipe}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{43}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!chargen_dispatch@{chargen\_\discretionary {-}{}{}dispatch}|hyperpage}{44}
+\indexentry{chargen_dispatch@{chargen\_\discretionary {-}{}{}dispatch}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{44}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!chargen_prepare@{chargen\_\discretionary {-}{}{}prepare}|hyperpage}{45}
+\indexentry{chargen_prepare@{chargen\_\discretionary {-}{}{}prepare}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{45}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!check@{check}|hyperpage}{45}
+\indexentry{check@{check}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{45}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!echo_dispatch@{echo\_\discretionary {-}{}{}dispatch}|hyperpage}{46}
+\indexentry{echo_dispatch@{echo\_\discretionary {-}{}{}dispatch}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{46}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!echo_dispatch_read@{echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}read}|hyperpage}{46}
+\indexentry{echo_dispatch_read@{echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}read}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{46}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!echo_dispatch_write@{echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}write}|hyperpage}{47}
+\indexentry{echo_dispatch_write@{echo\_\discretionary {-}{}{}dispatch\_\discretionary {-}{}{}write}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{47}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!echo_prepare@{echo\_\discretionary {-}{}{}prepare}|hyperpage}{48}
+\indexentry{echo_prepare@{echo\_\discretionary {-}{}{}prepare}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{48}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!getchargenclientsource@{getchargenclientsource}|hyperpage}{49}
+\indexentry{getchargenclientsource@{getchargenclientsource}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{49}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!getechoclientsource@{getechoclientsource}|hyperpage}{49}
+\indexentry{getechoclientsource@{getechoclientsource}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{49}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!heartbeat@{heartbeat}|hyperpage}{50}
+\indexentry{heartbeat@{heartbeat}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{50}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!listensocket@{listensocket}|hyperpage}{50}
+\indexentry{listensocket@{listensocket}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{50}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!listensource@{listensource}|hyperpage}{51}
+\indexentry{listensource@{listensource}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{51}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!main@{main}|hyperpage}{51}
+\indexentry{main@{main}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{51}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!message@{message}|hyperpage}{52}
+\indexentry{message@{message}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{52}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!setnonblock@{setnonblock}|hyperpage}{53}
+\indexentry{setnonblock@{setnonblock}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{53}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!slowheartbeat@{slowheartbeat}|hyperpage}{53}
+\indexentry{slowheartbeat@{slowheartbeat}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{53}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!source_close@{source\_\discretionary {-}{}{}close}|hyperpage}{54}
+\indexentry{source_close@{source\_\discretionary {-}{}{}close}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{54}
+\indexentry{mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}!chargen_buf@{chargen\_\discretionary {-}{}{}buf}|hyperpage}{54}
+\indexentry{chargen_buf@{chargen\_\discretionary {-}{}{}buf}!mainloop_glib.c@{mainloop\_\discretionary {-}{}{}glib.c}|hyperpage}{54}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{55}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!BUFSIZE@{BUFSIZE}|hyperpage}{58}
+\indexentry{BUFSIZE@{BUFSIZE}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{58}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!HEARTBEAT_INTERVAL@{HEARTBEAT\_\discretionary {-}{}{}INTERVAL}|hyperpage}{58}
+\indexentry{HEARTBEAT_INTERVAL@{HEARTBEAT\_\discretionary {-}{}{}INTERVAL}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{58}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MAX@{MAX}|hyperpage}{58}
+\indexentry{MAX@{MAX}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{58}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MAXALARMS@{MAXALARMS}|hyperpage}{58}
+\indexentry{MAXALARMS@{MAXALARMS}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{58}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MAXCLIENTS@{MAXCLIENTS}|hyperpage}{59}
+\indexentry{MAXCLIENTS@{MAXCLIENTS}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MIN@{MIN}|hyperpage}{59}
+\indexentry{MIN@{MIN}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_ACCEPT@{MSG\_\discretionary {-}{}{}ACCEPT}|hyperpage}{59}
+\indexentry{MSG_ACCEPT@{MSG\_\discretionary {-}{}{}ACCEPT}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_CLOSE@{MSG\_\discretionary {-}{}{}CLOSE}|hyperpage}{59}
+\indexentry{MSG_CLOSE@{MSG\_\discretionary {-}{}{}CLOSE}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_EMPTY@{MSG\_\discretionary {-}{}{}EMPTY}|hyperpage}{59}
+\indexentry{MSG_EMPTY@{MSG\_\discretionary {-}{}{}EMPTY}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_FULL@{MSG\_\discretionary {-}{}{}FULL}|hyperpage}{59}
+\indexentry{MSG_FULL@{MSG\_\discretionary {-}{}{}FULL}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_HEARTBEAT@{MSG\_\discretionary {-}{}{}HEARTBEAT}|hyperpage}{59}
+\indexentry{MSG_HEARTBEAT@{MSG\_\discretionary {-}{}{}HEARTBEAT}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_MAINLOOP@{MSG\_\discretionary {-}{}{}MAINLOOP}|hyperpage}{59}
+\indexentry{MSG_MAINLOOP@{MSG\_\discretionary {-}{}{}MAINLOOP}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_READ@{MSG\_\discretionary {-}{}{}READ}|hyperpage}{59}
+\indexentry{MSG_READ@{MSG\_\discretionary {-}{}{}READ}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_SLOWHEARTBEAT@{MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}|hyperpage}{59}
+\indexentry{MSG_SLOWHEARTBEAT@{MSG\_\discretionary {-}{}{}SLOWHEARTBEAT}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{59}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_TOOMANY@{MSG\_\discretionary {-}{}{}TOOMANY}|hyperpage}{60}
+\indexentry{MSG_TOOMANY@{MSG\_\discretionary {-}{}{}TOOMANY}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{60}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!MSG_WRITE@{MSG\_\discretionary {-}{}{}WRITE}|hyperpage}{60}
+\indexentry{MSG_WRITE@{MSG\_\discretionary {-}{}{}WRITE}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{60}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!PORT_CHARGEN@{PORT\_\discretionary {-}{}{}CHARGEN}|hyperpage}{60}
+\indexentry{PORT_CHARGEN@{PORT\_\discretionary {-}{}{}CHARGEN}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{60}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!PORT_ECHO@{PORT\_\discretionary {-}{}{}ECHO}|hyperpage}{60}
+\indexentry{PORT_ECHO@{PORT\_\discretionary {-}{}{}ECHO}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{60}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}|hyperpage}{60}
+\indexentry{SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\discretionary {-}{}{}INTERVAL}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{60}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!alarmhandler_t@{alarmhandler\_\discretionary {-}{}{}t}|hyperpage}{60}
+\indexentry{alarmhandler_t@{alarmhandler\_\discretionary {-}{}{}t}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{60}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!eventhandler_t@{eventhandler\_\discretionary {-}{}{}t}|hyperpage}{60}
+\indexentry{eventhandler_t@{eventhandler\_\discretionary {-}{}{}t}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{60}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!acceptchargen@{acceptchargen}|hyperpage}{61}
+\indexentry{acceptchargen@{acceptchargen}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{61}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!acceptecho@{acceptecho}|hyperpage}{61}
+\indexentry{acceptecho@{acceptecho}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{61}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!addalarm@{addalarm}|hyperpage}{61}
+\indexentry{addalarm@{addalarm}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{61}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!addclient@{addclient}|hyperpage}{62}
+\indexentry{addclient@{addclient}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{62}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!alarmhandler@{alarmhandler}|hyperpage}{63}
+\indexentry{alarmhandler@{alarmhandler}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{63}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!blocksigpipe@{blocksigpipe}|hyperpage}{63}
+\indexentry{blocksigpipe@{blocksigpipe}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{63}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!checkalarms@{checkalarms}|hyperpage}{64}
+\indexentry{checkalarms@{checkalarms}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{64}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!closeclient@{closeclient}|hyperpage}{64}
+\indexentry{closeclient@{closeclient}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{64}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!delclient@{delclient}|hyperpage}{64}
+\indexentry{delclient@{delclient}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{64}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!flowecho@{flowecho}|hyperpage}{65}
+\indexentry{flowecho@{flowecho}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{65}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!heartbeat@{heartbeat}|hyperpage}{65}
+\indexentry{heartbeat@{heartbeat}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{65}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!initalarms@{initalarms}|hyperpage}{66}
+\indexentry{initalarms@{initalarms}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{66}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!initclients@{initclients}|hyperpage}{66}
+\indexentry{initclients@{initclients}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{66}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!listensocket@{listensocket}|hyperpage}{66}
+\indexentry{listensocket@{listensocket}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{66}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!main@{main}|hyperpage}{67}
+\indexentry{main@{main}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{67}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!mainloop@{mainloop}|hyperpage}{68}
+\indexentry{mainloop@{mainloop}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{68}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!message@{message}|hyperpage}{68}
+\indexentry{message@{message}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{68}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!readecho@{readecho}|hyperpage}{69}
+\indexentry{readecho@{readecho}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{69}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!setnonblock@{setnonblock}|hyperpage}{70}
+\indexentry{setnonblock@{setnonblock}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{70}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!slowheartbeat@{slowheartbeat}|hyperpage}{71}
+\indexentry{slowheartbeat@{slowheartbeat}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{71}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!writechargen@{writechargen}|hyperpage}{71}
+\indexentry{writechargen@{writechargen}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{71}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!writeecho@{writeecho}|hyperpage}{71}
+\indexentry{writeecho@{writeecho}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{71}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!alarms@{alarms}|hyperpage}{72}
+\indexentry{alarms@{alarms}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{72}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!chargen_buf@{chargen\_\discretionary {-}{}{}buf}|hyperpage}{72}
+\indexentry{chargen_buf@{chargen\_\discretionary {-}{}{}buf}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{72}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!clients@{clients}|hyperpage}{73}
+\indexentry{clients@{clients}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{73}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!npollfd@{npollfd}|hyperpage}{73}
+\indexentry{npollfd@{npollfd}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{73}
+\indexentry{mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}!pollfds@{pollfds}|hyperpage}{73}
+\indexentry{pollfds@{pollfds}!mainloop_good.c@{mainloop\_\discretionary {-}{}{}good.c}|hyperpage}{73}
+\indexentry{README@{README}|hyperpage}{74}

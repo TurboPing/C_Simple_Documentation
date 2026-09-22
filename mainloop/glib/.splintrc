@@ -1,0 +1,12 @@
++distinctinternalnames
+-internalnamecaseinsensitive 
++internalnamelookalike
+
++unixlib
+
+-weak
+
+
++longintegral
++ignoresigns
+-preproc

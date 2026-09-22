@@ -1,0 +1,54 @@
+Here is the first version of a server library. Based on several modules, I have written a SvConn library and a sample program called MainSock. See the end of this Readme file for missing and unresolved issues.
+
+Module Hierarchy - Socket Library
+MainSock.c <- new module
+|
+--- SvConn.c / .h <- new modules
+|
+--- AhList.c / .h
+|
+--- passivesock.c
+|
+--- passiveTCP.c
+|
+--- passiveUDP.c
+|
+--- errexit.c
+|
+--- a8620assert.h / a8620types.h / a8620watch.h
+
+Logical Structure
+MainSock.c - Definition of services
+- Callback routines
+
+SvConn.c /.h - Socket library for server services
+- Routines for Read/Write/Close/Config/GetStats of the
+connection not implemented.
+
+AhList.c /.h - List library module
+
+Description
+Module MainSock.c defines the services and calls the select routine.
+-- SvConnCreateList
+-- SvConnAppendService (for each service)
+-- SvConnSelect (no return)
+
+Module SvConn.c manages the service list and remains in the ScConnSelect routine.
+When a service request is made, the callback function is determined from the list
+and called. In this example, the callback functions are located in the MainSock.c
+module. These are TCPechod1 and TCPecho2, based on the similar examples in TCPechod.c.
+
+Test
+The software can be started with MainSock, and the server is ready.
+The server can be tested with the example TCPecho.c.
+
+Usage: TCPecho localhost 1234 < <file>
+
+Missing and Unresolved
+Error handling (only stderr)
+Logging
+Incomplete procedure descriptions (in file)
+Multiple debug outputs present in code
+Timeout not implemented in SvConnSelect
+Daemon environment (?)
+Consolidate various code modules

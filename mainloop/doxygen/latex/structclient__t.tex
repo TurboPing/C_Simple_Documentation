@@ -1,0 +1,113 @@
+\hypertarget{structclient__t}{
+\section{client\_\-t Struct Reference}
+\label{structclient__t}\index{client_t@{client\_\-t}}
+}
+client state  
+
+
+\subsection*{Data Fields}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structclient__t_o0}{fd}
+\begin{CompactList}\small\item\em filedescriptor for poll() \item\end{CompactList}\item 
+\hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} \hyperlink{structclient__t_o1}{read}
+\begin{CompactList}\small\item\em read handler \item\end{CompactList}\item 
+\hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} \hyperlink{structclient__t_o2}{write}
+\begin{CompactList}\small\item\em write handler \item\end{CompactList}\item 
+\hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} \hyperlink{structclient__t_o3}{except}
+\begin{CompactList}\small\item\em exception (eg disconnect) handler \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+client state 
+
+in a real program, a pointer to a type specific data area would be preferrable to a union. 
+
+
+
+Definition at line 92 of file mainloop\_\-good.c.
+
+\subsection{Field Documentation}
+\hypertarget{structclient__t_o5}{
+\index{client_t@{client\_\-t}!chargen@{chargen}}
+\index{chargen@{chargen}!client_t@{client\_\-t}}
+\subsubsection[chargen]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structchargen__client__t}{chargen\_\-client\_\-t} \hyperlink{structclient__t_o5}{client\_\-t::chargen}}}
+\label{structclient__t_o5}
+
+
+chargen client state 
+
+
+
+Definition at line 99 of file mainloop\_\-good.c.
+
+Referenced by writechargen().\hypertarget{structclient__t_o4}{
+\index{client_t@{client\_\-t}!echo@{echo}}
+\index{echo@{echo}!client_t@{client\_\-t}}
+\subsubsection[echo]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structecho__client__t}{echo\_\-client\_\-t} \hyperlink{structclient__t_o4}{client\_\-t::echo}}}
+\label{structclient__t_o4}
+
+
+echo client state 
+
+
+
+Definition at line 98 of file mainloop\_\-good.c.
+
+Referenced by flowecho(), readecho(), and writeecho().\hypertarget{structclient__t_o3}{
+\index{client_t@{client\_\-t}!except@{except}}
+\index{except@{except}!client_t@{client\_\-t}}
+\subsubsection[except]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} \hyperlink{structclient__t_o3}{client\_\-t::except}}}
+\label{structclient__t_o3}
+
+
+exception (eg disconnect) handler 
+
+
+
+Definition at line 96 of file mainloop\_\-good.c.
+
+Referenced by addclient(), and mainloop().\hypertarget{structclient__t_o0}{
+\index{client_t@{client\_\-t}!fd@{fd}}
+\index{fd@{fd}!client_t@{client\_\-t}}
+\subsubsection[fd]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structclient__t_o0}{client\_\-t::fd}}}
+\label{structclient__t_o0}
+
+
+filedescriptor for poll() 
+
+
+
+Definition at line 93 of file mainloop\_\-good.c.
+
+Referenced by addclient(), closeclient(), delclient(), and initclients().\hypertarget{structclient__t_o1}{
+\index{client_t@{client\_\-t}!read@{read}}
+\index{read@{read}!client_t@{client\_\-t}}
+\subsubsection[read]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} \hyperlink{structclient__t_o1}{client\_\-t::read}}}
+\label{structclient__t_o1}
+
+
+read handler 
+
+
+
+Definition at line 94 of file mainloop\_\-good.c.
+
+Referenced by addclient(), and mainloop().\hypertarget{structclient__t_o2}{
+\index{client_t@{client\_\-t}!write@{write}}
+\index{write@{write}!client_t@{client\_\-t}}
+\subsubsection[write]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{mainloop__good_8c_a20}{eventhandler\_\-t} \hyperlink{structclient__t_o2}{client\_\-t::write}}}
+\label{structclient__t_o2}
+
+
+write handler 
+
+
+
+Definition at line 95 of file mainloop\_\-good.c.
+
+Referenced by addclient(), and mainloop().
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{mainloop__good_8c}{mainloop\_\-good.c}\end{CompactItemize}

@@ -1,0 +1,11 @@
+/* moduleprog.c */
+
+#include <stdio.h>
+
+main () {
+
+  printf("moduleprog\n");
+
+  return 0;
+
+}

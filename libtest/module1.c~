@@ -1,0 +1,9 @@
+/* module1.c */
+
+#include <stdio.h>
+
+extern proc1() {
+
+  return 0;
+
+}

@@ -1,0 +1,4 @@
+TCPecho localhost 1234 < testFile
+TCPecho localhost 1234 < testFile
+TCPecho localhost 1234 < testFile
+TCPecho localhost 1234 < testFile

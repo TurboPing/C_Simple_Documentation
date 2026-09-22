@@ -1,0 +1,266 @@
+# ------------------------------------------------------------------------------
+# MakeVars.Common -- Make variables for all Components
+# ------------------------------------------------------------------------------
+#
+# (c) 1995 Alcatel STR, Zuerich, Switzerland.
+#
+# ----------------------------------------------------------------------------
+#
+# $Id: MakeVars.Common,v 1.3 1996/09/27 09:09:32 schmid Exp roelli $
+#
+# ------------------------------------------------------------------------------
+# Description
+#
+# 
+# ------------------------------------------------------- Directory Structure --
+# Directory structure
+#
+# PROJECT             Current project
+# SYSTEM              Current system
+#
+                     PROJECT = /project/
+                  SYSTEMNAME = rci
+                  
+                      SYSTEM = $(SYSTEMNAME)/2.0
+                   SYSTEMDIR = $(PROJECT)/$(SYSTEM)
+# ----------------------------------------------------------- Initzialization --
+# Initialize OSVER
+#
+                   OSARCH:sh = /usr/local/bin/alcuname -p
+                   OSTYPE:sh = /usr/local/bin/alcuname -s
+                OSRELEASE:sh = /usr/local/bin/alcuname -r
+                       OSVER = $(OSARCH)-$(OSTYPE)-$(OSRELEASE)
+#
+# ------------------------------------------------------------- Make Suffixes --
+# Set the suffixes for make
+#
+#.SUFFIXES: .c .o.$(OSVER)
+
+# ------------------------------------------------------------------- OS/Arch --
+#
+# The software may be compiled under different operating systems. To choose
+# an OS, set the OS variable:
+#
+          OS-sun4-SunOS-4.1 = BSD
+          OS-sparc-SunOS-5.5 = SVR4
+                          OS = $(OS-$(OSVER))
+#
+#
+# Directory structure
+#
+                     APPLDIR = $(SYSTEMDIR)/appl
+                    DBSRCDIR = $(SYSTEMDIR)/db
+                  DISTRIBDIR = $(SYSTEMDIR)/distrib
+                      DOCDIR = $(SYSTEMDIR)/doc
+                     APPLDIR = $(SYSTEMDIR)/appl
+                     PACKDIR = $(SYSTEMDIR)/packages
+                     UTILDIR = $(SYSTEMDIR)/utils
+                     
+      LIBDIR-sparc-SunOS-5.5 = $(DISTRIBDIR)/lib.sparc-SunOS-5.5
+      LIBDIR-sun4-SunOS-4.1 = $(DISTRIBDIR)/lib.sun4-SunOS-4.1
+                      LIBDIR = LIBDIR-$(OSVER)
+#
+# ------------------------------------------------------------------- Release --
+# Release Identification
+#
+                    RELMAJOR = 20
+                    RELMINOR = 04
+                  PATCHLEVEL = 00
+#
+# ------------------------------------------------------------------ Database --
+# Database System 
+#
+# DB_NAME		Name of the database to maintain
+# DB_SERVER		Server where the database resides
+#
+# DB_USER		Name of the user of the database
+# DB_PASSWD_CMD	Command to get user's password
+# DB_SRC_2_DBMS	Command to read sql-scripts into the database via stdin
+#
+                    DBVENDOR = SYBASE
+                     DSQUERY = A8620DB
+
+                     DB_NAME = a8620_$(RELMAJOR)_$(RELMINOR)
+                   DB_SERVER = -S $(DSQUERY)
+#
+# Not so nice... (should be $USER). Hmmm ...
+#
+                     DB_USER = -U a8620_$(RELMAJOR)_$(RELMINOR)
+               DB_PASSWD_CMD = -P a8620p
+#               DB_PASSWD_CMD = `cat /home/$(DB_USER)/.x`
+
+               DB_SRC_2_DBMS = $(SYBASE)/bin/isql $(DB_SERVER)		
+               DB_TBL_2_DBMS = $(UTILDIR)/bin/DbDeTbl2Db 		
+                  DB_CHK_LOG = $(UTILDIR)/bin/DbDeCheckSqlLog 		
+
+# -------------------------------------------------------------------- Sybase --
+# To set the database vendor set the variable DBVENDOR (This variable is
+# set in MakeVars.Common.
+#
+# Currently the only implementation available is for SYBASE.
+#
+          SYBASE-DB_INCLUDES = -I$(SYBASE)/include
+           SYBASE-DB_LIBDIRS = -L$(SYBASE)/lib
+         SYBASE-DB_LIBRARIES = -lsybdb -lm
+#
+# Include Definitions
+#
+                 DB_INCLUDES = $($(DBVENDOR)-DB_INCLUDES)
+                  DB_LIBDIRS = $($(DBVENDOR)-DB_LIBDIRS)
+                DB_LIBRARIES = $($(DBVENDOR)-DB_LIBRARIES)
+#
+# ----------------------------------------------------------------- Utilities --
+# .
+#
+                     UTILDIR = $(SYSTEMDIR)/utils
+                  UTILBINDIR = $(UTILDIR)/bin
+                  DOALPHA = $(UTILBINDIR)/doalpha
+
+# ------------------------------------------------------------- UNIX Commands --
+# Unix Commands
+#
+# AWK, CPP, UNIQ
+#
+                         AWK = nawk
+                      UNIQUE = /usr/bin/uniq -u
+#
+# ------------------------------------------------ OS-Dependent UNIX Commands --
+#
+# MAKE        -- Make
+# AR          -- Archiver
+# ARFLAGS     -- Archiver options to create an archive
+# RM          -- Remove
+# RANLIB      -- Update archives
+#
+# CC          -- C-Compiler
+# CFLAGS      -- C-Compiler flags
+# LD          -- Linker
+# LDFLAGS     -- Linker flags
+#
+# INCLUDES    -- OS specific include directories
+# LIBDIRS     -- OS specific library directories
+# NETWORK_LIB -- Network libraries
+# DL_LIB      -- Dynamic linking libraries
+#
+# --------------------------------------------------------------- Solaris 1.x --
+#
+#
+              MAKE-sun4-SunOS-4.1 = /usr/bin/make
+                AR-sun4-SunOS-4.1 = ar
+           ARFLAGS-sun4-SunOS-4.1 = cr
+                RM-sun4-SunOS-4.1 = rm
+            RANLIB-sun4-SunOS-4.1 = ranlib
+#
+                CC-sun4-SunOS-4.1 = gcc
+            CFLAGS-sun4-SunOS-4.1 = -g -D__EXTENSIONS__ -DBSD
+                LD-sun4-SunOS-4.1 = gcc
+           LDFLAGS-sun4-SunOS-4.1 = 
+               CPP-sun4-SunOS-4.1 = /usr/lib/cpp -P
+#
+          INCLUDES-sun4-SunOS-4.1 = 
+           LIBDIRS-sun4-SunOS-4.1 = -L/usr/lib
+       NETWORK_LIB-sun4-SunOS-4.1 = 
+            DL_LIB-sun4-SunOS-4.1 =
+#
+# --------------------------------------------------------------- Solaris 2.x --
+              MAKE-sparc-SunOS-5.5 = /usr/ccs/bin/make
+                AR-sparc-SunOS-5.5 = ar
+           ARFLAGS-sparc-SunOS-5.5 = cr
+                RM-sparc-SunOS-5.5 = rm
+            RANLIB-sparc-SunOS-5.5 = true
+#
+                CC-sparc-SunOS-5.5 = gcc
+            CFLAGS-sparc-SunOS-5.5 = -g -D__EXTENSIONS__ -DSYSV -DSVR4
+                LD-sparc-SunOS-5.5 = gcc
+           LDFLAGS-sparc-SunOS-5.5 = 
+               CPP-sparc-SunOS-5.5 = /usr/ccs/lib/cpp -P
+#
+          INCLUDES-sparc-SunOS-5.5 =
+           LIBDIRS-sparc-SunOS-5.5 = -L/usr/lib
+       NETWORK_LIB-sparc-SunOS-5.5 = -lsocket -lnsl
+            DL_LIB-sparc-SunOS-5.5 = -ldl
+#
+# ------------------------------------------------------------ Intel SV4R/386 --
+
+                AR-i386-SVR4 = ar
+           ARFLAGS-i386-SVR4 = cr
+                RM-i386-SVR4 = rm
+            RANLIB-i386-SVR4 = true
+#
+                CC-i386-SVR4 = cc
+            CFLAGS-i386-SVR4 = -g -DSYSV -DSVR4 -DINTEL
+                LD-i386-SVR4 = gcc
+           LDFLAGS-i386-SVR4 = 
+#
+          INCLUDES-i386-SVR4 = 
+           LIBDIRS-i386-SVR4 = 
+       NETWORK_LIB-i386-SVR4 = -lsocket -lnsl
+            DL_LIB-i386-SVR4 =
+#
+# ----------------------------------------------------------------------- X11 --
+# X.11 -- 
+# 
+           X11_DIR-sun4-SunOS-4.1 = /package/motif
+           X11_DIR-sparc-SunOS-5.5 = //usr/openwin
+
+                     X11_DIR = $(X11_DIR-$(OSVER))
+
+                 X11_INC_DIR = $(X11_DIR)/include
+                 X11_LIB_DIR = $(X11_DIR)/lib
+
+# -------------------------------------------------------------------- Tcl/Tk --
+#
+#
+                     TCL_DIR = $(PACKDIR)/tcl/tcl7.5/generic
+                TCL_UNIX_DIR = $(PACKDIR)/tcl/tcl7.5/unix
+                 TCL_INC_DIR = $(DISTRIBDIR)/include
+                 TCL_LIB_DIR = $(DISTRIBDIR)/lib.$(OSVER)
+                     TCL_LIB = -ltcl
+#                     
+                      TK_DIR = $(PACKDIR)/tcl/tk4.1/generic
+                 TK_UNIX_DIR = $(PACKDIR)/tcl/tk4.1/unix
+                  TK_INC_DIR = $(DISTRIBDIR)/include
+                  TK_LIB_DIR = $(DISTRIBDIR)/lib.$(OSVER)
+                      TK_LIB = -ltk
+#
+# -------------------------------------------------------------------- COMMON --
+#                  
+                STD_INCLUDES = -I. $(INCLUDES-$(OSVER)) -I$(DISTRIBDIR)/include
+                 STD_LIBDIRS = -L. $(LIBDIRS-$(OSVER))
+#
+# 
+#
+                        MAKE = $(MAKE-$(OSVER)) 
+                          CC = $(CC-$(OSVER))
+                      CFLAGS = $(CFLAGS-$(OSVER)) $(OPTIONS) $(STD_INCLUDES)
+                          LD = $(LD-$(OSVER))
+                     LDFLAGS = $(LDFLAGS-$(OSVER)) $(STD_LIBDIRS)
+                         CPP = $(CPP-$(OSVER))
+#
+                 NETWORK_LIB = $(NETWORK_LIB-$(OSVER))
+                      DL_LIB = $(DL_LIB-$(OSVER))
+#
+# 
+#
+                          AR = $(AR-$(OSVER))
+                     ARFLAGS = $(ARFLAGS-$(OSVER))
+                          RM = $(RM-$(OSVER))
+                      RANLIB = $(RANLIB-$(OSVER))
+
+                          CI = ci -u
+                          CO = co -l
+                          CP = cp
+                        RCSU = rcs -u
+                        RCSL = rcs -l
+                        LOOP = nawk '{ cmd = ARGV[ARGC-1] ; print cmd ;   for (i=1 ; i< (ARGC-1) ; i++ ) { a =  ARGV[i] ; x = cmd "" a ; print i ": " x ; system (x) } ; exit } '
+                         MSG = echo make 
+#
+#           allows now to do things like
+#                            -$(LOOP)   $(PROGRAMS) "$(RCSU) "
+#           which does a RCSU for every file in PROGRAMS
+#           (keep care if the space at the end of the command is needed)
+#
+                     DISTRIB = $(DISTRIBDIR)
+                   DBDISTRIB = $(DISTRIBDIR)/etc/install/db
+#                       
+# End of MakeVars.Common

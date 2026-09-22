@@ -1,0 +1,2373 @@
+%! a2ps 3.0
+
+/$a2psdict 100 dict def
+$a2psdict begin
+% Initialize page description variables.
+/inch {72 mul} bind def
+/landscape true def
+/twinpage true def
+/sheetheight 11.64 inch def
+/sheetwidth 8.27 inch def
+/margin 1.2 inch def
+/noborder false def
+/noheader false def
+/headersize 0.22 inch def
+/bodyfontsize 5 def
+/lines 97 def
+/columns 124 def
+/date (Jul 15 2004 10:02:21) def
+%!  PostScript Source Code
+%
+%  File: imag:/users/local/a2ps/header.ps
+%  Created: Tue Nov 29 12:14:02 1988 by miguel@imag (Miguel Santana)
+%  Version: 2.0
+%  Description: PostScript prolog for a2ps ascii to PostScript program.
+% 
+%  Edit History:
+%  - Original version by evan@csli (Evan Kirshenbaum).
+%  - Modified by miguel@imag to:
+%    1) Correct an overflow bug when printing page number 10 (operator
+%	cvs).
+%    2) Define two other variables (sheetwidth, sheetheight) describing
+%	the physical page (by default A4 format).
+%    3) Minor changes (reorganization, comments, etc).
+%  - Modified by tullemans@apolloway.prl.philips.nl
+%    1) Correct stack overflows with regard to operators cvs and copy.
+%       The resulting substrings where in some cases not popped off 
+%       the stack, what can result in a stack overflow.
+%    2) Replaced copypage and erasepage by showpage. Page througput
+%       degrades severely (see red book page 140) on our ps-printer
+%       after printing sheet 16 (i.e. page 8) of a file which was 
+%       actually bigger. For this purpose the definitions of startdoc
+%       and startpage are changed.
+%  - Modified by Tim Clark <T.Clark@uk.ac.warwick> to:
+%    1) Print one page per sheet (portrait) as an option.
+%    2) Reduce size of file name heading, if it's too big.
+%    3) Save and restore PostScript state at begining/end. It now uses
+%	conventional %%Page %%Trailer markers.
+%    4) Print one wide page per sheet in landscape mode as an option.
+%  - Modified by miguel@imag.fr to
+%    1) Add new option to print n copies of a file.
+%    2) Add new option to suppress heading printing.
+%    3) Add new option to suppress page surrounding border printing.
+%    4) Add new option to change font size. Number of lines and columns
+%	are now automatically adjusted, depending on font size and
+%	printing mode used.
+%    5) Minor changes (best layout, usage message, etc).
+%
+
+% Copyright (c) 1988, Miguel Santana, miguel@imag.imag.fr
+%
+% Permission is granted to copy and distribute this file in modified
+% or unmodified form, for noncommercial use, provided (a) this copyright
+% notice is preserved, (b) no attempt is made to restrict redistribution
+% of this file, and (c) this file is not distributed as part of any
+% collection whose redistribution is restricted by a compilation copyright.
+%
+
+
+% General macros.
+/xdef {exch def} bind def
+/getfont {exch findfont exch scalefont} bind def
+
+% Page description variables and inch function are defined by a2ps program.
+
+% Character size for differents fonts.
+   landscape
+   { /filenamefontsize 12 def }
+   { /filenamefontsize 16 def }
+ifelse
+/datefontsize filenamefontsize 0.8 mul def
+/headermargin filenamefontsize 0.25 mul def
+/bodymargin bodyfontsize 0.7 mul def
+
+% Font assignment to differents kinds of "objects"
+/filenamefontname /Helvetica-Bold def
+/stdfilenamefont filenamefontname filenamefontsize getfont def
+/datefont /Helvetica datefontsize getfont def
+/bodyfont /Courier bodyfontsize getfont def
+
+% Logical page attributs (a half of a real page or sheet).
+/pagewidth
+   bodyfont setfont (0) stringwidth pop columns mul bodymargin dup add add
+   def
+/pageheight
+   bodyfontsize lines mul bodymargin dup add add headersize add
+   def
+
+% Coordinates for upper corner of a logical page and for sheet number.
+% Coordinates depend on format mode used.
+% In twinpage mode, coordinate x of upper corner is not the same for left
+% and right pages: upperx is an array of two elements, indexed by sheetside.
+/rightmargin margin 3 div def
+/leftmargin margin 2 mul 3 div def
+/topmargin margin twinpage {3} {2} ifelse div def
+landscape
+{  % Landscape format
+   /uppery rightmargin pageheight add bodymargin add def
+   /sheetnumbery sheetwidth leftmargin pageheight add datefontsize add sub def
+   twinpage
+   {  % Two logical pages
+      /upperx [ topmargin			% upperx for left page
+		dup 2 mul pagewidth add		% upperx for right page
+	      ] def
+      /sheetnumberx sheetheight topmargin sub def
+   }
+   {  /upperx [ topmargin dup ] def
+      /sheetnumberx sheetheight topmargin sub datefontsize sub def
+   }
+   ifelse
+}
+{  % Portrait format
+   /uppery topmargin pageheight add def
+   /upperx [ leftmargin dup ] def
+   /sheetnumberx sheetwidth rightmargin sub datefontsize sub def
+   /sheetnumbery
+	 sheetheight 
+	 topmargin pageheight add datefontsize add headermargin add
+      sub
+      def
+
+}
+ifelse
+
+% Strings used to make easy printing numbers
+/pnum 12 string def
+/empty 12 string def
+
+% Other initializations.
+/datewidth date stringwidth pop def
+/filenameroom
+         pagewidth
+	 filenamefontsize 4 mul datewidth add (Page 999) stringwidth pop add
+      sub
+   def
+
+
+% Function startdoc: initializes printer and global variables.
+/startdoc
+    { /sheetside 0 def			% sheet side that contains current page
+      /sheet 1 def			% sheet number
+   } bind def
+
+% Function newfile: init file name and reset page number for each new file.
+/newfile
+    { cleanup
+      /filename xdef
+      /filenamewidth filename stringwidth pop def
+      /filenamefont
+	 filenamewidth filenameroom gt
+	 {
+	       filenamefontname
+	       filenamefontsize filenameroom mul filenamewidth div
+	    getfont
+	 }
+	 {  stdfilenamefont }
+	 ifelse
+	 def
+      /pagenum 1 def
+    } bind def
+
+% Function printpage: Print a physical page.
+/printpage
+    { /sheetside 0 def
+      twinpage
+      {  noborder not
+	    { sheetnumber }
+	 if
+      }
+      {  noheader noborder not and
+	    { sheetnumber }
+	 if
+      }
+      ifelse
+      showpage 
+%      pagesave restore
+      /sheet sheet 1 add def
+    } bind def
+
+% Function cleanup: terminates printing, flushing last page if necessary.
+/cleanup
+    { twinpage sheetside 1 eq and
+         { printpage }
+      if
+    } bind def
+
+%
+% Function startpage: prints page header and page border and initializes
+% printing of the file lines.
+/startpage
+    { sheetside 0 eq
+	{ % /pagesave save def
+	  landscape
+	    { sheetwidth 0 inch translate	% new coordinates system origin
+	      90 rotate				% landscape format
+	    } if
+	} if
+      noborder not { printborder } if
+      noheader not { printheader } if
+	 upperx sheetside get  bodymargin  add
+	    uppery
+	    bodymargin bodyfontsize add  noheader {0} {headersize} ifelse  add
+	 sub
+      moveto
+      bodyfont setfont
+    } bind def
+
+% Function printheader: prints page header.
+/printheader
+    { upperx sheetside get  uppery headersize sub 1 add  moveto
+      datefont setfont
+      gsave
+        datefontsize headermargin rmoveto
+	date show					% date/hour
+      grestore
+      gsave
+	pagenum pnum cvs pop
+	   pagewidth (Page 999) stringwidth pop sub
+	   headermargin
+	rmoveto
+        (Page ) show pnum show				% page number
+      grestore
+      empty pnum copy pop
+      gsave
+        filenamefont setfont
+	      filenameroom filename stringwidth pop sub 2 div datewidth add
+	      bodymargin 2 mul 
+	   add 
+	   headermargin
+	rmoveto
+        filename show						% file name
+      grestore
+    } bind def
+
+% Function printborder: prints border page.
+/printborder 
+    { upperx sheetside get uppery moveto
+      gsave					% print the four sides
+        pagewidth 0 rlineto			% of the square
+        0 pageheight neg rlineto
+        pagewidth neg 0 rlineto
+        closepath stroke
+      grestore
+      noheader not
+         { 0 headersize neg rmoveto pagewidth 0 rlineto stroke }
+      if
+    } bind def
+
+%
+% Function endpage: adds a sheet number to the page (footnote) and prints
+% the formatted page (physical impression). Activated at the end of each
+% source page (lines reached or FF character).
+/endpage
+   { /pagenum pagenum 1 add def
+     twinpage  sheetside 0 eq  and
+        { /sheetside 1 def }
+        { printpage }
+     ifelse
+   } bind def
+
+% Function sheetnumber: prints the sheet number.
+/sheetnumber
+    { sheetnumberx sheetnumbery moveto
+      datefont setfont
+      sheet pnum cvs
+	 dup stringwidth pop (0) stringwidth pop sub neg 0 rmoveto show
+      empty pnum copy pop
+    } bind def
+
+% Function s: print a source line
+/s  { gsave
+        show
+      grestore
+      0 bodyfontsize neg rmoveto
+    } bind def
+%%EndProlog
+
+/docsave save def
+startdoc
+(bad/mainloop_bad.c) newfile
+/sheet 1 def
+%%Page: 1 1
+startpage
+(1     /**) s
+(2      * @file) s
+(3      * Example for "bad" main loop) s
+(4      *) s
+(5      * @author Rico Pajarola) s
+(6      *) s
+(7      * This example tries to do everything as bad as possible without doing) s
+(8      * it just plain wrong \(that's not as easy as it sounds\). This is done) s
+(9      * by putting all the logic into one huge main loop, and explicitly spelling) s
+(10     * out all special cases in place.) s
+(11     *) s
+(12     * Apart from the time spent trying to find worse ways to do things,) s
+(13     * this example was completed really quick. That is, at least until I) s
+(14     * tried to add a second client and a second timer...) s
+(15     *) s
+(16     * To emphasize that this is the bad example, select\(\) is used.) s
+(17     */) s
+(18    ) s
+(19    #include <unistd.h>) s
+(20    #include <stdlib.h>) s
+(21    #include <stdio.h>) s
+(22    #include <string.h>) s
+(23    #include <errno.h>) s
+(24    #include <sys/time.h>) s
+(25    #include <sys/socket.h>) s
+(26    #include <signal.h>) s
+(27    #include <fcntl.h>) s
+(28    ) s
+(29    /** tcp port to listen for echo clients */) s
+(30    #define PORT_ECHO 5005) s
+(31    ) s
+(32    /** tcp port to listen for chargen clients */) s
+(33    #define PORT_CHARGEN 5006) s
+(34    ) s
+(35    /** heartbeat interval \(in seconds\) */) s
+(36    #define HEARTBEAT_INTERVAL 2) s
+(37    ) s
+(38    /** slow heartbeat interval \(in seconds\) */) s
+(39    #define SLOWHEARTBEAT_INTERVAL 15) s
+(40    ) s
+(41    /** buffer size for echo client */) s
+(42    #define BUFSIZE 16) s
+(43    ) s
+(44    /** maximum number of clients */) s
+(45    #define MAXCLIENTS 4) s
+(46    ) s
+(47    #define MSG_HEARTBEAT 0) s
+(48    #define MSG_SLOWHEARTBEAT 1) s
+(49    #define MSG_MAINLOOP 2) s
+(50    #define MSG_ACCEPT 3) s
+(51    #define MSG_TOOMANY 4) s
+(52    #define MSG_CLOSE 5) s
+(53    #define MSG_READ 6) s
+(54    #define MSG_WRITE 7) s
+(55    #define MSG_FULL 8) s
+(56    #define MSG_EMPTY 9) s
+(57    ) s
+(58    #define MIN\(a, b\)       \(\(a\)<\(b\)?\(a\):\(b\)\)) s
+(59    #define MAX\(a, b\)       \(\(a\)>\(b\)?\(a\):\(b\)\)) s
+(60    ) s
+(61    /** characters to @return in chargen service */) s
+(62    static char     chargen_buf[] = "0123456789abcdefghijklmnopqrstuv";) s
+(63    ) s
+(64    /**) s
+(65     * echo client state) s
+(66     */) s
+(67    typedef struct {) s
+(68        int             fd; /**< socket */) s
+(69        int             r;  /**< read position */) s
+(70        int             w;  /**< write position */) s
+(71        int             n;  /**< number of bytes */) s
+(72        char            buf[BUFSIZE];       /**< buffer */) s
+(73    } echoclient_t;) s
+(74    ) s
+(75    typedef struct {) s
+(76        int             fd; /**< socket */) s
+(77        int             i;          /**< index into chargen_buf */) s
+(78    } chargenclient_t;) s
+(79    ) s
+(80    static void     message\(int msg\);) s
+(81    static int      listensocket\(int port\);) s
+(82    static void     setnonblock\(int fd\);) s
+(83    ) s
+(84    static void     sighandler\(int signo\);) s
+(85    ) s
+(86    static void     readecho\(echoclient_t * client\);) s
+(87    static void     writeecho\(echoclient_t * client\);) s
+(88    static void     writechargen\(chargenclient_t * client\);) s
+(89    ) s
+(90    /**) s
+(91     * print message describing current activity) s
+(92     *) s
+(93     * @param msg   id of message to print \(MSG_XYZ\)) s
+(94     */) s
+(95    static void) s
+(96    message\(int msg\)) s
+(97    {) s
+endpage
+startpage
+(98        switch \(msg\) {) s
+(99        case MSG_HEARTBEAT:) s
+(100           printf\("H"\);) s
+(101           break;) s
+(102       case MSG_SLOWHEARTBEAT:) s
+(103           printf\("S"\);) s
+(104           break;) s
+(105       case MSG_MAINLOOP:) s
+(106           /* printf\("M"\); */) s
+(107           break;) s
+(108       case MSG_ACCEPT:) s
+(109           printf\("A"\);) s
+(110           break;) s
+(111       case MSG_TOOMANY:) s
+(112           printf\("T"\);) s
+(113           break;) s
+(114       case MSG_CLOSE:) s
+(115           printf\("C"\);) s
+(116           break;) s
+(117       case MSG_READ:) s
+(118           printf\("R"\);) s
+(119           break;) s
+(120       case MSG_WRITE:) s
+(121           printf\("W"\);) s
+(122           break;) s
+(123       case MSG_FULL:) s
+(124           printf\("F"\);) s
+(125           break;) s
+(126       case MSG_EMPTY:) s
+(127           printf\("E"\);) s
+(128           break;) s
+(129       }) s
+(130       fflush\(stdout\);) s
+(131   }) s
+(132   ) s
+(133   /**) s
+(134    * signal handler) s
+(135    *) s
+(136    * @param signo signal number) s
+(137    */) s
+(138   static void) s
+(139   sighandler\(int signo\)) s
+(140   {) s
+(141       struct timeval  now;) s
+(142       static time_t   time_heartbeat, time_slowheartbeat;) s
+(143       int             nextalarm;) s
+(144   ) s
+(145       switch \(signo\) {) s
+(146       case SIGALRM:) s
+(147           /* ) s
+(148            * \(re\)install signal handler and set new alarm) s
+(149            * there is a possible race condition, but for alarm\(\)/SIGALRM this is not a real concern) s
+(150            */) s
+(151           if \(signal\(SIGALRM, &sighandler\) == SIG_ERR\) {) s
+(152               perror\("signal\(SIGALRM\)"\);) s
+(153               exit\(EXIT_FAILURE\);) s
+(154           }) s
+(155           gettimeofday\(&now, NULL\);) s
+(156           if \(time_heartbeat == 0\) {) s
+(157               time_heartbeat = now.tv_sec + HEARTBEAT_INTERVAL;) s
+(158               time_slowheartbeat = now.tv_sec + SLOWHEARTBEAT_INTERVAL;) s
+(159           }) s
+(160           if \(time_heartbeat <= now.tv_sec\) {) s
+(161               time_heartbeat += HEARTBEAT_INTERVAL;) s
+(162               message\(MSG_HEARTBEAT\);) s
+(163           }) s
+(164           if \(time_slowheartbeat <= now.tv_sec\) {) s
+(165               time_slowheartbeat += SLOWHEARTBEAT_INTERVAL;) s
+(166               message\(MSG_SLOWHEARTBEAT\);) s
+(167           }) s
+(168   ) s
+(169           nextalarm =) s
+(170               MAX\(1, MIN\(time_heartbeat, time_slowheartbeat\) - now.tv_sec\);) s
+(171   ) s
+(172           if \(alarm\(nextalarm\) == -1\) {) s
+(173               perror\("alarm\(\)"\);) s
+(174               exit\(EXIT_FAILURE\);) s
+(175           }) s
+(176           break;) s
+(177       default:) s
+(178           /* ignore everything */) s
+(179           break;) s
+(180       }) s
+(181   }) s
+(182   ) s
+(183   /**) s
+(184    * return tcp socket listening on port specified) s
+(185    *) s
+(186    * @param port  port number in host byte order) s
+(187    *) s
+(188    * @return      file descriptor for listening socket) s
+(189    *) s
+(190    * The socket is set to be nonblocking) s
+(191    */) s
+(192   static int) s
+(193   listensocket\(int port\)) s
+(194   {) s
+endpage
+%%Page: 2 2
+startpage
+(195       int             serverfd;) s
+(196       struct sockaddr_in sain;) s
+(197       int             one;) s
+(198   ) s
+(199       /* set up tcp socket for listening */) s
+(200       sain.sin_family = AF_INET;) s
+(201       sain.sin_port = htons\(port\);) s
+(202       sain.sin_addr.s_addr = INADDR_ANY;) s
+(203       if \(\(serverfd = socket\(AF_INET, SOCK_STREAM, 0\)\) == -1\) {) s
+(204           perror\("socket\(AF_INET, SOCK_STREAM, 0\)"\);) s
+(205           exit\(EXIT_FAILURE\);) s
+(206       }) s
+(207       one = 1;) s
+(208       if \(setsockopt) s
+(209           \(serverfd, SOL_SOCKET, SO_REUSEADDR, &one,) s
+(210            \(int\) sizeof\(one\)\) == -1\) {) s
+(211           perror\("setsockopt\(SO_REUSEADDR\)"\);) s
+(212           exit\(EXIT_FAILURE\);) s
+(213       }) s
+(214       if \(bind) s
+(215           \(serverfd, \(struct sockaddr *\) &sain,) s
+(216            sizeof\(struct sockaddr_in\)\) == -1\) {) s
+(217           perror\("bind\(\)"\);) s
+(218           exit\(EXIT_FAILURE\);) s
+(219       }) s
+(220       if \(listen\(serverfd, 5\) == -1\) {) s
+(221           perror\("listen\(\)"\);) s
+(222           exit\(EXIT_FAILURE\);) s
+(223       }) s
+(224       setnonblock\(serverfd\);) s
+(225   ) s
+(226       printf\("listening on port %d\\n", port\);) s
+(227   ) s
+(228       return serverfd;) s
+(229   }) s
+(230   ) s
+(231   /**) s
+(232    * set a file descriptor to be nonblocking) s
+(233    *) s
+(234    * @param fd    file descriptor) s
+(235    *) s
+(236    * Non-Blocking works only for Sockets, Pipes and slow devices, it has) s
+(237    * no effect when used with regular files) s
+(238    */) s
+(239   static void) s
+(240   setnonblock\(int fd\)) s
+(241   {) s
+(242       int             flag;) s
+(243   ) s
+(244       flag = fcntl\(fd, F_GETFL\);) s
+(245       fcntl\(fd, F_GETFL, flag | O_NONBLOCK\);) s
+(246   }) s
+(247   ) s
+(248   /**) s
+(249    * read data from an echo client) s
+(250    *) s
+(251    * @param client        echo client state) s
+(252    *) s
+(253    * If the buffer is not full, tries to do one read from the) s
+(254    * filedescriptor associated with the echo client.) s
+(255    */) s
+(256   static void) s
+(257   readecho\(echoclient_t * client\)) s
+(258   {) s
+(259       int             nread;) s
+(260   ) s
+(261       if \(client->n == BUFSIZE\) {) s
+(262           message\(MSG_FULL\);) s
+(263           return;) s
+(264       }) s
+(265   ) s
+(266       if \(client->r >= client->w\) {) s
+(267           nread =) s
+(268               read\(client->fd, client->buf + client->r, BUFSIZE - client->r\);) s
+(269       } else {) s
+(270           nread =) s
+(271               read\(client->fd, client->buf + client->r,) s
+(272                    client->w - client->r\);) s
+(273       }) s
+(274   ) s
+(275       switch \(nread\) {) s
+(276       case 0:) s
+(277           message\(MSG_CLOSE\);) s
+(278           close\(client->fd\);) s
+(279           client->fd = -1;) s
+(280           break;) s
+(281       case -1:) s
+(282           if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(283               perror\("read\(\)"\);) s
+(284               exit\(EXIT_FAILURE\);) s
+(285           }) s
+(286           break;) s
+(287       default:) s
+(288           message\(MSG_READ\);) s
+(289           client->n += nread;) s
+(290           client->r += nread;) s
+(291           client->r %= BUFSIZE;) s
+endpage
+startpage
+(292       }) s
+(293   }) s
+(294   ) s
+(295   /**) s
+(296    * write data to an echo client) s
+(297    *) s
+(298    * @param client        echo client state) s
+(299    *) s
+(300    * If the buffer is not empty, tries to do one write to the) s
+(301    * filedescriptor associated with the echo client.) s
+(302    */) s
+(303   static void) s
+(304   writeecho\(echoclient_t * client\)) s
+(305   {) s
+(306       int             nwrite;) s
+(307   ) s
+(308       if \(client->n == 0\) {) s
+(309           message\(MSG_EMPTY\);) s
+(310           return;) s
+(311       }) s
+(312   ) s
+(313       if \(client->r > client->w\) {) s
+(314           nwrite =) s
+(315               write\(client->fd, client->buf + client->w,) s
+(316                     client->r - client->w\);) s
+(317       } else {) s
+(318           nwrite =) s
+(319               write\(client->fd, client->buf + client->w,) s
+(320                     BUFSIZE - client->w\);) s
+(321       }) s
+(322   ) s
+(323       switch \(nwrite\) {) s
+(324       case -1:) s
+(325           if \(errno == EPIPE\) {) s
+(326               message\(MSG_CLOSE\);) s
+(327               close\(client->fd\);) s
+(328               client->fd = -1;) s
+(329           } else if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(330               perror\("write\(\)"\);) s
+(331               exit\(EXIT_FAILURE\);) s
+(332           }) s
+(333           break;) s
+(334       case 0:) s
+(335           break;) s
+(336       default:) s
+(337           message\(MSG_WRITE\);) s
+(338           client->n -= nwrite;) s
+(339           client->w += nwrite;) s
+(340           client->w %= BUFSIZE;) s
+(341       }) s
+(342   }) s
+(343   ) s
+(344   /**) s
+(345    * write data to a chargen client) s
+(346    *) s
+(347    * @param client        chargen client state) s
+(348    */) s
+(349   static void) s
+(350   writechargen\(chargenclient_t * client\)) s
+(351   {) s
+(352       int             nwrite;) s
+(353   ) s
+(354       nwrite =) s
+(355           write\(client->fd, chargen_buf + client->i,) s
+(356                 sizeof\(chargen_buf\) - client->i\);) s
+(357   ) s
+(358       switch \(nwrite\) {) s
+(359       case -1:) s
+(360           if \(errno == EPIPE\) {) s
+(361               message\(MSG_CLOSE\);) s
+(362               close\(client->fd\);) s
+(363               client->fd = -1;) s
+(364           } else if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(365               perror\("write\(\)"\);) s
+(366               exit\(EXIT_FAILURE\);) s
+(367           }) s
+(368           break;) s
+(369       case 0:) s
+(370           break;) s
+(371       default:) s
+(372           message\(MSG_WRITE\);) s
+(373           client->i += nwrite;) s
+(374           client->i %= sizeof\(chargen_buf\);) s
+(375       }) s
+(376   }) s
+(377   ) s
+(378   int) s
+(379   main\(\)) s
+(380   {) s
+(381       int             echoserverfd;) s
+(382       int             chargenserverfd;) s
+(383       echoclient_t    echoclients[MAXCLIENTS];) s
+(384       chargenclient_t chargenclients[MAXCLIENTS];) s
+(385       fd_set          rfdset, wfdset;) s
+(386       int             fdsetmax;) s
+(387       int             n, i;) s
+(388       size_t          s;) s
+endpage
+%%Page: 3 3
+startpage
+(389       struct sockaddr_in sain;) s
+(390   ) s
+(391       printf\("example: bad main loop\\n"\);) s
+(392   ) s
+(393       /* ) s
+(394        * ignore SIGPIPE \(this occurs whenever a chargen client closes) s
+(395        * the connection\).) s
+(396        */) s
+(397       if \(signal\(SIGPIPE, SIG_IGN\) == SIG_ERR\) {) s
+(398           perror\("signal\(SIGPIPE, SIG_IGN\)"\);) s
+(399           exit\(EXIT_FAILURE\);) s
+(400       }) s
+(401   ) s
+(402       /* ) s
+(403        * install heartbeat. this is done by calling the signal) s
+(404        * handler for SIGALRM which then installs itself as a signal) s
+(405        * handler and starts the alarm clock.) s
+(406        */) s
+(407       printf\("heartbeat every %d seconds\\n", HEARTBEAT_INTERVAL\);) s
+(408       printf\("slow heartbeat every %d seconds\\n", SLOWHEARTBEAT_INTERVAL\);) s
+(409       sighandler\(SIGALRM\);) s
+(410   ) s
+(411       /* ) s
+(412        * create server sockets for echo and chargen services) s
+(413        */) s
+(414       echoserverfd = listensocket\(PORT_ECHO\);) s
+(415       chargenserverfd = listensocket\(PORT_CHARGEN\);) s
+(416   ) s
+(417       /* ) s
+(418        * reset all client state slots \(mark as unused\)) s
+(419        */) s
+(420       for \(i = 0; i < MAXCLIENTS; i++\) {) s
+(421           echoclients[i].fd = -1;) s
+(422           chargenclients[i].fd = -1;) s
+(423       }) s
+(424   ) s
+(425       /* ) s
+(426        * initialize fdsets for select\(\)) s
+(427        */) s
+(428       FD_ZERO\(&rfdset\);) s
+(429       FD_ZERO\(&wfdset\);) s
+(430       FD_SET\(STDIN_FILENO, &rfdset\);) s
+(431       FD_SET\(echoserverfd, &rfdset\);      /* fd 3 */) s
+(432       FD_SET\(chargenserverfd, &rfdset\);   /* fd 4 */) s
+(433       fdsetmax = chargenserverfd; /* fd 4 */) s
+(434   ) s
+(435       /* ) s
+(436        * THE main loop) s
+(437        * Remeber, this is the bad example. On Solaris, select\(\) is a) s
+(438        * \(rather clumsy\) wrapper around poll\(\). There is no way to efficiently) s
+(439        * emulate select\(\) using poll\(\).) s
+(440        */) s
+(441       while \(\(\(n = select\(fdsetmax + 1, &rfdset, &wfdset, NULL, NULL\)\) != -1\)) s
+(442              || \(errno == EINTR\)\) {) s
+(443           message\(MSG_MAINLOOP\);) s
+(444   ) s
+(445           if \(n == -1\) {) s
+(446               /* got -1 and errno==EINTR */) s
+(447               continue;) s
+(448           }) s
+(449   ) s
+(450           /* ) s
+(451            * check for new echo connections) s
+(452            */) s
+(453           if \(FD_ISSET\(echoserverfd, &rfdset\)\) {) s
+(454               /* find free slot */) s
+(455               for \(i = 0; \(i < MAXCLIENTS\) && \(echoclients[i].fd != -1\);) s
+(456                    i++\);) s
+(457               if \(echoclients[i].fd != -1\) {) s
+(458                   /* no free slots */) s
+(459                   s = sizeof\(sain\);) s
+(460                   i = accept\(echoserverfd, \(struct sockaddr *\) &sain, &s\);) s
+(461                   close\(i\);) s
+(462                   message\(MSG_TOOMANY\);) s
+(463               } else {) s
+(464                   s = sizeof\(sain\);) s
+(465                   echoclients[i].fd =) s
+(466                       accept\(echoserverfd, \(struct sockaddr *\) &sain, &s\);) s
+(467                   message\(MSG_ACCEPT\);) s
+(468                   setnonblock\(echoclients[i].fd\);) s
+(469                   echoclients[i].r = 0;   /* start reading from buffer at pos 0 */) s
+(470                   echoclients[i].w = 0;   /* start writing to buffer at pos 0 */) s
+(471                   echoclients[i].n = 0;   /* 0 bytes in buffer */) s
+(472               }) s
+(473           }) s
+(474   ) s
+(475           /* ) s
+(476            * check for new chargen connections) s
+(477            */) s
+(478           if \(FD_ISSET\(chargenserverfd, &rfdset\)\) {) s
+(479               /* find free slot */) s
+(480               for \(i = 0; \(i < MAXCLIENTS\) && \(chargenclients[i].fd != -1\);) s
+(481                    i++\);) s
+(482               if \(chargenclients[i].fd != -1\) {) s
+(483                   /* no free slots */) s
+(484                   s = sizeof\(sain\);) s
+(485                   i = accept\(chargenserverfd, \(struct sockaddr *\) &sain, &s\);) s
+endpage
+startpage
+(486                   close\(i\);) s
+(487                   message\(MSG_TOOMANY\);) s
+(488               } else {) s
+(489                   s = sizeof\(sain\);) s
+(490                   chargenclients[i].fd =) s
+(491                       accept\(chargenserverfd, \(struct sockaddr *\) &sain, &s\);) s
+(492                   message\(MSG_ACCEPT\);) s
+(493                   setnonblock\(chargenclients[i].fd\);) s
+(494                   chargenclients[i].i = 0;        /* start sending from buffer) s
+(495                                                    * at pos 0 */) s
+(496               }) s
+(497           }) s
+(498   ) s
+(499           /* ) s
+(500            * try to read/write data for echo clients) s
+(501            */) s
+(502           for \(i = 0; i < MAXCLIENTS; i++\) {) s
+(503               if \(\(echoclients[i].fd != -1\)) s
+(504                   && \(FD_ISSET\(echoclients[i].fd, &rfdset\)\)\) {) s
+(505                   readecho\(&echoclients[i]\);) s
+(506               }) s
+(507               if \(\(echoclients[i].fd != -1\)) s
+(508                   && \(FD_ISSET\(echoclients[i].fd, &wfdset\)\)\) {) s
+(509                   writeecho\(&echoclients[i]\);) s
+(510               }) s
+(511           }) s
+(512   ) s
+(513           /* ) s
+(514            * try to write data for chargen clients) s
+(515            */) s
+(516           for \(i = 0; i < MAXCLIENTS; i++\) {) s
+(517               if \(\(chargenclients[i].fd != -1\)) s
+(518                   && \(FD_ISSET\(chargenclients[i].fd, &wfdset\)\)\) {) s
+(519                   writechargen\(&chargenclients[i]\);) s
+(520               }) s
+(521           }) s
+(522   ) s
+(523           /* ) s
+(524            * reinitialize fdset) s
+(525            */) s
+(526           FD_ZERO\(&rfdset\);) s
+(527           FD_ZERO\(&wfdset\);) s
+(528           fdsetmax = chargenserverfd;) s
+(529           FD_SET\(echoserverfd, &rfdset\);) s
+(530           FD_SET\(chargenserverfd, &rfdset\);) s
+(531           for \(i = 0; i < MAXCLIENTS; i++\) {) s
+(532               if \(echoclients[i].fd >= 0\) {) s
+(533                   if \(echoclients[i].n < BUFSIZE\) {) s
+(534                       FD_SET\(echoclients[i].fd, &rfdset\);) s
+(535                       if \(echoclients[i].fd > fdsetmax\) {) s
+(536                           fdsetmax = echoclients[i].fd;) s
+(537                       }) s
+(538                   }) s
+(539                   if \(echoclients[i].n > 0\) {) s
+(540                       FD_SET\(echoclients[i].fd, &wfdset\);) s
+(541                       if \(echoclients[i].fd > fdsetmax\) {) s
+(542                           fdsetmax = echoclients[i].fd;) s
+(543                       }) s
+(544                   }) s
+(545               }) s
+(546           }) s
+(547           for \(i = 0; i < MAXCLIENTS; i++\) {) s
+(548               if \(chargenclients[i].fd >= 0\) {) s
+(549                   FD_SET\(chargenclients[i].fd, &wfdset\);) s
+(550                   if \(chargenclients[i].fd > fdsetmax\) {) s
+(551                       fdsetmax = chargenclients[i].fd;) s
+(552                   }) s
+(553               }) s
+(554           }) s
+(555       }) s
+(556       /* notreached */) s
+(557       exit\(EXIT_FAILURE\);) s
+(558   }) s
+endpage
+(good/mainloop_good.c) newfile
+/sheet 1 def
+%%Page: 4 4
+startpage
+(1     /**) s
+(2      * @file) s
+(3      * Example for "good" main loop) s
+(4      *) s
+(5      * @author Rico Pajarola) s
+(6      *) s
+(7      * This example does essentially what glib would do: events are) s
+(8      * abstracted using callbacks making the mainloop generic \(but not as) s
+(9      * generic as glib\). Even though it is easy to add a new input or event) s
+(10     * source, the whole mechanism is still very much tied to the structure) s
+(11     * of this program\).) s
+(12     */) s
+(13    ) s
+(14    #include <unistd.h>) s
+(15    #include <stdlib.h>) s
+(16    #include <stdio.h>) s
+(17    #include <string.h>) s
+(18    #include <errno.h>) s
+(19    #include <sys/time.h>) s
+(20    #include <sys/socket.h>) s
+(21    #include <signal.h>) s
+(22    #include <fcntl.h>) s
+(23    ) s
+(24    /** tcp port to listen for echo clients */) s
+(25    #define PORT_ECHO 5005) s
+(26    ) s
+(27    /** tcp port to listen for chargen clients */) s
+(28    #define PORT_CHARGEN 5006) s
+(29    ) s
+(30    /** heartbeat interval \(in seconds\) */) s
+(31    #define HEARTBEAT_INTERVAL 2) s
+(32    ) s
+(33    /** slow heartbeat interval \(in seconds\) */) s
+(34    #define SLOWHEARTBEAT_INTERVAL 15) s
+(35    ) s
+(36    /** buffer size for echo client */) s
+(37    #define BUFSIZE 16) s
+(38    ) s
+(39    /** maximum number of clients */) s
+(40    #define MAXCLIENTS 8) s
+(41    ) s
+(42    /** maximum number of different alarms */) s
+(43    #define MAXALARMS 8) s
+(44    ) s
+(45    #define MSG_HEARTBEAT 0) s
+(46    #define MSG_SLOWHEARTBEAT 1) s
+(47    #define MSG_MAINLOOP 2) s
+(48    #define MSG_ACCEPT 3) s
+(49    #define MSG_TOOMANY 4) s
+(50    #define MSG_CLOSE 5) s
+(51    #define MSG_READ 6) s
+(52    #define MSG_WRITE 7) s
+(53    #define MSG_FULL 8) s
+(54    #define MSG_EMPTY 9) s
+(55    ) s
+(56    #define MIN\(a, b\)       \(\(a\)<\(b\)?\(a\):\(b\)\)) s
+(57    #define MAX\(a, b\)       \(\(a\)>\(b\)?\(a\):\(b\)\)) s
+(58    ) s
+(59    /** characters to return in chargen service */) s
+(60    static char     chargen_buf[] = "0123456789abcdefghijklmnopqrstuv";) s
+(61    ) s
+(62    /**) s
+(63     * echo client specific state) s
+(64     */) s
+(65    typedef struct {) s
+(66        int             r;          /**< read position */) s
+(67        int             w;          /**< write position */) s
+(68        int             n;          /**< number of bytes */) s
+(69        char            buf[BUFSIZE];       /**< buffer */) s
+(70    } echo_client_t;) s
+(71    ) s
+(72    /**) s
+(73     * chargen client specific state) s
+(74     */) s
+(75    typedef struct {) s
+(76        int             i;          /**< index into chargen_buf */) s
+(77    } chargen_client_t;) s
+(78    ) s
+(79    /**) s
+(80     * event handler) s
+(81     *) s
+(82     * @param i index into clients) s
+(83     */) s
+(84    typedef void    \(*eventhandler_t\) \(int i\);) s
+(85    ) s
+(86    /**) s
+(87     * client state) s
+(88     *) s
+(89     * in a real program, a pointer to a type specific data area would be) s
+(90     * preferrable to a union.) s
+(91     */) s
+(92    typedef struct {) s
+(93        int             fd;         /**< filedescriptor for poll\(\) */) s
+(94        eventhandler_t  read;       /**< read handler */) s
+(95        eventhandler_t  write;      /**< write handler */) s
+(96        eventhandler_t  except;     /**< exception \(eg disconnect\) handler */) s
+(97        union {) s
+endpage
+startpage
+(98            echo_client_t   echo;   /**< echo client state */) s
+(99            chargen_client_t chargen;       /**< chargen client state */) s
+(100       };) s
+(101   } client_t;) s
+(102   ) s
+(103   /**) s
+(104    * alarm handler) s
+(105    */) s
+(106   typedef void    \(*alarmhandler_t\) \(void\);) s
+(107   ) s
+(108   /**) s
+(109    * alarm handler state) s
+(110    *) s
+(111    * handler, interval, next execution, pending. no handler specific) s
+(112    * state...) s
+(113    */) s
+(114   typedef struct {) s
+(115       alarmhandler_t  handler;    /**< alarm handler */) s
+(116       long            interval;   /**< interval in seconds */) s
+(117       long            nexttime;   /**< next execution at */) s
+(118       int             flag;       /**< 1 if handler should be called */) s
+(119   } alarm_t;) s
+(120   ) s
+(121   /**) s
+(122    * there's a global \(static\) array for all client state \(clients\). this is) s
+(123    * not as bad as it sounds because there's a static array for the struct) s
+(124    * pollfd anyway \(pollfds\). using an array for the client states allows using ) s
+(125    * the same index for pollfds and clients.) s
+(126    * ) s
+(127    * in a real application, the buffer would be bigger, and therefore wouldn't ) s
+(128    * be placed into the array ;\) for demonstration purposes, the buffer is) s
+(129    * small to make it more interesting) s
+(130    */) s
+(131   static unsigned long npollfd;   /**< number of file descriptors to check */) s
+(132   static client_t clients[MAXCLIENTS];    /**< array of client states */) s
+(133   static struct pollfd pollfds[MAXCLIENTS];       /**< pollfds for poll\(\) */) s
+(134   static alarm_t  alarms[MAXALARMS];      /**< alarms */) s
+(135   ) s
+(136   static void     message\(int msg\);) s
+(137   ) s
+(138   static void     blocksigpipe\(void\);) s
+(139   static void     initalarms\(void\);) s
+(140   static void     addalarm\(alarmhandler_t handler, long interval\);) s
+(141   static void     checkalarms\(void\);) s
+(142   static void     alarmhandler\(void\);) s
+(143   static void     heartbeat\(void\);) s
+(144   static void     slowheartbeat\(void\);) s
+(145   ) s
+(146   static int      listensocket\(int port\);) s
+(147   static void     setnonblock\(int fd\);) s
+(148   ) s
+(149   static void     initclients\(\);) s
+(150   static void     addclient\(int fd, eventhandler_t read,) s
+(151                             eventhandler_t write, eventhandler_t except\);) s
+(152   static void     delclient\(int i\);) s
+(153   static void     mainloop\(\);) s
+(154   ) s
+(155   static void     closeclient\(int i\);) s
+(156   static void     acceptecho\(int i\);) s
+(157   static void     readecho\(int i\);) s
+(158   static void     writeecho\(int i\);) s
+(159   static void     flowecho\(int i\);) s
+(160   ) s
+(161   static void     acceptchargen\(int i\);) s
+(162   static void     writechargen\(int i\);) s
+(163   ) s
+(164   /**) s
+(165    * print message describing current activity) s
+(166    *) s
+(167    * @param msg id of message to print \(MSG_XYZ\)) s
+(168    */) s
+(169   void) s
+(170   message\(int msg\)) s
+(171   {) s
+(172       switch \(msg\) {) s
+(173       case MSG_HEARTBEAT:) s
+(174           printf\("H"\);) s
+(175           break;) s
+(176       case MSG_SLOWHEARTBEAT:) s
+(177           printf\("S"\);) s
+(178           break;) s
+(179       case MSG_MAINLOOP:) s
+(180           /* printf\("M"\); */) s
+(181           break;) s
+(182       case MSG_ACCEPT:) s
+(183           printf\("A"\);) s
+(184           break;) s
+(185       case MSG_TOOMANY:) s
+(186           printf\("T"\);) s
+(187           break;) s
+(188       case MSG_CLOSE:) s
+(189           printf\("C"\);) s
+(190           break;) s
+(191       case MSG_READ:) s
+(192           printf\("R"\);) s
+(193           break;) s
+(194       case MSG_WRITE:) s
+endpage
+%%Page: 5 5
+startpage
+(195           printf\("W"\);) s
+(196           break;) s
+(197       case MSG_FULL:) s
+(198           printf\("F"\);) s
+(199           break;) s
+(200       case MSG_EMPTY:) s
+(201           printf\("E"\);) s
+(202           break;) s
+(203       }) s
+(204       fflush\(stdout\);) s
+(205   }) s
+(206   ) s
+(207   /**) s
+(208    * block SIGPIPE) s
+(209    *) s
+(210    * Trying to write to a socket when the other end has already closed) s
+(211    * the connection results in SIGPIPE. Not usefull in this context.) s
+(212    */) s
+(213   static void) s
+(214   blocksigpipe\(\)) s
+(215   {) s
+(216       struct sigaction act;) s
+(217   ) s
+(218       act.sa_handler = SIG_IGN;) s
+(219       sigemptyset\(&act.sa_mask\);) s
+(220       act.sa_flags = SA_RESTART;) s
+(221       if \(sigaction\(SIGPIPE, &act, NULL\) == -1\) {) s
+(222           perror\("sigaction\(SIGPIPE, <ignore>\)"\);) s
+(223           exit\(EXIT_FAILURE\);) s
+(224       }) s
+(225   }) s
+(226   ) s
+(227   /**) s
+(228    * install non-resetting signal handler for alarms) s
+(229    *) s
+(230    * The sigaction interface allows installing non-resetting signal) s
+(231    * handlers \(ie not reset to SIG_DFL after disposition\). This way,) s
+(232    * there is no race condition when reinstalling the signal handler.) s
+(233    */) s
+(234   static void) s
+(235   initalarms\(\)) s
+(236   {) s
+(237       struct sigaction act;) s
+(238       int             i;) s
+(239   ) s
+(240       act.sa_handler = alarmhandler;) s
+(241       sigemptyset\(&act.sa_mask\);) s
+(242       act.sa_flags = 0;           /* no SIG_RESTART! */) s
+(243       if \(sigaction\(SIGALRM, &act, NULL\) == -1\) {) s
+(244           perror\("sigaction\(SIGPIPE, <ignore>\)"\);) s
+(245           exit\(EXIT_FAILURE\);) s
+(246       }) s
+(247       for \(i = 0; i < MAXALARMS; i++\) {) s
+(248           alarms[i].handler = NULL;) s
+(249       }) s
+(250       alarm\(0\);                   /* cancel any previously made alarm request */) s
+(251   }) s
+(252   ) s
+(253   /**) s
+(254    * add new alarm) s
+(255    *) s
+(256    * @param handler alarm handler procedure) s
+(257    * @param interval interval in seconds) s
+(258    *) s
+(259    * @bug no error handling, if there are no more error handler slots,) s
+(260    * the new alarm is ignored...) s
+(261    */) s
+(262   static void) s
+(263   addalarm\(alarmhandler_t handler, long interval\)) s
+(264   {) s
+(265       struct timeval  now;) s
+(266       int             i;) s
+(267   ) s
+(268       for \(i = 0; i < MAXALARMS; i++\) {) s
+(269           if \(alarms[i].handler == NULL\) {) s
+(270               gettimeofday\(&now, NULL\);) s
+(271               alarms[i].handler = handler;) s
+(272               alarms[i].interval = interval;) s
+(273               alarms[i].nexttime = now.tv_sec + interval;) s
+(274               alarms[i].flag = 0;) s
+(275               alarmhandler\(\);) s
+(276               return;) s
+(277           }) s
+(278       }) s
+(279   }) s
+(280   ) s
+(281   /**) s
+(282    * check for pending alarms and execute alarm handlers) s
+(283    */) s
+(284   static void) s
+(285   checkalarms\(void\)) s
+(286   {) s
+(287       int             i;) s
+(288   ) s
+(289       for \(i = 0; i < MAXALARMS; i++\) {) s
+(290           if \(alarms[i].flag\) {) s
+(291               \(*alarms[i].handler\) \(\);) s
+endpage
+startpage
+(292               alarms[i].flag = 0;) s
+(293           }) s
+(294       }) s
+(295   }) s
+(296   ) s
+(297   /**) s
+(298    * signal handler for alarms) s
+(299    *) s
+(300    * mark expired alarms for execution and set new alarm timer.) s
+(301    *) s
+(302    * the resolution of the alarm timer is one second, no attempt is made) s
+(303    * to get timing beyond this one second resolution \(any sub-second) s
+(304    * timing information is discarded\).) s
+(305    */) s
+(306   static void) s
+(307   alarmhandler\(void\)) s
+(308   {) s
+(309       struct timeval  now;) s
+(310       long            nextalarm;) s
+(311       int             i;) s
+(312   ) s
+(313       gettimeofday\(&now, NULL\);) s
+(314   ) s
+(315       nextalarm = 65536;) s
+(316       for \(i = 0; i < MAXALARMS; i++\) {) s
+(317           if \(alarms[i].handler != NULL\) {) s
+(318               if \(alarms[i].nexttime <= now.tv_sec\) {) s
+(319                   alarms[i].flag = 1;) s
+(320                   alarms[i].nexttime += alarms[i].interval;) s
+(321               }) s
+(322               nextalarm =) s
+(323                   MIN\(nextalarm,) s
+(324                       MAX\(1,) s
+(325                           \(unsigned int\) alarms[i].nexttime - now.tv_sec\)\);) s
+(326           }) s
+(327       }) s
+(328       alarm\(\(unsigned int\) nextalarm\);) s
+(329   }) s
+(330   ) s
+(331   /**) s
+(332    * print heartbeat message) s
+(333    */) s
+(334   static void) s
+(335   heartbeat\(\)) s
+(336   {) s
+(337       message\(MSG_HEARTBEAT\);) s
+(338   }) s
+(339   ) s
+(340   /**) s
+(341    * print "slowheartbeat" message) s
+(342    */) s
+(343   static void) s
+(344   slowheartbeat\(\)) s
+(345   {) s
+(346       message\(MSG_SLOWHEARTBEAT\);) s
+(347   }) s
+(348   ) s
+(349   /**) s
+(350    * return tcp socket listening on port specified) s
+(351    *) s
+(352    * @param port  port number in host byte order) s
+(353    *) s
+(354    * @return file descriptor for listening socket) s
+(355    *) s
+(356    * The socket is set to be nonblocking) s
+(357    */) s
+(358   static int) s
+(359   listensocket\(int port\)) s
+(360   {) s
+(361       int             serverfd;) s
+(362       struct sockaddr_in sain;) s
+(363       int             one;) s
+(364   ) s
+(365       /* set up tcp socket for listening */) s
+(366       sain.sin_family = AF_INET;) s
+(367       sain.sin_port = htons\(port\);) s
+(368       sain.sin_addr.s_addr = INADDR_ANY;) s
+(369       if \(\(serverfd = socket\(AF_INET, SOCK_STREAM, 0\)\) == -1\) {) s
+(370           perror\("socket\(AF_INET, SOCK_STREAM, 0\)"\);) s
+(371           exit\(EXIT_FAILURE\);) s
+(372       }) s
+(373       one = 1;) s
+(374       if \(setsockopt) s
+(375           \(serverfd, SOL_SOCKET, SO_REUSEADDR, &one,) s
+(376            \(int\) sizeof\(one\)\) == -1\) {) s
+(377           perror\("setsockopt\(SO_REUSEADDR\)"\);) s
+(378           exit\(EXIT_FAILURE\);) s
+(379       }) s
+(380       if \(bind) s
+(381           \(serverfd, \(struct sockaddr *\) &sain, sizeof\(struct sockaddr_in\)\)) s
+(382           == -1\) {) s
+(383           perror\("bind\(\)"\);) s
+(384           exit\(EXIT_FAILURE\);) s
+(385       }) s
+(386       if \(listen\(serverfd, 5\) == -1\) {) s
+(387           perror\("listen\(\)"\);) s
+(388           exit\(EXIT_FAILURE\);) s
+endpage
+%%Page: 6 6
+startpage
+(389       }) s
+(390       setnonblock\(serverfd\);) s
+(391   ) s
+(392       printf\("listening on port %d\\n", port\);) s
+(393   ) s
+(394       return serverfd;) s
+(395   }) s
+(396   ) s
+(397   /**) s
+(398    * set a file descriptor to be nonblocking) s
+(399    *) s
+(400    * @param fd file descriptor) s
+(401    *) s
+(402    * Non-Blocking works only for Sockets, Pipes and slow devices, it has) s
+(403    * no effect when used with regular files or "fast" devices.) s
+(404    */) s
+(405   static void) s
+(406   setnonblock\(int fd\)) s
+(407   {) s
+(408       int             flag;) s
+(409   ) s
+(410       flag = fcntl\(fd, F_GETFL\);) s
+(411       fcntl\(fd, F_GETFL, flag | O_NONBLOCK\);) s
+(412   }) s
+(413   ) s
+(414   /**) s
+(415    * initialize client state array) s
+(416    */) s
+(417   static void) s
+(418   initclients\(\)) s
+(419   {) s
+(420       int             i;) s
+(421   ) s
+(422       for \(i = 0; i < MAXCLIENTS; i++\) {) s
+(423           clients[i].fd = -1;) s
+(424       }) s
+(425       npollfd = 0;) s
+(426   }) s
+(427   ) s
+(428   /**) s
+(429    * add new client) s
+(430    *) s
+(431    * @param fd file descriptor asociated with this client) s
+(432    * @param read handler called if socket is readable) s
+(433    * @param write handler called if socket is writable) s
+(434    * @param except handler called on exceptions \(HUP, close etc\).) s
+(435    */) s
+(436   static void) s
+(437   addclient\(int fd, eventhandler_t read, eventhandler_t write,) s
+(438             eventhandler_t except\)) s
+(439   {) s
+(440       if \(npollfd >= \(MAXCLIENTS - 1\)\) {) s
+(441           close\(fd\);) s
+(442           message\(MSG_TOOMANY\);) s
+(443           return;) s
+(444       }) s
+(445       clients[npollfd].fd = fd;) s
+(446       clients[npollfd].read = read;) s
+(447       clients[npollfd].write = write;) s
+(448       clients[npollfd].except = except;) s
+(449       pollfds[npollfd].fd = fd;) s
+(450       pollfds[npollfd].events = 0;) s
+(451       if \(read\) {) s
+(452           pollfds[npollfd].events |= POLLIN;) s
+(453       }) s
+(454       if \(write\) {) s
+(455           pollfds[npollfd].events |= POLLOUT;) s
+(456       }) s
+(457       npollfd++;) s
+(458   }) s
+(459   ) s
+(460   /**) s
+(461    * delete client) s
+(462    *) s
+(463    * @param i index into pollfds/clients array) s
+(464    */) s
+(465   static void) s
+(466   delclient\(int i\)) s
+(467   {) s
+(468       clients[i].fd = -1;) s
+(469       if \(i != npollfd\) {) s
+(470           /* just copy the whole thing including the buffer... */) s
+(471           memcpy\(&clients[i], &clients[npollfd], sizeof\(clients[i]\)\);) s
+(472           pollfds[i] = pollfds[npollfd];) s
+(473           npollfd--;) s
+(474       }) s
+(475   }) s
+(476   ) s
+(477   /**) s
+(478    * execute one iteration of THE mainloop) s
+(479    */) s
+(480   static void) s
+(481   mainloop\(\)) s
+(482   {) s
+(483       int             i;) s
+(484   ) s
+(485       message\(MSG_MAINLOOP\);) s
+endpage
+startpage
+(486       i = poll\(pollfds, npollfd, -1\);) s
+(487   ) s
+(488       /* check for alarm handlers to be executed */) s
+(489       checkalarms\(\);) s
+(490   ) s
+(491       if \(i == -1\) {) s
+(492           if \(\(errno != EAGAIN\) && \(errno != EINTR\)\) {) s
+(493               perror\("poll\(\)"\);) s
+(494               exit\(EXIT_FAILURE\);) s
+(495           }) s
+(496           return;) s
+(497       }) s
+(498   ) s
+(499       /* ) s
+(500        * handle i/o events. work off exceptions first. then read \(try to fill) s
+(501        * buffer\) and write \(try to empty buffer\)) s
+(502        */) s
+(503       for \(i = 0; i <= npollfd; i++\) {) s
+(504           if \(\(clients[i].except\)) s
+(505               && \(pollfds[i].revents & \(POLLERR | POLLHUP | POLLNVAL\)\)\) {) s
+(506               \(*clients[i].except\) \(i\);) s
+(507               continue;) s
+(508           }) s
+(509           if \(\(clients[i].read\) && \(pollfds[i].revents & POLLIN\)\) {) s
+(510               \(*clients[i].read\) \(i\);) s
+(511           }) s
+(512           if \(\(clients[i].write\) && \(pollfds[i].revents & POLLOUT\)\) {) s
+(513               \(*clients[i].write\) \(i\);) s
+(514           }) s
+(515       }) s
+(516   }) s
+(517   ) s
+(518   /**) s
+(519    * accept connection and set up new session for "echo" service) s
+(520    *) s
+(521    * @param i index into pollfds/clients array for server descriptor) s
+(522    */) s
+(523   static void) s
+(524   acceptecho\(int i\)) s
+(525   {) s
+(526       int             fd;) s
+(527       socklen_t       t;) s
+(528       struct sockaddr_in sain;) s
+(529   ) s
+(530       t = sizeof\(sain\);) s
+(531       if \(\(fd = accept\(clients[i].fd, \(void *\) &sain, &t\)\) == -1\) {) s
+(532           if \(errno == EWOULDBLOCK\) {) s
+(533               return;) s
+(534           }) s
+(535           perror\("accept\(ECHO\)"\);) s
+(536           exit\(EXIT_FAILURE\);) s
+(537       }) s
+(538       message\(MSG_ACCEPT\);) s
+(539       addclient\(fd, &readecho, &writeecho, &closeclient\);) s
+(540   }) s
+(541   ) s
+(542   /**) s
+(543    * read data from echo client) s
+(544    *) s
+(545    * @param i index into pollfds/clients array for echo session) s
+(546    *) s
+(547    * If the buffer is not full, tries to do one read from the) s
+(548    * filedescriptor associated with this echo client.) s
+(549    */) s
+(550   static void) s
+(551   readecho\(int i\)) s
+(552   {) s
+(553       ssize_t         nread;) s
+(554   ) s
+(555       if \(clients[i].echo.n == BUFSIZE\) {) s
+(556           message\(MSG_FULL\);) s
+(557           flowecho\(i\);) s
+(558           return;) s
+(559       }) s
+(560       if \(clients[i].echo.r >= clients[i].echo.w\) {) s
+(561           nread =) s
+(562               read\(clients[i].fd, clients[i].echo.buf + clients[i].echo.r,) s
+(563                    BUFSIZE - clients[i].echo.r\);) s
+(564       } else {) s
+(565           nread =) s
+(566               read\(clients[i].fd, clients[i].echo.buf + clients[i].echo.r,) s
+(567                    clients[i].echo.w - clients[i].echo.r\);) s
+(568       }) s
+(569   ) s
+(570       switch \(nread\) {) s
+(571       case -1:) s
+(572           if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(573               perror\("read\(\)"\);) s
+(574               exit\(EXIT_FAILURE\);) s
+(575           }) s
+(576           break;) s
+(577       case 0:) s
+(578           closeclient\(i\);) s
+(579           return;) s
+(580       default:) s
+(581           message\(MSG_READ\);) s
+(582           clients[i].echo.n += nread;) s
+endpage
+%%Page: 7 7
+startpage
+(583           clients[i].echo.r += nread;) s
+(584           clients[i].echo.r %= BUFSIZE;) s
+(585           flowecho\(i\);) s
+(586       }) s
+(587   }) s
+(588   ) s
+(589   /**) s
+(590    * write data to an echo client) s
+(591    *) s
+(592    * @param i index into pollfds/clients array for echo session) s
+(593    *) s
+(594    * If the buffer is not empty, tries to do one write to the) s
+(595    * filedescriptor associated with the echo client.) s
+(596    */) s
+(597   static void) s
+(598   writeecho\(int i\)) s
+(599   {) s
+(600       ssize_t         nwrite;) s
+(601   ) s
+(602       if \(clients[i].echo.n == 0\) {) s
+(603           message\(MSG_EMPTY\);) s
+(604           flowecho\(i\);) s
+(605           return;) s
+(606       }) s
+(607       if \(clients[i].echo.r > clients[i].echo.w\) {) s
+(608           nwrite =) s
+(609               write\(clients[i].fd, clients[i].echo.buf + clients[i].echo.w,) s
+(610                     clients[i].echo.r - clients[i].echo.w\);) s
+(611       } else {) s
+(612           nwrite =) s
+(613               write\(clients[i].fd, clients[i].echo.buf + clients[i].echo.w,) s
+(614                     BUFSIZE - clients[i].echo.w\);) s
+(615       }) s
+(616   ) s
+(617       switch \(nwrite\) {) s
+(618       case -1:) s
+(619           if \(errno == EPIPE\) {) s
+(620               closeclient\(i\);) s
+(621           } else if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(622               perror\("write\(\)"\);) s
+(623               exit\(EXIT_FAILURE\);) s
+(624           }) s
+(625           break;) s
+(626       case 0:) s
+(627           break;) s
+(628       default:) s
+(629           message\(MSG_WRITE\);) s
+(630           clients[i].echo.n -= nwrite;) s
+(631           clients[i].echo.w += nwrite;) s
+(632           clients[i].echo.w %= BUFSIZE;) s
+(633           flowecho\(i\);) s
+(634       }) s
+(635   }) s
+(636   ) s
+(637   /**) s
+(638    * do "flow" control for echo) s
+(639    *) s
+(640    * @param i index into pollfds/clients array for echo session) s
+(641    *) s
+(642    * turn off checking for read if buffer is full resp. write if buffer) s
+(643    * is empty.) s
+(644    */) s
+(645   static void) s
+(646   flowecho\(int i\)) s
+(647   {) s
+(648       switch \(clients[i].echo.n\) {) s
+(649       case 0:) s
+(650           pollfds[i].events = POLLIN;) s
+(651           break;) s
+(652       case BUFSIZE:) s
+(653           pollfds[i].events = POLLOUT;) s
+(654           break;) s
+(655       default:) s
+(656           pollfds[i].events = POLLIN | POLLOUT;) s
+(657       }) s
+(658   }) s
+(659   ) s
+(660   /**) s
+(661    * close and delete client session) s
+(662    *) s
+(663    * @param i index into pollfds/clients array) s
+(664    */) s
+(665   static void) s
+(666   closeclient\(int i\)) s
+(667   {) s
+(668       message\(MSG_CLOSE\);) s
+(669       close\(clients[i].fd\);) s
+(670       delclient\(i\);) s
+(671       clients[i].fd = -1;) s
+(672   }) s
+(673   ) s
+(674   /**) s
+(675    * accept connection and set up new session for "chargen" service) s
+(676    *) s
+(677    * @param i index into pollfds/clients array for server descriptor) s
+(678    */) s
+(679   static void) s
+endpage
+startpage
+(680   acceptchargen\(int i\)) s
+(681   {) s
+(682       int             fd;) s
+(683       socklen_t       t;) s
+(684       struct sockaddr_in sain;) s
+(685   ) s
+(686       t = sizeof\(sain\);) s
+(687       if \(\(fd = accept\(clients[i].fd, \(void *\) &sain, &t\)\) == -1\) {) s
+(688           if \(errno == EWOULDBLOCK\) {) s
+(689               return;) s
+(690           }) s
+(691           perror\("accept\(CHARGEN\)"\);) s
+(692           exit\(EXIT_FAILURE\);) s
+(693       }) s
+(694       addclient\(fd, NULL, &writechargen, &closeclient\);) s
+(695   }) s
+(696   ) s
+(697   /**) s
+(698    * write data to an chargen client) s
+(699    *) s
+(700    * @param i index into pollfds/clients array for chargen session) s
+(701    *) s
+(702    * If the buffer is not empty, tries to do one write to the) s
+(703    * filedescriptor associated with the chargen client.) s
+(704    */) s
+(705   static void) s
+(706   writechargen\(int i\)) s
+(707   {) s
+(708       ssize_t         nwrite;) s
+(709   ) s
+(710       nwrite =) s
+(711           write\(clients[i].fd, chargen_buf + clients[i].chargen.i,) s
+(712                 sizeof\(chargen_buf\) - clients[i].chargen.i\);) s
+(713   ) s
+(714       switch \(nwrite\) {) s
+(715       case -1:) s
+(716           if \(errno == EPIPE\) {) s
+(717               closeclient\(i\);) s
+(718               return;) s
+(719           } else if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(720               perror\("write\(\)"\);) s
+(721               exit\(EXIT_FAILURE\);) s
+(722           }) s
+(723           break;) s
+(724       case 0:) s
+(725           break;) s
+(726       default:) s
+(727           message\(MSG_WRITE\);) s
+(728           clients[i].chargen.i += nwrite;) s
+(729           clients[i].chargen.i %= sizeof\(chargen_buf\);) s
+(730       }) s
+(731   }) s
+(732   ) s
+(733   int) s
+(734   main\(\)) s
+(735   {) s
+(736       printf\("example: better main loop\\n"\);) s
+(737   ) s
+(738       blocksigpipe\(\);) s
+(739   ) s
+(740       initclients\(\);) s
+(741       addclient\(listensocket\(PORT_ECHO\), &acceptecho, NULL, NULL\);) s
+(742       addclient\(listensocket\(PORT_CHARGEN\), &acceptchargen, NULL, NULL\);) s
+(743       initalarms\(\);) s
+(744       addalarm\(heartbeat, HEARTBEAT_INTERVAL\);) s
+(745       addalarm\(slowheartbeat, SLOWHEARTBEAT_INTERVAL\);) s
+(746       printf\("heartbeat every %d seconds\\n", HEARTBEAT_INTERVAL\);) s
+(747       printf\("slow heartbeat every %d seconds\\n", SLOWHEARTBEAT_INTERVAL\);) s
+(748   ) s
+(749       /* main loop */) s
+(750       while \(1\) {) s
+(751           mainloop\(\);) s
+(752       }) s
+(753       /* notreached */) s
+(754   }) s
+endpage
+(glib/mainloop_glib.c) newfile
+/sheet 1 def
+%%Page: 8 8
+startpage
+(1     /**) s
+(2      * @file) s
+(3      * Example for main loop using glib 2) s
+(4      *) s
+(5      * @author Rico Pajarola) s
+(6      *) s
+(7      * This example uses glib 2 for handling events.) s
+(8      */) s
+(9     ) s
+(10    #include <unistd.h>) s
+(11    #include <stdlib.h>) s
+(12    #include <stdio.h>) s
+(13    #include <string.h>) s
+(14    #include <errno.h>) s
+(15    #include <sys/time.h>) s
+(16    #include <sys/socket.h>) s
+(17    #include <signal.h>) s
+(18    #include <fcntl.h>) s
+(19    ) s
+(20    #include "glib.h") s
+(21    ) s
+(22    /** tcp port to listen for echo clients */) s
+(23    #define PORT_ECHO 5005) s
+(24    ) s
+(25    /** tcp port to listen for chargen clients */) s
+(26    #define PORT_CHARGEN 5006) s
+(27    ) s
+(28    /** heartbeat interval \(in seconds\) */) s
+(29    #define HEARTBEAT_INTERVAL 2) s
+(30    ) s
+(31    /** slow heartbeat interval \(in seconds\) */) s
+(32    #define SLOWHEARTBEAT_INTERVAL 15) s
+(33    ) s
+(34    /** buffer size for echo client */) s
+(35    #define BUFSIZE 16) s
+(36    ) s
+(37    #define MSG_HEARTBEAT 0) s
+(38    #define MSG_SLOWHEARTBEAT 1) s
+(39    #define MSG_MAINLOOP 2) s
+(40    #define MSG_ACCEPT 3) s
+(41    #define MSG_TOOMANY 4) s
+(42    #define MSG_CLOSE 5) s
+(43    #define MSG_READ 6) s
+(44    #define MSG_WRITE 7) s
+(45    #define MSG_FULL 8) s
+(46    #define MSG_EMPTY 9) s
+(47    ) s
+(48    /** characters to return in chargen service */) s
+(49    static char     chargen_buf[] = "0123456789abcdefghijklmnopqrstuv";) s
+(50    ) s
+(51    typedef GSource *\(*getclientsourcefunc\) \(\);) s
+(52    ) s
+(53    /**) s
+(54     * listen source state) s
+(55     */) s
+(56    typedef struct {) s
+(57        getclientsourcefunc getclientsource;) s
+(58    } listen_source_t;) s
+(59    ) s
+(60    /**) s
+(61     * echo source state) s
+(62     */) s
+(63    typedef struct {) s
+(64        int             r;  /**< read position */) s
+(65        int             w;  /**< write position */) s
+(66        int             n;  /**< number of bytes */) s
+(67        char            buf[BUFSIZE];       /**< buffer */) s
+(68    } echo_source_t;) s
+(69    ) s
+(70    /**) s
+(71     * chargen source state) s
+(72     */) s
+(73    typedef struct {) s
+(74        int             i;  /**< index into chargen_buf */) s
+(75    } chargen_source_t;) s
+(76    ) s
+(77    typedef struct {) s
+(78        GSource         source;     /**< glib source: list of callbacks etc. */) s
+(79        GPollFD         pollfd;     /**< pollfd for mainloop \(g_source_add_poll\(\)\)*/) s
+(80        guint           id;         /**< id \(g_source_remove\(\)\) */) s
+(81    ) s
+(82        union {) s
+(83            listen_source_t listen; /**< state for listen source */) s
+(84            echo_source_t echo;     /**< state for echo source */) s
+(85            chargen_source_t chargen;       /**< state for chargen source */) s
+(86        };) s
+(87    } source_t;) s
+(88    ) s
+(89    static void     message\(int msg\);) s
+(90    ) s
+(91    static int      listensocket\(int port\);) s
+(92    static void     setnonblock\(int fd\);) s
+(93    ) s
+(94    static source_t *listensource\(getclientsourcefunc getclientsource,) s
+(95                                  int port\);) s
+(96    static GSource *getechoclientsource\(\);) s
+(97    static GSource *getchargenclientsource\(\);) s
+endpage
+startpage
+(98    ) s
+(99    static gboolean heartbeat\(gpointer data\);) s
+(100   static gboolean slowheartbeat\(gpointer data\);) s
+(101   ) s
+(102   static gboolean check\(GSource * source\);) s
+(103   static void     source_close\(source_t * source\);) s
+(104   ) s
+(105   static gboolean accept_prepare\(GSource * source, gint * timeout\);) s
+(106   static gboolean accept_dispatch\(GSource * source, GSourceFunc callback,) s
+(107                                   gpointer user_data\);) s
+(108   ) s
+(109   static gboolean echo_prepare\(GSource * source, gint * timeout\);) s
+(110   static gboolean echo_dispatch\(GSource * source, GSourceFunc callback,) s
+(111                                 gpointer user_data\);) s
+(112   ) s
+(113   static void     echo_dispatch_read\(source_t * echosource\);) s
+(114   static void     echo_dispatch_write\(source_t * echosource\);) s
+(115   ) s
+(116   static gboolean chargen_prepare\(GSource * source, gint * timeout\);) s
+(117   static gboolean chargen_dispatch\(GSource * source, GSourceFunc callback,) s
+(118                                    gpointer user_data\);) s
+(119   ) s
+(120   /**) s
+(121    * print message describing current activity) s
+(122    *) s
+(123    * @param msg   id of message to print \(MSG_XYZ\)) s
+(124    */) s
+(125   void) s
+(126   message\(int msg\)) s
+(127   {) s
+(128       switch \(msg\) {) s
+(129       case MSG_HEARTBEAT:) s
+(130           printf\("H"\);) s
+(131           break;) s
+(132       case MSG_SLOWHEARTBEAT:) s
+(133           printf\("S"\);) s
+(134           break;) s
+(135       case MSG_MAINLOOP:) s
+(136           printf\("M"\);) s
+(137           break;) s
+(138       case MSG_ACCEPT:) s
+(139           printf\("A"\);) s
+(140           break;) s
+(141       case MSG_TOOMANY:) s
+(142           printf\("T"\);) s
+(143           break;) s
+(144       case MSG_CLOSE:) s
+(145           printf\("C"\);) s
+(146           break;) s
+(147       case MSG_READ:) s
+(148           printf\("R"\);) s
+(149           break;) s
+(150       case MSG_WRITE:) s
+(151           printf\("W"\);) s
+(152           break;) s
+(153       case MSG_FULL:) s
+(154           printf\("F"\);) s
+(155           break;) s
+(156       case MSG_EMPTY:) s
+(157           printf\("E"\);) s
+(158           break;) s
+(159       }) s
+(160       fflush\(stdout\);) s
+(161   }) s
+(162   ) s
+(163   /**) s
+(164    * block SIGPIPE) s
+(165    *) s
+(166    * Trying to write to a socket when the other end has already closed) s
+(167    * the connection results in SIGPIPE. Not usefull in this context.) s
+(168    */) s
+(169   static void) s
+(170   blocksigpipe\(\)) s
+(171   {) s
+(172       struct sigaction act;) s
+(173   ) s
+(174       act.sa_handler = SIG_IGN;) s
+(175       sigemptyset\(&act.sa_mask\);) s
+(176       act.sa_flags = SA_RESTART;) s
+(177       if \(sigaction\(SIGPIPE, &act, NULL\) == -1\) {) s
+(178           perror\("sigaction\(SIGPIPE, <ignore>\)"\);) s
+(179           exit\(EXIT_FAILURE\);) s
+(180       }) s
+(181   }) s
+(182   ) s
+(183   /**) s
+(184    * return tcp socket listening on port specified) s
+(185    *) s
+(186    * @param port  port number in host byte order) s
+(187    *) s
+(188    * @return      file descriptor for listening socket) s
+(189    *) s
+(190    * The socket is set to be nonblocking) s
+(191    */) s
+(192   static int) s
+(193   listensocket\(int port\)) s
+(194   {) s
+endpage
+%%Page: 9 9
+startpage
+(195       int             serverfd;) s
+(196       struct sockaddr_in sain;) s
+(197       int             one;) s
+(198   ) s
+(199       /* set up tcp socket for listening */) s
+(200       sain.sin_family = AF_INET;) s
+(201       sain.sin_port = htons\(port\);) s
+(202       sain.sin_addr.s_addr = INADDR_ANY;) s
+(203       if \(\(serverfd = socket\(AF_INET, SOCK_STREAM, 0\)\) == -1\) {) s
+(204           perror\("socket\(AF_INET, SOCK_STREAM, 0\)"\);) s
+(205           exit\(EXIT_FAILURE\);) s
+(206       }) s
+(207       one = 1;) s
+(208       if \(setsockopt) s
+(209           \(serverfd, SOL_SOCKET, SO_REUSEADDR, &one,) s
+(210            \(int\) sizeof\(one\)\) == -1\) {) s
+(211           perror\("setsockopt\(SO_REUSEADDR\)"\);) s
+(212           exit\(EXIT_FAILURE\);) s
+(213       }) s
+(214       if \(bind) s
+(215           \(serverfd, \(struct sockaddr *\) &sain,) s
+(216            sizeof\(struct sockaddr_in\)\) == -1\) {) s
+(217           perror\("bind\(\)"\);) s
+(218           exit\(EXIT_FAILURE\);) s
+(219       }) s
+(220       if \(listen\(serverfd, 5\) == -1\) {) s
+(221           perror\("listen\(\)"\);) s
+(222           exit\(EXIT_FAILURE\);) s
+(223       }) s
+(224       setnonblock\(serverfd\);) s
+(225   ) s
+(226       printf\("listening on port %d\\n", port\);) s
+(227   ) s
+(228       return serverfd;) s
+(229   }) s
+(230   ) s
+(231   /**) s
+(232    * set a file descriptor to be nonblocking) s
+(233    *) s
+(234    * @param fd    file descriptor) s
+(235    *) s
+(236    * Non-Blocking works only for Sockets, Pipes and slow devices, it has) s
+(237    * no effect when used with regular files) s
+(238    */) s
+(239   static void) s
+(240   setnonblock\(int fd\)) s
+(241   {) s
+(242       int             flag;) s
+(243   ) s
+(244       flag = fcntl\(fd, F_GETFL\);) s
+(245       fcntl\(fd, F_GETFL, flag | O_NONBLOCK\);) s
+(246   }) s
+(247   ) s
+(248   /**) s
+(249    * construct listensource listening on port specified) s
+(250    *) s
+(251    * @param getclientsource       function returning clientsource for accepted connection) s
+(252    * @param port  tcp port to listen on in host byte order) s
+(253    *) s
+(254    * @return      listensource_t) s
+(255    */) s
+(256   static source_t *) s
+(257   listensource\(getclientsourcefunc getclientsource, int port\)) s
+(258   {) s
+(259       static GSourceFuncs listenfuncs;) s
+(260       source_t       *listensource;) s
+(261   ) s
+(262       listenfuncs.prepare = &accept_prepare;) s
+(263       listenfuncs.check = &check;) s
+(264       listenfuncs.dispatch = &accept_dispatch;) s
+(265       listenfuncs.finalize = NULL;) s
+(266       listensource =) s
+(267           \(source_t *\) g_source_new\(&listenfuncs, sizeof\(source_t\)\);) s
+(268       listensource->listen.getclientsource = getclientsource;) s
+(269   ) s
+(270       listensource->pollfd.fd = listensocket\(port\);) s
+(271       g_source_add_poll\(\(GSource *\) listensource, &\(listensource->pollfd\)\);) s
+(272       return listensource;) s
+(273   }) s
+(274   ) s
+(275   /**) s
+(276    * print heartbeat message) s
+(277    *) s
+(278    * @return always TRUE) s
+(279    */) s
+(280   static          gboolean) s
+(281   heartbeat\(gpointer data\)) s
+(282   {) s
+(283       message\(MSG_HEARTBEAT\);) s
+(284       return TRUE;) s
+(285   }) s
+(286   ) s
+(287   /**) s
+(288    * print "slowheartbeat" message) s
+(289    *) s
+(290    * @return always TRUE) s
+(291    */) s
+endpage
+startpage
+(292   static          gboolean) s
+(293   slowheartbeat\(gpointer data\)) s
+(294   {) s
+(295       message\(MSG_SLOWHEARTBEAT\);) s
+(296       return TRUE;) s
+(297   }) s
+(298   ) s
+(299   /**) s
+(300    * check whether source is ready for processing) s
+(301    *) s
+(302    * @param source        GSource to check) s
+(303    *) s
+(304    * @return      TRUE if resource is ready) s
+(305    */) s
+(306   static          gboolean) s
+(307   check\(GSource * source\)) s
+(308   {) s
+(309   ) s
+(310       source_t       *xsource;) s
+(311   ) s
+(312       xsource = \(source_t *\) source;) s
+(313   ) s
+(314       return xsource->pollfd.revents ? TRUE : FALSE;) s
+(315   }) s
+(316   ) s
+(317   /**) s
+(318    * Prepare GSource for polling a server socket for accept) s
+(319    *) s
+(320    * @param source        GSource to prepare) s
+(321    * @param timeout       maximum timeout to set for poll\(\) \(out\)) s
+(322    *) s
+(323    * @return      always FALSE \(use poll\)) s
+(324    */) s
+(325   static          gboolean) s
+(326   accept_prepare\(GSource * source, gint * timeout\)) s
+(327   {) s
+(328       source_t       *xsource;) s
+(329   ) s
+(330       xsource = \(source_t *\) source;) s
+(331   ) s
+(332       xsource->pollfd.events = G_IO_IN;) s
+(333       *timeout = -1;              /* no timeout */) s
+(334       return FALSE;) s
+(335   }) s
+(336   ) s
+(337   /**) s
+(338    * dispatch \(process\) listening socket) s
+(339    *) s
+(340    * @param gsource       source to process) s
+(341    * @param callback      callback function \(unused\)) s
+(342    * @param user_data     I have absolutely no idea how to use this... nice idea though) s
+(343    *) s
+(344    * @return      always TRUE) s
+(345    */) s
+(346   static          gboolean) s
+(347   accept_dispatch\(GSource * gsource, GSourceFunc callback,) s
+(348                   gpointer user_data\)) s
+(349   {) s
+(350       struct sockaddr_in sain;) s
+(351       int             fd;) s
+(352       socklen_t       t;) s
+(353       source_t       *source;) s
+(354       source_t       *clientsource;) s
+(355   ) s
+(356       source = \(source_t *\) gsource;) s
+(357   ) s
+(358       if \(source->pollfd.revents & \(G_IO_HUP | G_IO_ERR\)\) {) s
+(359           perror\("accept_dispatch\(\)"\);) s
+(360           exit\(EXIT_FAILURE\);) s
+(361       }) s
+(362   ) s
+(363       /* accept new connection */) s
+(364       t = sizeof\(sain\);) s
+(365       if \(\(fd = accept\(source->pollfd.fd, \(void *\) &sain, &t\)\) == -1\) {) s
+(366           if \(errno == EWOULDBLOCK\) {) s
+(367               return TRUE;) s
+(368           }) s
+(369           perror\("accept\(ECHO\)"\);) s
+(370           exit\(EXIT_FAILURE\);) s
+(371       }) s
+(372       setnonblock\(fd\);) s
+(373       message\(MSG_ACCEPT\);) s
+(374   ) s
+(375       clientsource = \(source_t *\) source->listen.getclientsource\(\);) s
+(376       clientsource->pollfd.fd = fd;) s
+(377       g_source_add_poll\(\(GSource *\) clientsource, &\(clientsource->pollfd\)\);) s
+(378       clientsource->id =) s
+(379           g_source_attach\(\(GSource *\) clientsource,) s
+(380                           g_source_get_context\(\(GSource *\) clientsource\)\);) s
+(381       return TRUE;) s
+(382   }) s
+(383   ) s
+(384   /**) s
+(385    * construct GSourceFuncs for echo client) s
+(386    *) s
+(387    * @return      GSource for echo client) s
+(388    */) s
+endpage
+%%Page: 10 10
+startpage
+(389   static GSource *) s
+(390   getechoclientsource\(\)) s
+(391   {) s
+(392       static GSourceFuncs funcs = { NULL, NULL, NULL, NULL, NULL, NULL };) s
+(393       source_t       *echosource;) s
+(394   ) s
+(395       /* cannot reference functions in static initializer */) s
+(396       funcs.prepare = echo_prepare;) s
+(397       funcs.check = check;) s
+(398       funcs.dispatch = echo_dispatch;) s
+(399       funcs.finalize = NULL;) s
+(400   ) s
+(401       echosource = \(source_t *\) g_source_new\(&funcs, sizeof\(source_t\)\);) s
+(402       echosource->echo.r = 0;) s
+(403       echosource->echo.w = 0;) s
+(404       echosource->echo.n = 0;) s
+(405       return \(GSource *\) echosource;) s
+(406   }) s
+(407   ) s
+(408   /**) s
+(409    * construct GSourceFuncs for chargen client) s
+(410    *) s
+(411    * @return      GSource for chargen client) s
+(412    */) s
+(413   static GSource *) s
+(414   getchargenclientsource\(\)) s
+(415   {) s
+(416       static GSourceFuncs funcs = { NULL, NULL, NULL, NULL, NULL, NULL };) s
+(417       source_t       *chargensource;) s
+(418   ) s
+(419       /* cannot reference functions in static initializer */) s
+(420       funcs.prepare = chargen_prepare;) s
+(421       funcs.check = check;) s
+(422       funcs.dispatch = chargen_dispatch;) s
+(423       funcs.finalize = NULL;) s
+(424   ) s
+(425       chargensource = \(source_t *\) g_source_new\(&funcs, sizeof\(source_t\)\);) s
+(426       chargensource->chargen.i = 0;) s
+(427       return \(GSource *\) chargensource;) s
+(428   }) s
+(429   ) s
+(430   /**) s
+(431    * Prepare GSource for polling an echo client) s
+(432    *) s
+(433    * @param source        GSource to prepare) s
+(434    * @param timeout       maximum timeout to set for poll\(\) \(out\)) s
+(435    *) s
+(436    * @return      always FALSE \(use poll\)) s
+(437    *) s
+(438    * If the buffer is full, checking for read is turned off resp. if the) s
+(439    * buffer is empty, checking for write is turned off.) s
+(440    */) s
+(441   static          gboolean) s
+(442   echo_prepare\(GSource * source, gint * timeout\)) s
+(443   {) s
+(444       source_t       *echosource;) s
+(445   ) s
+(446       echosource = \(source_t *\) source;) s
+(447   ) s
+(448       switch \(echosource->echo.n\) {) s
+(449       case 0:) s
+(450           echosource->pollfd.events = G_IO_IN;) s
+(451           break;) s
+(452       case BUFSIZE:) s
+(453           echosource->pollfd.events = G_IO_OUT;) s
+(454           break;) s
+(455       default:) s
+(456           echosource->pollfd.events = G_IO_IN | G_IO_OUT;) s
+(457       }) s
+(458       return FALSE;) s
+(459   }) s
+(460   ) s
+(461   /**) s
+(462    * dispatch \(process\) echo client) s
+(463    *) s
+(464    * @param source        source to process) s
+(465    * @param callback      callback function \(unused\)) s
+(466    * @param user_data     ?) s
+(467    *) s
+(468    * @return      always TRUE) s
+(469    */) s
+(470   static          gboolean) s
+(471   echo_dispatch\(GSource * source, GSourceFunc callback, gpointer user_data\)) s
+(472   {) s
+(473       source_t       *echosource;) s
+(474   ) s
+(475       echosource = \(source_t *\) source;) s
+(476   ) s
+(477       if \(echosource->pollfd.revents & \(G_IO_HUP | G_IO_ERR\)\) {) s
+(478           source_close\(\(source_t *\) echosource\);) s
+(479       }) s
+(480       if \(echosource->pollfd.revents & G_IO_IN\) {) s
+(481           echo_dispatch_read\(echosource\);) s
+(482       }) s
+(483       if \(echosource->pollfd.revents & G_IO_OUT\) {) s
+(484           echo_dispatch_write\(echosource\);) s
+(485       }) s
+endpage
+startpage
+(486       return TRUE;) s
+(487   }) s
+(488   ) s
+(489   /**) s
+(490    * read data from echo client) s
+(491    *) s
+(492    * @param echosource    echo client source) s
+(493    *) s
+(494    * If the buffer is not full, tries to do one read from the) s
+(495    * filedescriptor associated with this echo client.) s
+(496    */) s
+(497   static void) s
+(498   echo_dispatch_read\(source_t * echosource\)) s
+(499   {) s
+(500       ssize_t         nread;) s
+(501   ) s
+(502       if \(echosource->echo.n == BUFSIZE\) {) s
+(503           message\(MSG_FULL\);) s
+(504           return;) s
+(505       }) s
+(506   ) s
+(507       if \(echosource->echo.r >= echosource->echo.w\) {) s
+(508           nread =) s
+(509               read\(echosource->pollfd.fd,) s
+(510                    echosource->echo.buf + echosource->echo.r,) s
+(511                    BUFSIZE - echosource->echo.r\);) s
+(512       } else {) s
+(513           nread =) s
+(514               read\(echosource->pollfd.fd,) s
+(515                    echosource->echo.buf + echosource->echo.r,) s
+(516                    echosource->echo.w - echosource->echo.r\);) s
+(517       }) s
+(518   ) s
+(519       switch \(nread\) {) s
+(520       case -1:) s
+(521           if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(522               perror\("read\(\)"\);) s
+(523               exit\(EXIT_FAILURE\);) s
+(524           }) s
+(525           break;) s
+(526       case 0:) s
+(527           source_close\(\(source_t *\) echosource\);) s
+(528           return;) s
+(529       default:) s
+(530           message\(MSG_READ\);) s
+(531           echosource->echo.n += nread;) s
+(532           echosource->echo.r += nread;) s
+(533           echosource->echo.r %= BUFSIZE;) s
+(534       }) s
+(535   }) s
+(536   ) s
+(537   /**) s
+(538    * write data to an echo client) s
+(539    *) s
+(540    * @param echosource    echo client source) s
+(541    *) s
+(542    * If the buffer is not empty, tries to do one write to the) s
+(543    * filedescriptor associated with the echo client.) s
+(544    */) s
+(545   static void) s
+(546   echo_dispatch_write\(source_t * echosource\)) s
+(547   {) s
+(548       ssize_t         nwrite;) s
+(549   ) s
+(550       if \(echosource->echo.n == 0\) {) s
+(551           message\(MSG_EMPTY\);) s
+(552           return;) s
+(553       }) s
+(554   ) s
+(555       if \(echosource->echo.r > echosource->echo.w\) {) s
+(556           nwrite =) s
+(557               write\(echosource->pollfd.fd,) s
+(558                     echosource->echo.buf + echosource->echo.w,) s
+(559                     echosource->echo.r - echosource->echo.w\);) s
+(560       } else {) s
+(561           nwrite =) s
+(562               write\(echosource->pollfd.fd,) s
+(563                     echosource->echo.buf + echosource->echo.w,) s
+(564                     BUFSIZE - echosource->echo.w\);) s
+(565       }) s
+(566   ) s
+(567       switch \(nwrite\) {) s
+(568       case -1:) s
+(569           if \(errno == EPIPE\) {) s
+(570               source_close\(\(source_t *\) echosource\);) s
+(571           } else if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(572               perror\("write\(\)"\);) s
+(573               exit\(EXIT_FAILURE\);) s
+(574           }) s
+(575           break;) s
+(576       case 0:) s
+(577           break;) s
+(578       default:) s
+(579           message\(MSG_WRITE\);) s
+(580           echosource->echo.n -= nwrite;) s
+(581           echosource->echo.w += nwrite;) s
+(582           echosource->echo.w %= BUFSIZE;) s
+endpage
+%%Page: 11 11
+startpage
+(583       }) s
+(584   }) s
+(585   ) s
+(586   /**) s
+(587    * close a source and dispose of source) s
+(588    *) s
+(589    * @param source        source to close/dispose) s
+(590    */) s
+(591   static void) s
+(592   source_close\(source_t * source\)) s
+(593   {) s
+(594       message\(MSG_CLOSE\);) s
+(595       \(void\) g_source_remove\(source->id\);) s
+(596       close\(source->pollfd.fd\);) s
+(597       g_source_unref\(\(GSource *\) source\);) s
+(598   }) s
+(599   ) s
+(600   /**) s
+(601    * Prepare GSource for polling an chargen client) s
+(602    *) s
+(603    * @param source        GSource to prepare) s
+(604    * @param timeout       maximum timeout to set for poll\(\) \(out\)) s
+(605    *) s
+(606    * @return      always FALSE \(use poll\)) s
+(607    */) s
+(608   static          gboolean) s
+(609   chargen_prepare\(GSource * source, gint * timeout\)) s
+(610   {) s
+(611       source_t       *chargensource;) s
+(612   ) s
+(613       chargensource = \(source_t *\) source;) s
+(614   ) s
+(615       chargensource->pollfd.events = G_IO_OUT;) s
+(616   ) s
+(617       return FALSE;) s
+(618   }) s
+(619   ) s
+(620   /**) s
+(621    * dispatch \(process\) chargen client) s
+(622    *) s
+(623    * @param source        source to process) s
+(624    * @param callback      callback function \(unused\)) s
+(625    * @param user_data     ?) s
+(626    *) s
+(627    * @return      always TRUE) s
+(628    *) s
+(629    * there is no chargen_dispatch_write, writing is done directly in) s
+(630    * chargen_dispatch) s
+(631    */) s
+(632   static          gboolean) s
+(633   chargen_dispatch\(GSource * source, GSourceFunc callback,) s
+(634                    gpointer user_data\)) s
+(635   {) s
+(636       ssize_t         nwrite;) s
+(637       source_t       *chargensource;) s
+(638   ) s
+(639       chargensource = \(source_t *\) source;) s
+(640   ) s
+(641       nwrite =) s
+(642           write\(chargensource->pollfd.fd,) s
+(643                 chargen_buf + chargensource->chargen.i,) s
+(644                 sizeof\(chargen_buf\) - chargensource->chargen.i\);) s
+(645       switch \(nwrite\) {) s
+(646       case -1:) s
+(647           if \(errno == EPIPE\) {) s
+(648               source_close\(\(source_t *\) chargensource\);) s
+(649               return TRUE;) s
+(650           } else if \(\(errno != EINTR\) && \(errno != EWOULDBLOCK\)\) {) s
+(651               perror\("write\(\)"\);) s
+(652               exit\(EXIT_FAILURE\);) s
+(653           }) s
+(654           break;) s
+(655       case 0:) s
+(656           break;) s
+(657       default:) s
+(658           message\(MSG_WRITE\);) s
+(659           chargensource->chargen.i += nwrite;) s
+(660           chargensource->chargen.i %= sizeof\(chargen_buf\);) s
+(661       }) s
+(662       return TRUE;) s
+(663   }) s
+(664   ) s
+(665   int) s
+(666   main\(\)) s
+(667   {) s
+(668       GMainLoop      *mainloop;) s
+(669       GMainContext   *context;) s
+(670       source_t       *listenecho, *listenchargen;) s
+(671   ) s
+(672       /* check glib version */) s
+(673       if \(!GLIB_CHECK_VERSION\(2, 0, 0\)\) {) s
+(674           fprintf\(stderr, "glib %d.%d.%d is too old\\n", GLIB_MAJOR_VERSION,) s
+(675                   GLIB_MINOR_VERSION, GLIB_MICRO_VERSION\);) s
+(676           exit\(EXIT_FAILURE\);) s
+(677       }) s
+(678   ) s
+(679       printf\("example: glib main loop\\n"\);) s
+endpage
+startpage
+(680   ) s
+(681       blocksigpipe\(\);) s
+(682   ) s
+(683       /* create main loop */) s
+(684       context = g_main_context_default\(\);) s
+(685       mainloop = g_main_loop_new\(context, FALSE\);) s
+(686   ) s
+(687       /* create echo service */) s
+(688       listenecho = listensource\(getechoclientsource, PORT_ECHO\);) s
+(689       listenecho->id = g_source_attach\(\(GSource *\) listenecho, context\);) s
+(690   ) s
+(691       /* create chargen service */) s
+(692       listenchargen = listensource\(getchargenclientsource, PORT_CHARGEN\);) s
+(693       listenchargen->id =) s
+(694           g_source_attach\(\(GSource *\) listenchargen, context\);) s
+(695   ) s
+(696       /* install heartbeat */) s
+(697       \(void\) g_timeout_add\(1000 * HEARTBEAT_INTERVAL, &heartbeat, NULL\);) s
+(698       \(void\) g_timeout_add\(1000 * SLOWHEARTBEAT_INTERVAL, &slowheartbeat, NULL\);) s
+(699       printf\("heartbeat every %d seconds\\n", HEARTBEAT_INTERVAL\);) s
+(700       printf\("slow heartbeat every %d seconds\\n", SLOWHEARTBEAT_INTERVAL\);) s
+(701   ) s
+(702       /* run the main loop */) s
+(703       g_main_loop_run\(mainloop\);) s
+(704       /* notreached */) s
+(705   ) s
+(706       g_main_loop_unref\(mainloop\);) s
+(707       exit\(EXIT_SUCCESS\);) s
+(708   }) s
+endpage
+
+%%Trailer
+cleanup
+docsave restore end

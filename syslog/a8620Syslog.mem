@@ -1,0 +1,40 @@
+Logging Interface Description (neue LogLib.h)
+---------------------------------------------
+
+typedef enum {
+  ERROR = 0;
+  WARNING = 1;
+  NOTICE = 2;
+  INFO = 3;
+  DEBUG = 4;
+} LogFacility;
+
+/* open logging */
+
+LogOpen("ident");     /* parameter andere bedeutung !? */ 
+
+LogSetHeader(  ) -> return(0);
+
+/* system  : local0 facility and ERROR level  */
+
+LogSystem("messageString");
+
+LogReturn("messageString");
+
+LogQuit("messageString");
+
+LogDump( ) -> LogQuit("messageString");
+
+/* info : local0 facility and INFO level */
+
+LogMessage( , , );
+
+/* local0 facility and DEBUG level */
+
+LogDebug(LogLevel, "messageString");
+
+
+/* user facility and LogLevel level, for other applications */
+
+LogUser(LogFacility, "messageString");
+

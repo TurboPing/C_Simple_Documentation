@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv) {
+  
+  char line[1000];
+  char *returnCode;
+  FILE *fd;
+
+  char delim[100] = ": #\t";
+  char *ptr;
+
+  if ((fd = fopen(argv[1], "r")) == NULL) {
+    fprintf(stderr, "Konnte file nicht öffnen!\n");
+    exit(1);
+  }
+
+  while (fgets(line, 1000, fd) != NULL) {
+
+    printf("len:%3d|%s", strlen(line), line);
+
+    ptr = (char *)strtok(&line[0], delim);
+    while (ptr != NULL) {
+
+      printf("ptr:%s\n", ptr);
+ 
+      ptr = (char *)strtok(NULL, delim);
+ 
+  }
+
+
+
+  }
+
+  return 0;
+
+}

@@ -1,0 +1,1172 @@
+\hypertarget{mainloop__glib_8c}{
+\section{mainloop\_\-glib.c File Reference}
+\label{mainloop__glib_8c}\index{mainloop_glib.c@{mainloop\_\-glib.c}}
+}
+Example for main loop using glib 2.  
+
+
+{\tt \#include $<$unistd.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include $<$sys/time.h$>$}\par
+{\tt \#include $<$sys/socket.h$>$}\par
+{\tt \#include $<$signal.h$>$}\par
+{\tt \#include $<$fcntl.h$>$}\par
+{\tt \#include \char`\"{}glib.h\char`\"{}}\par
+\subsection*{Data Structures}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structlisten__source__t}{listen\_\-source\_\-t}
+\begin{CompactList}\small\item\em listen source state \item\end{CompactList}\item 
+struct \hyperlink{structecho__source__t}{echo\_\-source\_\-t}
+\begin{CompactList}\small\item\em echo source state \item\end{CompactList}\item 
+struct \hyperlink{structchargen__source__t}{chargen\_\-source\_\-t}
+\begin{CompactList}\small\item\em chargen source state \item\end{CompactList}\item 
+struct \hyperlink{structsource__t}{source\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{mainloop__glib_8c_a0}{PORT\_\-ECHO}\ 5005
+\begin{CompactList}\small\item\em tcp port to listen for echo clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__glib_8c_a1}{PORT\_\-CHARGEN}\ 5006
+\begin{CompactList}\small\item\em tcp port to listen for chargen clients \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__glib_8c_a2}{HEARTBEAT\_\-INTERVAL}\ 2
+\begin{CompactList}\small\item\em heartbeat interval (in seconds) \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__glib_8c_a3}{SLOWHEARTBEAT\_\-INTERVAL}\ 15
+\begin{CompactList}\small\item\em slow heartbeat interval (in seconds) \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__glib_8c_a4}{BUFSIZE}\ 16
+\begin{CompactList}\small\item\em buffer size for echo client \item\end{CompactList}\item 
+\#define \hyperlink{mainloop__glib_8c_a5}{MSG\_\-HEARTBEAT}\ 0
+\item 
+\#define \hyperlink{mainloop__glib_8c_a6}{MSG\_\-SLOWHEARTBEAT}\ 1
+\item 
+\#define \hyperlink{mainloop__glib_8c_a7}{MSG\_\-MAINLOOP}\ 2
+\item 
+\#define \hyperlink{mainloop__glib_8c_a8}{MSG\_\-ACCEPT}\ 3
+\item 
+\#define \hyperlink{mainloop__glib_8c_a9}{MSG\_\-TOOMANY}\ 4
+\item 
+\#define \hyperlink{mainloop__glib_8c_a10}{MSG\_\-CLOSE}\ 5
+\item 
+\#define \hyperlink{mainloop__glib_8c_a11}{MSG\_\-READ}\ 6
+\item 
+\#define \hyperlink{mainloop__glib_8c_a12}{MSG\_\-WRITE}\ 7
+\item 
+\#define \hyperlink{mainloop__glib_8c_a13}{MSG\_\-FULL}\ 8
+\item 
+\#define \hyperlink{mainloop__glib_8c_a14}{MSG\_\-EMPTY}\ 9
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef GSource $\ast$($\ast$ \hyperlink{mainloop__glib_8c_a16}{getclientsourcefunc} )()
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{mainloop__glib_8c_a17}{message} (int msg)
+\begin{CompactList}\small\item\em print message describing current activity \item\end{CompactList}\item 
+int \hyperlink{mainloop__glib_8c_a18}{listensocket} (int port)
+\begin{CompactList}\small\item\em return tcp socket listening on port specified \item\end{CompactList}\item 
+void \hyperlink{mainloop__glib_8c_a19}{setnonblock} (int fd)
+\begin{CompactList}\small\item\em set a file descriptor to be nonblocking \item\end{CompactList}\item 
+\hyperlink{structsource__t}{source\_\-t} $\ast$ \hyperlink{mainloop__glib_8c_a20}{listensource} (\hyperlink{mainloop__glib_8c_a16}{getclientsourcefunc} getclientsource, int port)
+\begin{CompactList}\small\item\em construct listensource listening on port specified \item\end{CompactList}\item 
+GSource $\ast$ \hyperlink{mainloop__glib_8c_a21}{getechoclientsource} ()
+\begin{CompactList}\small\item\em construct GSource\-Funcs for echo client \item\end{CompactList}\item 
+GSource $\ast$ \hyperlink{mainloop__glib_8c_a22}{getchargenclientsource} ()
+\begin{CompactList}\small\item\em construct GSource\-Funcs for chargen client \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a23}{heartbeat} (gpointer data)
+\begin{CompactList}\small\item\em print heartbeat message \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a24}{slowheartbeat} (gpointer data)
+\begin{CompactList}\small\item\em print \char`\"{}slowheartbeat\char`\"{} message \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a25}{check} (GSource $\ast$source)
+\begin{CompactList}\small\item\em check whether source is ready for processing \item\end{CompactList}\item 
+void \hyperlink{mainloop__glib_8c_a26}{source\_\-close} (\hyperlink{structsource__t}{source\_\-t} $\ast$source)
+\begin{CompactList}\small\item\em close a source and dispose of source \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a27}{accept\_\-prepare} (GSource $\ast$source, gint $\ast$timeout)
+\begin{CompactList}\small\item\em Prepare GSource for polling a server socket for accept. \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a28}{accept\_\-dispatch} (GSource $\ast$source, GSource\-Func callback, gpointer user\_\-data)
+\begin{CompactList}\small\item\em dispatch (process) listening socket \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a29}{echo\_\-prepare} (GSource $\ast$source, gint $\ast$timeout)
+\begin{CompactList}\small\item\em Prepare GSource for polling an echo client. \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a30}{echo\_\-dispatch} (GSource $\ast$source, GSource\-Func callback, gpointer user\_\-data)
+\begin{CompactList}\small\item\em dispatch (process) echo client \item\end{CompactList}\item 
+void \hyperlink{mainloop__glib_8c_a31}{echo\_\-dispatch\_\-read} (\hyperlink{structsource__t}{source\_\-t} $\ast$echosource)
+\begin{CompactList}\small\item\em read data from echo client \item\end{CompactList}\item 
+void \hyperlink{mainloop__glib_8c_a32}{echo\_\-dispatch\_\-write} (\hyperlink{structsource__t}{source\_\-t} $\ast$echosource)
+\begin{CompactList}\small\item\em write data to an echo client \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a33}{chargen\_\-prepare} (GSource $\ast$source, gint $\ast$timeout)
+\begin{CompactList}\small\item\em Prepare GSource for polling an chargen client. \item\end{CompactList}\item 
+gboolean \hyperlink{mainloop__glib_8c_a34}{chargen\_\-dispatch} (GSource $\ast$source, GSource\-Func callback, gpointer user\_\-data)
+\begin{CompactList}\small\item\em dispatch (process) chargen client \item\end{CompactList}\item 
+void \hyperlink{mainloop__glib_8c_a35}{blocksigpipe} ()
+\begin{CompactList}\small\item\em block SIGPIPE \item\end{CompactList}\item 
+int \hyperlink{mainloop__glib_8c_a36}{main} ()
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char \hyperlink{mainloop__glib_8c_a15}{chargen\_\-buf} \mbox{[}$\,$\mbox{]} = \char`\"{}0123456789abcdefghijklmnopqrstuv\char`\"{}
+\begin{CompactList}\small\item\em characters to return in chargen service \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Example for main loop using glib 2. 
+
+\begin{Desc}
+\item[Author:]Rico Pajarola\end{Desc}
+This example uses glib 2 for handling events.
+
+Definition in file \hyperlink{mainloop__glib_8c-source}{mainloop\_\-glib.c}.
+
+\subsection{Define Documentation}
+\hypertarget{mainloop__glib_8c_a4}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!BUFSIZE@{BUFSIZE}}
+\index{BUFSIZE@{BUFSIZE}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[BUFSIZE]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFSIZE\ 16}}
+\label{mainloop__glib_8c_a4}
+
+
+buffer size for echo client 
+
+
+
+Definition at line 35 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a2}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!HEARTBEAT_INTERVAL@{HEARTBEAT\_\-INTERVAL}}
+\index{HEARTBEAT_INTERVAL@{HEARTBEAT\_\-INTERVAL}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[HEARTBEAT\_\-INTERVAL]{\setlength{\rightskip}{0pt plus 5cm}\#define HEARTBEAT\_\-INTERVAL\ 2}}
+\label{mainloop__glib_8c_a2}
+
+
+heartbeat interval (in seconds) 
+
+
+
+Definition at line 29 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a8}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_ACCEPT@{MSG\_\-ACCEPT}}
+\index{MSG_ACCEPT@{MSG\_\-ACCEPT}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-ACCEPT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-ACCEPT\ 3}}
+\label{mainloop__glib_8c_a8}
+
+
+
+
+Definition at line 40 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a10}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_CLOSE@{MSG\_\-CLOSE}}
+\index{MSG_CLOSE@{MSG\_\-CLOSE}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-CLOSE]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-CLOSE\ 5}}
+\label{mainloop__glib_8c_a10}
+
+
+
+
+Definition at line 42 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a14}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_EMPTY@{MSG\_\-EMPTY}}
+\index{MSG_EMPTY@{MSG\_\-EMPTY}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-EMPTY]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-EMPTY\ 9}}
+\label{mainloop__glib_8c_a14}
+
+
+
+
+Definition at line 46 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a13}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_FULL@{MSG\_\-FULL}}
+\index{MSG_FULL@{MSG\_\-FULL}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-FULL]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-FULL\ 8}}
+\label{mainloop__glib_8c_a13}
+
+
+
+
+Definition at line 45 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a5}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_HEARTBEAT@{MSG\_\-HEARTBEAT}}
+\index{MSG_HEARTBEAT@{MSG\_\-HEARTBEAT}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-HEARTBEAT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-HEARTBEAT\ 0}}
+\label{mainloop__glib_8c_a5}
+
+
+
+
+Definition at line 37 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a7}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_MAINLOOP@{MSG\_\-MAINLOOP}}
+\index{MSG_MAINLOOP@{MSG\_\-MAINLOOP}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-MAINLOOP]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-MAINLOOP\ 2}}
+\label{mainloop__glib_8c_a7}
+
+
+
+
+Definition at line 39 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a11}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_READ@{MSG\_\-READ}}
+\index{MSG_READ@{MSG\_\-READ}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-READ]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-READ\ 6}}
+\label{mainloop__glib_8c_a11}
+
+
+
+
+Definition at line 43 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a6}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_SLOWHEARTBEAT@{MSG\_\-SLOWHEARTBEAT}}
+\index{MSG_SLOWHEARTBEAT@{MSG\_\-SLOWHEARTBEAT}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-SLOWHEARTBEAT]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-SLOWHEARTBEAT\ 1}}
+\label{mainloop__glib_8c_a6}
+
+
+
+
+Definition at line 38 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a9}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_TOOMANY@{MSG\_\-TOOMANY}}
+\index{MSG_TOOMANY@{MSG\_\-TOOMANY}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-TOOMANY]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-TOOMANY\ 4}}
+\label{mainloop__glib_8c_a9}
+
+
+
+
+Definition at line 41 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a12}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!MSG_WRITE@{MSG\_\-WRITE}}
+\index{MSG_WRITE@{MSG\_\-WRITE}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[MSG\_\-WRITE]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-WRITE\ 7}}
+\label{mainloop__glib_8c_a12}
+
+
+
+
+Definition at line 44 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a1}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!PORT_CHARGEN@{PORT\_\-CHARGEN}}
+\index{PORT_CHARGEN@{PORT\_\-CHARGEN}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[PORT\_\-CHARGEN]{\setlength{\rightskip}{0pt plus 5cm}\#define PORT\_\-CHARGEN\ 5006}}
+\label{mainloop__glib_8c_a1}
+
+
+tcp port to listen for chargen clients 
+
+
+
+Definition at line 26 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a0}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!PORT_ECHO@{PORT\_\-ECHO}}
+\index{PORT_ECHO@{PORT\_\-ECHO}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[PORT\_\-ECHO]{\setlength{\rightskip}{0pt plus 5cm}\#define PORT\_\-ECHO\ 5005}}
+\label{mainloop__glib_8c_a0}
+
+
+tcp port to listen for echo clients 
+
+
+
+Definition at line 23 of file mainloop\_\-glib.c.\hypertarget{mainloop__glib_8c_a3}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\-INTERVAL}}
+\index{SLOWHEARTBEAT_INTERVAL@{SLOWHEARTBEAT\_\-INTERVAL}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[SLOWHEARTBEAT\_\-INTERVAL]{\setlength{\rightskip}{0pt plus 5cm}\#define SLOWHEARTBEAT\_\-INTERVAL\ 15}}
+\label{mainloop__glib_8c_a3}
+
+
+slow heartbeat interval (in seconds) 
+
+
+
+Definition at line 32 of file mainloop\_\-glib.c.
+
+\subsection{Typedef Documentation}
+\hypertarget{mainloop__glib_8c_a16}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!getclientsourcefunc@{getclientsourcefunc}}
+\index{getclientsourcefunc@{getclientsourcefunc}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[getclientsourcefunc]{\setlength{\rightskip}{0pt plus 5cm}typedef GSource$\ast$($\ast$ \hyperlink{mainloop__glib_8c_a16}{getclientsourcefunc})()}}
+\label{mainloop__glib_8c_a16}
+
+
+
+
+Definition at line 51 of file mainloop\_\-glib.c.
+
+\subsection{Function Documentation}
+\hypertarget{mainloop__glib_8c_a28}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!accept_dispatch@{accept\_\-dispatch}}
+\index{accept_dispatch@{accept\_\-dispatch}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[accept\_\-dispatch]{\setlength{\rightskip}{0pt plus 5cm}gboolean accept\_\-dispatch (GSource $\ast$ {\em gsource}, GSource\-Func {\em callback}, gpointer {\em user\_\-data})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a28}
+
+
+dispatch (process) listening socket 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em gsource}]source to process \item[{\em callback}]callback function (unused) \item[{\em user\_\-data}]I have absolutely no idea how to use this... nice idea though\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]always TRUE \end{Desc}
+
+
+Definition at line 347 of file mainloop\_\-glib.c.
+
+References listen\_\-source\_\-t::getclientsource, source\_\-t::listen, message(), MSG\_\-ACCEPT, source\_\-t::pollfd, and setnonblock().
+
+Referenced by listensource().
+
+
+
+\footnotesize\begin{verbatim}349 {
+350     struct sockaddr_in sain;
+351     int             fd;
+352     socklen_t       t;
+353     source_t       *source;
+354     source_t       *clientsource;
+355 
+356     source = (source_t *) gsource;
+357 
+358     if (source->pollfd.revents & (G_IO_HUP | G_IO_ERR)) {
+359         perror("accept_dispatch()");
+360         exit(EXIT_FAILURE);
+361     }
+362 
+363     /* accept new connection */
+364     t = sizeof(sain);
+365     if ((fd = accept(source->pollfd.fd, (void *) &sain, &t)) == -1) {
+366         if (errno == EWOULDBLOCK) {
+367             return TRUE;
+368         }
+369         perror("accept(ECHO)");
+370         exit(EXIT_FAILURE);
+371     }
+372     setnonblock(fd);
+373     message(MSG_ACCEPT);
+374 
+375     clientsource = (source_t *) source->listen.getclientsource();
+376     clientsource->pollfd.fd = fd;
+377     g_source_add_poll((GSource *) clientsource, &(clientsource->pollfd));
+378     clientsource->id =
+379         g_source_attach((GSource *) clientsource,
+380                         g_source_get_context((GSource *) clientsource));
+381     return TRUE;
+382 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a27}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!accept_prepare@{accept\_\-prepare}}
+\index{accept_prepare@{accept\_\-prepare}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[accept\_\-prepare]{\setlength{\rightskip}{0pt plus 5cm}gboolean accept\_\-prepare (GSource $\ast$ {\em source}, gint $\ast$ {\em timeout})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a27}
+
+
+Prepare GSource for polling a server socket for accept. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]GSource to prepare \item[{\em timeout}]maximum timeout to set for poll() (out)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]always FALSE (use poll) \end{Desc}
+
+
+Definition at line 326 of file mainloop\_\-glib.c.
+
+References source\_\-t::pollfd.
+
+Referenced by listensource().
+
+
+
+\footnotesize\begin{verbatim}327 {
+328     source_t       *xsource;
+329 
+330     xsource = (source_t *) source;
+331 
+332     xsource->pollfd.events = G_IO_IN;
+333     *timeout = -1;              /* no timeout */
+334     return FALSE;
+335 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a35}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!blocksigpipe@{blocksigpipe}}
+\index{blocksigpipe@{blocksigpipe}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[blocksigpipe]{\setlength{\rightskip}{0pt plus 5cm}void blocksigpipe (void)\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a35}
+
+
+block SIGPIPE 
+
+Trying to write to a socket when the other end has already closed the connection results in SIGPIPE. Not usefull in this context. 
+
+Definition at line 170 of file mainloop\_\-glib.c.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}171 {
+172     struct sigaction act;
+173 
+174     act.sa_handler = SIG_IGN;
+175     sigemptyset(&act.sa_mask);
+176     act.sa_flags = SA_RESTART;
+177     if (sigaction(SIGPIPE, &act, NULL) == -1) {
+178         perror("sigaction(SIGPIPE, <ignore>)");
+179         exit(EXIT_FAILURE);
+180     }
+181 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a34}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!chargen_dispatch@{chargen\_\-dispatch}}
+\index{chargen_dispatch@{chargen\_\-dispatch}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[chargen\_\-dispatch]{\setlength{\rightskip}{0pt plus 5cm}gboolean chargen\_\-dispatch (GSource $\ast$ {\em source}, GSource\-Func {\em callback}, gpointer {\em user\_\-data})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a34}
+
+
+dispatch (process) chargen client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]source to process \item[{\em callback}]callback function (unused) \item[{\em user\_\-data}]?\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]always TRUE\end{Desc}
+there is no chargen\_\-dispatch\_\-write, writing is done directly in chargen\_\-dispatch 
+
+Definition at line 633 of file mainloop\_\-glib.c.
+
+References source\_\-t::chargen, chargen\_\-buf, chargen\_\-source\_\-t::i, message(), MSG\_\-WRITE, source\_\-t::pollfd, and source\_\-close().
+
+Referenced by getchargenclientsource().
+
+
+
+\footnotesize\begin{verbatim}635 {
+636     ssize_t         nwrite;
+637     source_t       *chargensource;
+638 
+639     chargensource = (source_t *) source;
+640 
+641     nwrite =
+642         write(chargensource->pollfd.fd,
+643               chargen_buf + chargensource->chargen.i,
+644               sizeof(chargen_buf) - chargensource->chargen.i);
+645     switch (nwrite) {
+646     case -1:
+647         if (errno == EPIPE) {
+648             source_close((source_t *) chargensource);
+649             return TRUE;
+650         } else if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+651             perror("write()");
+652             exit(EXIT_FAILURE);
+653         }
+654         break;
+655     case 0:
+656         break;
+657     default:
+658         message(MSG_WRITE);
+659         chargensource->chargen.i += nwrite;
+660         chargensource->chargen.i %= sizeof(chargen_buf);
+661     }
+662     return TRUE;
+663 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a33}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!chargen_prepare@{chargen\_\-prepare}}
+\index{chargen_prepare@{chargen\_\-prepare}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[chargen\_\-prepare]{\setlength{\rightskip}{0pt plus 5cm}gboolean chargen\_\-prepare (GSource $\ast$ {\em source}, gint $\ast$ {\em timeout})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a33}
+
+
+Prepare GSource for polling an chargen client. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]GSource to prepare \item[{\em timeout}]maximum timeout to set for poll() (out)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]always FALSE (use poll) \end{Desc}
+
+
+Definition at line 609 of file mainloop\_\-glib.c.
+
+References source\_\-t::pollfd.
+
+Referenced by getchargenclientsource().
+
+
+
+\footnotesize\begin{verbatim}610 {
+611     source_t       *chargensource;
+612 
+613     chargensource = (source_t *) source;
+614 
+615     chargensource->pollfd.events = G_IO_OUT;
+616 
+617     return FALSE;
+618 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a25}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!check@{check}}
+\index{check@{check}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[check]{\setlength{\rightskip}{0pt plus 5cm}gboolean check (GSource $\ast$ {\em source})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a25}
+
+
+check whether source is ready for processing 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]GSource to check\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]TRUE if resource is ready \end{Desc}
+
+
+Definition at line 307 of file mainloop\_\-glib.c.
+
+References source\_\-t::pollfd.
+
+Referenced by getchargenclientsource(), getechoclientsource(), and listensource().
+
+
+
+\footnotesize\begin{verbatim}308 {
+309 
+310     source_t       *xsource;
+311 
+312     xsource = (source_t *) source;
+313 
+314     return xsource->pollfd.revents ? TRUE : FALSE;
+315 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a30}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!echo_dispatch@{echo\_\-dispatch}}
+\index{echo_dispatch@{echo\_\-dispatch}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[echo\_\-dispatch]{\setlength{\rightskip}{0pt plus 5cm}gboolean echo\_\-dispatch (GSource $\ast$ {\em source}, GSource\-Func {\em callback}, gpointer {\em user\_\-data})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a30}
+
+
+dispatch (process) echo client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]source to process \item[{\em callback}]callback function (unused) \item[{\em user\_\-data}]?\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]always TRUE \end{Desc}
+
+
+Definition at line 471 of file mainloop\_\-glib.c.
+
+References echo\_\-dispatch\_\-read(), echo\_\-dispatch\_\-write(), source\_\-t::pollfd, and source\_\-close().
+
+Referenced by getechoclientsource().
+
+
+
+\footnotesize\begin{verbatim}472 {
+473     source_t       *echosource;
+474 
+475     echosource = (source_t *) source;
+476 
+477     if (echosource->pollfd.revents & (G_IO_HUP | G_IO_ERR)) {
+478         source_close((source_t *) echosource);
+479     }
+480     if (echosource->pollfd.revents & G_IO_IN) {
+481         echo_dispatch_read(echosource);
+482     }
+483     if (echosource->pollfd.revents & G_IO_OUT) {
+484         echo_dispatch_write(echosource);
+485     }
+486     return TRUE;
+487 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a31}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!echo_dispatch_read@{echo\_\-dispatch\_\-read}}
+\index{echo_dispatch_read@{echo\_\-dispatch\_\-read}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[echo\_\-dispatch\_\-read]{\setlength{\rightskip}{0pt plus 5cm}void echo\_\-dispatch\_\-read (\hyperlink{structsource__t}{source\_\-t} $\ast$ {\em echosource})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a31}
+
+
+read data from echo client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em echosource}]echo client source\end{description}
+\end{Desc}
+If the buffer is not full, tries to do one read from the filedescriptor associated with this echo client. 
+
+Definition at line 498 of file mainloop\_\-glib.c.
+
+References echo\_\-source\_\-t::buf, BUFSIZE, source\_\-t::echo, message(), MSG\_\-FULL, MSG\_\-READ, echo\_\-source\_\-t::n, source\_\-t::pollfd, echo\_\-source\_\-t::r, source\_\-close(), and echo\_\-source\_\-t::w.
+
+Referenced by echo\_\-dispatch().
+
+
+
+\footnotesize\begin{verbatim}499 {
+500     ssize_t         nread;
+501 
+502     if (echosource->echo.n == BUFSIZE) {
+503         message(MSG_FULL);
+504         return;
+505     }
+506 
+507     if (echosource->echo.r >= echosource->echo.w) {
+508         nread =
+509             read(echosource->pollfd.fd,
+510                  echosource->echo.buf + echosource->echo.r,
+511                  BUFSIZE - echosource->echo.r);
+512     } else {
+513         nread =
+514             read(echosource->pollfd.fd,
+515                  echosource->echo.buf + echosource->echo.r,
+516                  echosource->echo.w - echosource->echo.r);
+517     }
+518 
+519     switch (nread) {
+520     case -1:
+521         if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+522             perror("read()");
+523             exit(EXIT_FAILURE);
+524         }
+525         break;
+526     case 0:
+527         source_close((source_t *) echosource);
+528         return;
+529     default:
+530         message(MSG_READ);
+531         echosource->echo.n += nread;
+532         echosource->echo.r += nread;
+533         echosource->echo.r %= BUFSIZE;
+534     }
+535 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a32}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!echo_dispatch_write@{echo\_\-dispatch\_\-write}}
+\index{echo_dispatch_write@{echo\_\-dispatch\_\-write}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[echo\_\-dispatch\_\-write]{\setlength{\rightskip}{0pt plus 5cm}void echo\_\-dispatch\_\-write (\hyperlink{structsource__t}{source\_\-t} $\ast$ {\em echosource})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a32}
+
+
+write data to an echo client 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em echosource}]echo client source\end{description}
+\end{Desc}
+If the buffer is not empty, tries to do one write to the filedescriptor associated with the echo client. 
+
+Definition at line 546 of file mainloop\_\-glib.c.
+
+References echo\_\-source\_\-t::buf, BUFSIZE, source\_\-t::echo, message(), MSG\_\-EMPTY, MSG\_\-WRITE, echo\_\-source\_\-t::n, source\_\-t::pollfd, echo\_\-source\_\-t::r, source\_\-close(), and echo\_\-source\_\-t::w.
+
+Referenced by echo\_\-dispatch().
+
+
+
+\footnotesize\begin{verbatim}547 {
+548     ssize_t         nwrite;
+549 
+550     if (echosource->echo.n == 0) {
+551         message(MSG_EMPTY);
+552         return;
+553     }
+554 
+555     if (echosource->echo.r > echosource->echo.w) {
+556         nwrite =
+557             write(echosource->pollfd.fd,
+558                   echosource->echo.buf + echosource->echo.w,
+559                   echosource->echo.r - echosource->echo.w);
+560     } else {
+561         nwrite =
+562             write(echosource->pollfd.fd,
+563                   echosource->echo.buf + echosource->echo.w,
+564                   BUFSIZE - echosource->echo.w);
+565     }
+566 
+567     switch (nwrite) {
+568     case -1:
+569         if (errno == EPIPE) {
+570             source_close((source_t *) echosource);
+571         } else if ((errno != EINTR) && (errno != EWOULDBLOCK)) {
+572             perror("write()");
+573             exit(EXIT_FAILURE);
+574         }
+575         break;
+576     case 0:
+577         break;
+578     default:
+579         message(MSG_WRITE);
+580         echosource->echo.n -= nwrite;
+581         echosource->echo.w += nwrite;
+582         echosource->echo.w %= BUFSIZE;
+583     }
+584 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a29}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!echo_prepare@{echo\_\-prepare}}
+\index{echo_prepare@{echo\_\-prepare}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[echo\_\-prepare]{\setlength{\rightskip}{0pt plus 5cm}gboolean echo\_\-prepare (GSource $\ast$ {\em source}, gint $\ast$ {\em timeout})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a29}
+
+
+Prepare GSource for polling an echo client. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]GSource to prepare \item[{\em timeout}]maximum timeout to set for poll() (out)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]always FALSE (use poll)\end{Desc}
+If the buffer is full, checking for read is turned off resp. if the buffer is empty, checking for write is turned off. 
+
+Definition at line 442 of file mainloop\_\-glib.c.
+
+References BUFSIZE, source\_\-t::echo, echo\_\-source\_\-t::n, and source\_\-t::pollfd.
+
+Referenced by getechoclientsource().
+
+
+
+\footnotesize\begin{verbatim}443 {
+444     source_t       *echosource;
+445 
+446     echosource = (source_t *) source;
+447 
+448     switch (echosource->echo.n) {
+449     case 0:
+450         echosource->pollfd.events = G_IO_IN;
+451         break;
+452     case BUFSIZE:
+453         echosource->pollfd.events = G_IO_OUT;
+454         break;
+455     default:
+456         echosource->pollfd.events = G_IO_IN | G_IO_OUT;
+457     }
+458     return FALSE;
+459 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a22}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!getchargenclientsource@{getchargenclientsource}}
+\index{getchargenclientsource@{getchargenclientsource}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[getchargenclientsource]{\setlength{\rightskip}{0pt plus 5cm}GSource $\ast$ getchargenclientsource ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a22}
+
+
+construct GSource\-Funcs for chargen client 
+
+\begin{Desc}
+\item[Returns:]GSource for chargen client \end{Desc}
+
+
+Definition at line 414 of file mainloop\_\-glib.c.
+
+References source\_\-t::chargen, chargen\_\-dispatch(), chargen\_\-prepare(), check(), and chargen\_\-source\_\-t::i.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}415 {
+416     static GSourceFuncs funcs = { NULL, NULL, NULL, NULL, NULL, NULL };
+417     source_t       *chargensource;
+418 
+419     /* cannot reference functions in static initializer */
+420     funcs.prepare = chargen_prepare;
+421     funcs.check = check;
+422     funcs.dispatch = chargen_dispatch;
+423     funcs.finalize = NULL;
+424 
+425     chargensource = (source_t *) g_source_new(&funcs, sizeof(source_t));
+426     chargensource->chargen.i = 0;
+427     return (GSource *) chargensource;
+428 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a21}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!getechoclientsource@{getechoclientsource}}
+\index{getechoclientsource@{getechoclientsource}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[getechoclientsource]{\setlength{\rightskip}{0pt plus 5cm}GSource $\ast$ getechoclientsource ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a21}
+
+
+construct GSource\-Funcs for echo client 
+
+\begin{Desc}
+\item[Returns:]GSource for echo client \end{Desc}
+
+
+Definition at line 390 of file mainloop\_\-glib.c.
+
+References check(), source\_\-t::echo, echo\_\-dispatch(), echo\_\-prepare(), echo\_\-source\_\-t::n, echo\_\-source\_\-t::r, and echo\_\-source\_\-t::w.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}391 {
+392     static GSourceFuncs funcs = { NULL, NULL, NULL, NULL, NULL, NULL };
+393     source_t       *echosource;
+394 
+395     /* cannot reference functions in static initializer */
+396     funcs.prepare = echo_prepare;
+397     funcs.check = check;
+398     funcs.dispatch = echo_dispatch;
+399     funcs.finalize = NULL;
+400 
+401     echosource = (source_t *) g_source_new(&funcs, sizeof(source_t));
+402     echosource->echo.r = 0;
+403     echosource->echo.w = 0;
+404     echosource->echo.n = 0;
+405     return (GSource *) echosource;
+406 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a23}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!heartbeat@{heartbeat}}
+\index{heartbeat@{heartbeat}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[heartbeat]{\setlength{\rightskip}{0pt plus 5cm}gboolean heartbeat (gpointer {\em data})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a23}
+
+
+print heartbeat message 
+
+\begin{Desc}
+\item[Returns:]always TRUE \end{Desc}
+
+
+Definition at line 281 of file mainloop\_\-glib.c.
+
+References message(), and MSG\_\-HEARTBEAT.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}282 {
+283     message(MSG_HEARTBEAT);
+284     return TRUE;
+285 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a18}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!listensocket@{listensocket}}
+\index{listensocket@{listensocket}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[listensocket]{\setlength{\rightskip}{0pt plus 5cm}int listensocket (int {\em port})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a18}
+
+
+return tcp socket listening on port specified 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em port}]port number in host byte order\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]file descriptor for listening socket\end{Desc}
+The socket is set to be nonblocking 
+
+Definition at line 193 of file mainloop\_\-glib.c.
+
+References setnonblock().
+
+
+
+\footnotesize\begin{verbatim}194 {
+195     int             serverfd;
+196     struct sockaddr_in sain;
+197     int             one;
+198 
+199     /* set up tcp socket for listening */
+200     sain.sin_family = AF_INET;
+201     sain.sin_port = htons(port);
+202     sain.sin_addr.s_addr = INADDR_ANY;
+203     if ((serverfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+204         perror("socket(AF_INET, SOCK_STREAM, 0)");
+205         exit(EXIT_FAILURE);
+206     }
+207     one = 1;
+208     if (setsockopt
+209         (serverfd, SOL_SOCKET, SO_REUSEADDR, &one,
+210          (int) sizeof(one)) == -1) {
+211         perror("setsockopt(SO_REUSEADDR)");
+212         exit(EXIT_FAILURE);
+213     }
+214     if (bind
+215         (serverfd, (struct sockaddr *) &sain,
+216          sizeof(struct sockaddr_in)) == -1) {
+217         perror("bind()");
+218         exit(EXIT_FAILURE);
+219     }
+220     if (listen(serverfd, 5) == -1) {
+221         perror("listen()");
+222         exit(EXIT_FAILURE);
+223     }
+224     setnonblock(serverfd);
+225 
+226     printf("listening on port %d\n", port);
+227 
+228     return serverfd;
+229 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a20}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!listensource@{listensource}}
+\index{listensource@{listensource}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[listensource]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structsource__t}{source\_\-t} $\ast$ listensource (\hyperlink{mainloop__glib_8c_a16}{getclientsourcefunc} {\em getclientsource}, int {\em port})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a20}
+
+
+construct listensource listening on port specified 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em getclientsource}]function returning clientsource for accepted connection \item[{\em port}]tcp port to listen on in host byte order\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]listensource\_\-t \end{Desc}
+
+
+Definition at line 257 of file mainloop\_\-glib.c.
+
+References accept\_\-dispatch(), accept\_\-prepare(), check(), listen\_\-source\_\-t::getclientsource, source\_\-t::listen, listensocket(), listensource(), and source\_\-t::pollfd.
+
+Referenced by listensource(), and main().
+
+
+
+\footnotesize\begin{verbatim}258 {
+259     static GSourceFuncs listenfuncs;
+260     source_t       *listensource;
+261 
+262     listenfuncs.prepare = &accept_prepare;
+263     listenfuncs.check = &check;
+264     listenfuncs.dispatch = &accept_dispatch;
+265     listenfuncs.finalize = NULL;
+266     listensource =
+267         (source_t *) g_source_new(&listenfuncs, sizeof(source_t));
+268     listensource->listen.getclientsource = getclientsource;
+269 
+270     listensource->pollfd.fd = listensocket(port);
+271     g_source_add_poll((GSource *) listensource, &(listensource->pollfd));
+272     return listensource;
+273 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a36}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!main@{main}}
+\index{main@{main}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[main]{\setlength{\rightskip}{0pt plus 5cm}int main ()}}
+\label{mainloop__glib_8c_a36}
+
+
+
+
+Definition at line 666 of file mainloop\_\-glib.c.
+
+References blocksigpipe(), getchargenclientsource(), getechoclientsource(), heartbeat(), HEARTBEAT\_\-INTERVAL, source\_\-t::id, listensource(), PORT\_\-CHARGEN, PORT\_\-ECHO, slowheartbeat(), and SLOWHEARTBEAT\_\-INTERVAL.
+
+
+
+\footnotesize\begin{verbatim}667 {
+668     GMainLoop      *mainloop;
+669     GMainContext   *context;
+670     source_t       *listenecho, *listenchargen;
+671 
+672     /* check glib version */
+673     if (!GLIB_CHECK_VERSION(2, 0, 0)) {
+674         fprintf(stderr, "glib %d.%d.%d is too old\n", GLIB_MAJOR_VERSION,
+675                 GLIB_MINOR_VERSION, GLIB_MICRO_VERSION);
+676         exit(EXIT_FAILURE);
+677     }
+678 
+679     printf("example: glib main loop\n");
+680 
+681     blocksigpipe();
+682 
+683     /* create main loop */
+684     context = g_main_context_default();
+685     mainloop = g_main_loop_new(context, FALSE);
+686 
+687     /* create echo service */
+688     listenecho = listensource(getechoclientsource, PORT_ECHO);
+689     listenecho->id = g_source_attach((GSource *) listenecho, context);
+690 
+691     /* create chargen service */
+692     listenchargen = listensource(getchargenclientsource, PORT_CHARGEN);
+693     listenchargen->id =
+694         g_source_attach((GSource *) listenchargen, context);
+695 
+696     /* install heartbeat */
+697     (void) g_timeout_add(1000 * HEARTBEAT_INTERVAL, &heartbeat, NULL);
+698     (void) g_timeout_add(1000 * SLOWHEARTBEAT_INTERVAL, &slowheartbeat, NULL);
+699     printf("heartbeat every %d seconds\n", HEARTBEAT_INTERVAL);
+700     printf("slow heartbeat every %d seconds\n", SLOWHEARTBEAT_INTERVAL);
+701 
+702     /* run the main loop */
+703     g_main_loop_run(mainloop);
+704     /* notreached */
+705 
+706     g_main_loop_unref(mainloop);
+707     exit(EXIT_SUCCESS);
+708 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a17}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!message@{message}}
+\index{message@{message}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[message]{\setlength{\rightskip}{0pt plus 5cm}void message (int {\em msg})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a17}
+
+
+print message describing current activity 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em msg}]id of message to print (MSG\_\-XYZ) \end{description}
+\end{Desc}
+
+
+Definition at line 126 of file mainloop\_\-glib.c.
+
+References MSG\_\-ACCEPT, MSG\_\-CLOSE, MSG\_\-EMPTY, MSG\_\-FULL, MSG\_\-HEARTBEAT, MSG\_\-MAINLOOP, MSG\_\-READ, MSG\_\-SLOWHEARTBEAT, MSG\_\-TOOMANY, and MSG\_\-WRITE.
+
+
+
+\footnotesize\begin{verbatim}127 {
+128     switch (msg) {
+129     case MSG_HEARTBEAT:
+130         printf("H");
+131         break;
+132     case MSG_SLOWHEARTBEAT:
+133         printf("S");
+134         break;
+135     case MSG_MAINLOOP:
+136         printf("M");
+137         break;
+138     case MSG_ACCEPT:
+139         printf("A");
+140         break;
+141     case MSG_TOOMANY:
+142         printf("T");
+143         break;
+144     case MSG_CLOSE:
+145         printf("C");
+146         break;
+147     case MSG_READ:
+148         printf("R");
+149         break;
+150     case MSG_WRITE:
+151         printf("W");
+152         break;
+153     case MSG_FULL:
+154         printf("F");
+155         break;
+156     case MSG_EMPTY:
+157         printf("E");
+158         break;
+159     }
+160     fflush(stdout);
+161 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a19}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!setnonblock@{setnonblock}}
+\index{setnonblock@{setnonblock}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[setnonblock]{\setlength{\rightskip}{0pt plus 5cm}void setnonblock (int {\em fd})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a19}
+
+
+set a file descriptor to be nonblocking 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em fd}]file descriptor\end{description}
+\end{Desc}
+Non-Blocking works only for Sockets, Pipes and slow devices, it has no effect when used with regular files 
+
+Definition at line 240 of file mainloop\_\-glib.c.
+
+
+
+\footnotesize\begin{verbatim}241 {
+242     int             flag;
+243 
+244     flag = fcntl(fd, F_GETFL);
+245     fcntl(fd, F_GETFL, flag | O_NONBLOCK);
+246 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a24}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!slowheartbeat@{slowheartbeat}}
+\index{slowheartbeat@{slowheartbeat}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[slowheartbeat]{\setlength{\rightskip}{0pt plus 5cm}gboolean slowheartbeat (gpointer {\em data})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a24}
+
+
+print \char`\"{}slowheartbeat\char`\"{} message 
+
+\begin{Desc}
+\item[Returns:]always TRUE \end{Desc}
+
+
+Definition at line 293 of file mainloop\_\-glib.c.
+
+References message(), and MSG\_\-SLOWHEARTBEAT.
+
+Referenced by main().
+
+
+
+\footnotesize\begin{verbatim}294 {
+295     message(MSG_SLOWHEARTBEAT);
+296     return TRUE;
+297 }
+\end{verbatim}\normalsize 
+\hypertarget{mainloop__glib_8c_a26}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!source_close@{source\_\-close}}
+\index{source_close@{source\_\-close}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[source\_\-close]{\setlength{\rightskip}{0pt plus 5cm}void source\_\-close (\hyperlink{structsource__t}{source\_\-t} $\ast$ {\em source})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a26}
+
+
+close a source and dispose of source 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]source to close/dispose \end{description}
+\end{Desc}
+
+
+Definition at line 592 of file mainloop\_\-glib.c.
+
+References source\_\-t::id, message(), MSG\_\-CLOSE, and source\_\-t::pollfd.
+
+Referenced by chargen\_\-dispatch(), echo\_\-dispatch(), echo\_\-dispatch\_\-read(), and echo\_\-dispatch\_\-write().
+
+
+
+\footnotesize\begin{verbatim}593 {
+594     message(MSG_CLOSE);
+595     (void) g_source_remove(source->id);
+596     close(source->pollfd.fd);
+597     g_source_unref((GSource *) source);
+598 }
+\end{verbatim}\normalsize 
+
+
+\subsection{Variable Documentation}
+\hypertarget{mainloop__glib_8c_a15}{
+\index{mainloop_glib.c@{mainloop\_\-glib.c}!chargen_buf@{chargen\_\-buf}}
+\index{chargen_buf@{chargen\_\-buf}!mainloop_glib.c@{mainloop\_\-glib.c}}
+\subsubsection[chargen\_\-buf]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{mainloop__good_8c_a19}{chargen\_\-buf}\mbox{[}$\,$\mbox{]} = \char`\"{}0123456789abcdefghijklmnopqrstuv\char`\"{}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{mainloop__glib_8c_a15}
+
+
+characters to return in chargen service 
+
+
+
+Definition at line 49 of file mainloop\_\-glib.c.
+
+Referenced by chargen\_\-dispatch().

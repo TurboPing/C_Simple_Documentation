@@ -1,0 +1,87 @@
+\hypertarget{structalarm__t}{
+\section{alarm\_\-t Struct Reference}
+\label{structalarm__t}\index{alarm_t@{alarm\_\-t}}
+}
+alarm handler state  
+
+
+\subsection*{Data Fields}
+\begin{CompactItemize}
+\item 
+\hyperlink{mainloop__good_8c_a21}{alarmhandler\_\-t} \hyperlink{structalarm__t_o0}{handler}
+\begin{CompactList}\small\item\em alarm handler \item\end{CompactList}\item 
+long \hyperlink{structalarm__t_o1}{interval}
+\begin{CompactList}\small\item\em interval in seconds \item\end{CompactList}\item 
+long \hyperlink{structalarm__t_o2}{nexttime}
+\begin{CompactList}\small\item\em next execution at \item\end{CompactList}\item 
+int \hyperlink{structalarm__t_o3}{flag}
+\begin{CompactList}\small\item\em 1 if handler should be called \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+alarm handler state 
+
+handler, interval, next execution, pending. no handler specific state... 
+
+
+
+Definition at line 114 of file mainloop\_\-good.c.
+
+\subsection{Field Documentation}
+\hypertarget{structalarm__t_o3}{
+\index{alarm_t@{alarm\_\-t}!flag@{flag}}
+\index{flag@{flag}!alarm_t@{alarm\_\-t}}
+\subsubsection[flag]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structalarm__t_o3}{alarm\_\-t::flag}}}
+\label{structalarm__t_o3}
+
+
+1 if handler should be called 
+
+
+
+Definition at line 118 of file mainloop\_\-good.c.
+
+Referenced by addalarm(), alarmhandler(), and checkalarms().\hypertarget{structalarm__t_o0}{
+\index{alarm_t@{alarm\_\-t}!handler@{handler}}
+\index{handler@{handler}!alarm_t@{alarm\_\-t}}
+\subsubsection[handler]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{mainloop__good_8c_a21}{alarmhandler\_\-t} \hyperlink{structalarm__t_o0}{alarm\_\-t::handler}}}
+\label{structalarm__t_o0}
+
+
+alarm handler 
+
+
+
+Definition at line 115 of file mainloop\_\-good.c.
+
+Referenced by addalarm(), alarmhandler(), checkalarms(), and initalarms().\hypertarget{structalarm__t_o1}{
+\index{alarm_t@{alarm\_\-t}!interval@{interval}}
+\index{interval@{interval}!alarm_t@{alarm\_\-t}}
+\subsubsection[interval]{\setlength{\rightskip}{0pt plus 5cm}long \hyperlink{structalarm__t_o1}{alarm\_\-t::interval}}}
+\label{structalarm__t_o1}
+
+
+interval in seconds 
+
+
+
+Definition at line 116 of file mainloop\_\-good.c.
+
+Referenced by addalarm(), and alarmhandler().\hypertarget{structalarm__t_o2}{
+\index{alarm_t@{alarm\_\-t}!nexttime@{nexttime}}
+\index{nexttime@{nexttime}!alarm_t@{alarm\_\-t}}
+\subsubsection[nexttime]{\setlength{\rightskip}{0pt plus 5cm}long \hyperlink{structalarm__t_o2}{alarm\_\-t::nexttime}}}
+\label{structalarm__t_o2}
+
+
+next execution at 
+
+
+
+Definition at line 117 of file mainloop\_\-good.c.
+
+Referenced by addalarm(), and alarmhandler().
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{mainloop__good_8c}{mainloop\_\-good.c}\end{CompactItemize}
